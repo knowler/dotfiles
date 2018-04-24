@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+CWD=$(pwd)
 
 # Add my junky zsh run commands
 ln -sf ${CWD}/zshrc ~/.zshrc
