@@ -599,3 +599,13 @@ wp-page() {
 wp-blade() {
   wp @dev blade compile --directory=views
 }
+
+quick-sage() {
+  wp valet new "$1" --unsecure
+  cd "$1"/web/app/themes
+  composer create-project roots/sage sage dev-master
+  cd sage
+  yarn && yarn build
+  wp theme activate sage/resources
+  open "$1".test
+}
