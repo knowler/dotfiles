@@ -607,5 +607,5 @@ quick-sage() {
   cd sage
   yarn && yarn build
   wp theme activate sage/resources
-  open "$1".test
+  open "http://$1.test"
 }
