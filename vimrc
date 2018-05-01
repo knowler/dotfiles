@@ -32,6 +32,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'lumiliet/vim-twig'
+Plug 'styled-components/vim-styled-components'
 " Colors
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
