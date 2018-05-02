@@ -609,3 +609,19 @@ quick-sage() {
   wp theme activate sage/resources
   open "http://$1.test"
 }
+
+bedrock-plugin() {
+  if [ $# -eq 2 ]; then
+    composer require $1/${2} && wp plugin activate ${2}
+  else
+    composer require wpackagist-plugin/$1 && wp plugin activate $1
+  fi
+}
+
+bedrock-dev-plugin() {
+  if [ $# -eq 2 ]; then
+    composer require --dev $1/${2} && wp plugin activate ${2}
+  else
+    composer require wpackagist-plugin/$1 && wp plugin activate $1
+  fi
+}
