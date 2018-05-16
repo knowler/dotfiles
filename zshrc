@@ -16,6 +16,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.kno/init.zsh" ]]; then
 fi
 
 export PATH="$HOME/.cargo/bin:vendor/bin/:$PATH"
+export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 export TERM='xterm-256color'
 
@@ -538,10 +539,23 @@ rsm() {
   done
 }
 
+rsw() {
+  outputDir="resized for web"
+  mkdir $outputDir
+  for input in "$@"
+    do 
+      sips --resampleWidth 1200 $input -s format jpeg --out ./$outputDir/${input%.*}-web.jpg # Web
+  done
+}
+
 # Create a new directory and enter it.
 # https://github.com/jmegs/dotfiles/blob/master/zshrc#L24-L27
 mkd() {
   mkdir -p "$@" && cd "$_";
+}
+
+mkp() {
+  mkdir -p "$@";
 }
 
 # email draft function
@@ -610,18 +624,66 @@ quick-sage() {
   open "http://$1.test"
 }
 
-bedrock-plugin() {
-  if [ $# -eq 2 ]; then
+bedrock() {
+  startDir="$(pwd)"
+  sitePath="$(dirname `dirname $(wp config path)`)"
+
+  cd $sitePath
+
+  if [ -z "$1" ]; then
+    return false
+  elif [ $# -eq 2 ]; then
     composer require $1/${2} && wp plugin activate ${2}
+    cd $startDir
   else
     composer require wpackagist-plugin/$1 && wp plugin activate $1
+    cd $startDir
   fi
-}
 
-bedrock-dev-plugin() {
+} 
+
+bedrock-dev() {
+  startDir="$(pwd)"
+  sitePath="$(dirname `dirname $(wp config path)`)"
+
+  cd $sitePath
+
   if [ $# -eq 2 ]; then
     composer require --dev $1/${2} && wp plugin activate ${2}
   else
     composer require wpackagist-plugin/$1 && wp plugin activate $1
+  fi
+
+  cd $startDir
+}
+
+theme() {
+  cd $(wp theme path)/$(wp theme status | grep "(?<=A\s)[\w'-]+" -m 1 -Po -)
+}
+
+prep-sage() {
+  if [ -z "$1" ]; then
+    echo "Specify path to Sage"
+  else
+    echo "Preparing $1..."
+    # Create the directory
+    tempDir="./.tmp/$1"
+    mkdir -p $tempDir
+    # Copy relevant files to the the directory
+    cp -R $1/app $tempDir
+    cp -R $1/config $tempDir
+    cp -R $1/dist $tempDir
+    cp -R $1/resources $tempDir
+    cp -R $1/vendor $tempDir
+    cp -R $1/.* $tempDir
+    cp $1/*.* $tempDir
+    cd ./.tmp
+    dist="$1-distribute-$(date '+%s')".zip
+    zip -qr $dist $1
+    rm -rf ./$1
+    mv ./$dist ..
+    cd ..
+    // Remove temp directory
+    echo "Finished!"
   fi
 }
