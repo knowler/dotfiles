@@ -73,7 +73,7 @@
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance
 
 # open qutebrowser
-cmd + shift - return : /Applications/qutebrowser.app
+cmd + shift - return : ~/scripts/qtb.sh
 
 # close focused window
 alt - w : chunkc tiling::window --close

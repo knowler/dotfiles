@@ -32,6 +32,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'lumiliet/vim-twig'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'styled-components/vim-styled-components'
 " Colors
 Plug 'vim-airline/vim-airline'
@@ -41,7 +42,7 @@ Plug 'cocopon/iceberg.vim'
 " Lint
 "Plug 'w0rp/ale'
 Plug 'rizzatti/dash.vim'
-Plug 'joonty/vdebug'
+"Plug 'joonty/vdebug'
 
 call plug#end()
 
@@ -105,7 +106,7 @@ au FileType javascript,php setlocal tw=0 cc=""
 
 " LEADERS
 nn <silent> <Leader>d :'<,'>!>> ~/Dropbox/Notes/tasks/success/done.md<CR>
-nn <silent> <Leader>v :!vmd % &<CR><CR>
+nn <silent> <Leader>v :!vmd "%" &<CR><CR>
 nn <silent> <Leader>t :pu!=strftime('%A, %B, %e, %Y')<CR>
 
 " KEYBINGINGS
