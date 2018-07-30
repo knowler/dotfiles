@@ -40,6 +40,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'cocopon/iceberg.vim'
 " Lint
+Plug 'beanworks/vim-phpfmt'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "Plug 'w0rp/ale'
 Plug 'rizzatti/dash.vim'
 "Plug 'joonty/vdebug'
@@ -72,6 +74,13 @@ set completeopt+=menuone
 set completeopt+=noselect
 set completeopt+=noinsert
 let g:mucomplete#enable_auto_at_startup = 1
+
+" PHP FMT
+let g:phpfmt_standard = 'PSR2'
+
+" Prettier
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#trailing_comma = 'all'
 
 if exists('&signcolumn')  " Vim 7.4.2201
   set signcolumn=yes
