@@ -171,7 +171,7 @@ shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-windo
 shift + cmd - a : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west
 shift + cmd - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
 shift + cmd - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
-#shift + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+shift + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
 
 # set insertion point for focused container
 ctrl + alt - f : chunkc tiling::window --use-insertion-point cancel
