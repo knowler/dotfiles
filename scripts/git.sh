@@ -18,6 +18,10 @@ gr() {
   clear
 }
 
+grd() {
+  gr && gd
+}
+
 # Add all files
 #
 ga() { 
