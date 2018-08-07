@@ -77,6 +77,7 @@ let g:mucomplete#enable_auto_at_startup = 1
 
 " PHP FMT
 let g:phpfmt_standard = 'PSR2'
+let g:phpfmt_autosave = 0
 
 " Prettier
 let g:prettier#config#single_quote = 'true'
@@ -111,7 +112,7 @@ vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " For Git. Title 50. Body 72.
 au FileType gitcommit set tw=72 cc=51,+1
 " For JS
-au FileType javascript,php setlocal tw=0 cc=""
+au FileType javascript,php setlocal tw=0 cc=80,120
 
 " LEADERS
 nn <silent> <Leader>d :'<,'>!>> ~/Dropbox/Notes/tasks/success/done.md<CR>
