@@ -1,0 +1,19 @@
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+
+Host bb
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/id_rsa
+
+Host gh
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+
+Host gl
+  HostName gitlab.com
+  User git
+  IdentityFile ~/.ssh/id_rsa

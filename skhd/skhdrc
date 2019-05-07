@@ -70,7 +70,7 @@
 # default, test < cmd - return : open -na /Applications/Terminal.app
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance
+cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # open qutebrowser
 cmd + shift - return : ~/scripts/qtb.sh
@@ -119,12 +119,12 @@ cmd + alt - 1 : chunkc tiling::desktop --focus 1
 cmd + alt - 2 : chunkc tiling::desktop --focus 2
 cmd + alt - 3 : chunkc tiling::desktop --focus 3
 cmd + alt - 4 : chunkc tiling::desktop --focus 4
-cmd + alt - 5 : chunkc tiling::desktop --focus 5
+cmd + alt - 4 : chunkc tiling::desktop --focus 5
 cmd + alt - 6 : chunkc tiling::desktop --focus 6
 # cmd + alt - 7 : chunkc tiling::desktop --focus 7
 
 # send window to desktop
-shift + alt - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
+#shift + alt - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
 shift + alt - z : chunkc tiling::window --send-to-desktop prev
 shift + alt - c : chunkc tiling::window --send-to-desktop next
 shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
@@ -226,3 +226,4 @@ ctrl + alt - d : chunkc tiling::desktop --layout float
 ctrl + alt - w : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev_1
 
 alt - c : chunkc tiling::desktop --create
+shift + alt - x: chunkc tiling::desktop --annihilate
