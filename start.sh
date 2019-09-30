@@ -40,11 +40,7 @@ if [[ $OSTYPE =~ "darwin" ]]; then
   brew bundle
 
   # Install all settings
-  find ./ \
-    -maxdepth 2 \
-    -type f \
-    -name 'install.sh' \
-    -exec ./{} \;
+  find . -maxdepth 2 -type f -name 'install.sh' -exec {} \;
 
   # Set zsh to default terminal
   chsh -s $(which zsh)

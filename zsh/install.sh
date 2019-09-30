@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-ln -s zshrc $HOME/.zshrc
+ln -s zsh/zshrc $HOME/.zshrc

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-ln -s chunkwmrc $HOME/.chunkwmrc
+ln -s chunkwm/chunkwmrc $HOME/.chunkwmrc

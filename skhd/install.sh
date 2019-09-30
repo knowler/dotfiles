@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-ln -s skhdrc $HOME/.skhdrc
+ln -s skhd/skhdrc $HOME/.skhdrc
