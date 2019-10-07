@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # NOTE: any 'chunkc' command that is run from this config file
@@ -41,19 +41,19 @@ chunkc core::hotload 0
 # NOTE: the following are config variables for the chunkwm-tiling plugin.
 #
 
-chunkc set custom_bar_enabled            0
+chunkc set custom_bar_enabled            1
 chunkc set custom_bar_all_monitors       0
-chunkc set custom_bar_offset_top         22
+chunkc set custom_bar_offset_top         26
 chunkc set custom_bar_offset_bottom      0
 chunkc set custom_bar_offset_left        0
 chunkc set custom_bar_offset_right       0
 
 chunkc set global_desktop_mode           bsp
-chunkc set global_desktop_offset_top     20
-chunkc set global_desktop_offset_bottom  20
-chunkc set global_desktop_offset_left    20
-chunkc set global_desktop_offset_right   20
-chunkc set global_desktop_offset_gap     15
+chunkc set global_desktop_offset_top     30
+chunkc set global_desktop_offset_bottom  30
+chunkc set global_desktop_offset_left    30
+chunkc set global_desktop_offset_right   30
+chunkc set global_desktop_offset_gap     30
 
 #
 # NOTE: syntax for desktop-specific settings
@@ -95,7 +95,7 @@ chunkc set preselect_border_width        5
 #
 
 chunkc set window_float_topmost          0
-chunkc set window_fade_inactive          0
+chunkc set window_fade_inactive          0.95
 chunkc set window_fade_alpha             0.65
 chunkc set window_fade_duration          0.25
 chunkc set window_use_cgs_move           0
@@ -104,8 +104,8 @@ chunkc set window_use_cgs_move           0
 # NOTE: the following are config variables for the chunkwm-border plugin.
 #
 
-chunkc set focused_border_color          0xff00D8AF
-Chunkc set focused_border_width          2
+chunkc set focused_border_color          0xff5cafb0 #00D8AF
+chunkc set focused_border_width          2
 chunkc set focused_border_radius         0
 chunkc set focused_border_skip_floating  0
 chunkc set focused_border_skip_monocle   0
@@ -131,4 +131,3 @@ chunkc core::load ffm.so
 
 chunkc tiling::rule --owner Finder --name Copy --state float &
 chunkc tiling::rule --owner \"App Store\" --state float &
-chunkc tiling::rule --owner Emacs --except "^$" --state tile &
