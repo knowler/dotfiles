@@ -1,0 +1,25 @@
+* {
+  font-family: Dank Mono;
+}
+
+#workspaces button {
+  border-radius: 0;
+}
+
+#workspaces button.focused {
+  background-color: #fff;
+  color: rgba(43, 48, 59, 0.8);
+}
+
+#window {
+  font-style: italic;
+}
+
+#tray {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#pulseaudio {
+  margin-right: 1rem;
+}

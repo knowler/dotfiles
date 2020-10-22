@@ -1,0 +1,26 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["tray", "pulseaudio", "clock"],
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M:%S %Z}",
+    "tooltip": true,
+    "tooltip-format": "{:%A, %B %e, %Y}\n\n<tt>{calendar}</tt>"
+  },
+  "sway/workspaces": {
+    "enable-scroll": true
+  },
+  "pulseaudio": {
+    "format": "{volume}%",
+    "format-muted": "Muted",
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "tooltip": true
+  },
+  "tray": {
+    "spacing": 10
+  }
+}
