@@ -14,3 +14,4 @@ core software that I use:
 - Terminal multiplexer: tmux
 - Shell: Zsh
 - Editor: Neovim
+- Browser: Firefox
