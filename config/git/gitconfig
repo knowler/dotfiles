@@ -1,0 +1,8 @@
+[user]
+	name = Nathan Knowler
+	email = nathan@knowler.me
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+[init]
+	defaultBranch = main
