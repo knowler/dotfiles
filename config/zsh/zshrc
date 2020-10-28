@@ -21,7 +21,7 @@ alias la="exa -la --group-directories-first"
 # See: https://github.com/ogham/exa/commit/827aa8bfc32eadf353f72b0ce41c88dc4ad411c1
 alias tree='exa -T --group-directories-first --git-ignore'
 
-if [[ $OSTYPE ~= "linux" ]]; then
+if [[ $OSTYPE =~ "linux" ]]; then
   alias open="detach xdg-open"
 fi
 
