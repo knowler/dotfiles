@@ -58,6 +58,10 @@ dots config --local status.showUntrackedFiles no
 
 ## Maintaining
 
+Some notes on maintaining.
+
+### Using the `dots` Git wrapper alias
+
 Following those who have used the bare-repo method of dotfiles before me, I have
 made an alias (two actually) as a wrapper around Git to make updating these
 dotfiles a breeze. They are `dotfiles` and `dots` (I am lazy and use the
@@ -66,3 +70,45 @@ autocompletion or editor Git integration. I am sure that someone else has those
 things solved, I just haven’t found that yet. Note that with using the repo
 through the helper, you will need to explicitly add new files. This includes new
 files that are created as a product of renaming another file.
+
+### Installing packages and keeping package lists up-to-date
+
+Note that running the setup script again will install new packages for you. If
+you want packages that you’ve added to persist, make sure to generate a new
+package list _before_ you pull so that you can merge the changes accordingly.
+
+#### macOS
+
+On macOS, use the following command to install new packages from `~/.Brewfile`:
+
+```bash
+brew bundle install --global --cleanup
+```
+
+If you’ve installed packages, run the following command to “update” the file:
+
+```bash
+brew bundle dump --global --force
+```
+
+The `--force` flag allows the command to write over the file (kind of annoying,
+if you ask me).
+
+#### Manjaro
+
+On Manjaro, use the following command to install new packages from
+`~/.pkglist.txt`:
+
+```bash
+yay -S --needed - < $HOME/.pkglist.txt
+```
+
+If you’ve installed packages, generate a new list of packages run the following
+command:
+
+```bash
+yay -Qqe > $HOME/.pkglist.txt
+```
+
+I’ve seen a `systemctl` hook to automate this which I will be exploring in the
+near future. I guess a Git hook could work well for the installation part.
