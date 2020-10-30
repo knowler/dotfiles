@@ -2,7 +2,6 @@
 
 # Work in progress...
 
-
 # macOS install
 if [[ $OSTYPE =~ "darwin" ]]; then
   echo "Install for macOS"
@@ -23,16 +22,13 @@ if [[ $OSTYPE =~ "linux" ]]; then
   echo "Install for Linux"
 
   # Install packages
-  pacman -S --needed - < ./system/manjaro/packages.txt
+  pacman -S --needed - < ../system/manjaro/packages.txt
 fi
 
 
-# Install Volta (a Node version manager)
+# Install Node, NPM, and Yarn
 which volta &>/dev/null
 if [[ $? == 1 ]]; then
-  curl -fsSL https://get.volta.sh/ | bash
-
-  # Install Node, NPM, and Yarn
   volta install node
   volta install yarn
 fi

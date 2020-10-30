@@ -27,6 +27,9 @@ fi
 
 alias o="open"
 
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dots=dotfiles
+
 # Quickly change to a sub-directory within the git project
 gd() {
   _dirs=$(fd --type d --hidden --follow --exclude .git)
@@ -53,3 +56,4 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 eval "$(starship init zsh)"
+eval "$(trellis shell-init zsh)"
