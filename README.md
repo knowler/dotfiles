@@ -34,10 +34,13 @@ Checkout the files in your `$HOME` directory:
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 ```
 
-Run the set up script:
+Note that if any of these files exist, this will fail and you will need to
+either remove them or back them up using a different file name.
+
+Run the setup script:
 
 ```bash
-./.scripts/setup.sh
+~/.scripts/setup.sh
 ```
 
 Reload the shell:
@@ -45,3 +48,21 @@ Reload the shell:
 ```bash
 exec $SHELL -l
 ```
+
+Using the Git wrapper, set untracked files not to show in status calls for the
+repo:
+
+```bash
+dots config --local status.showUntrackedFiles no
+```
+
+## Maintaining
+
+Following those who have used the bare-repo method of dotfiles before me, I have
+made an alias (two actually) as a wrapper around Git to make updating these
+dotfiles a breeze. They are `dotfiles` and `dots` (I am lazy and use the
+latter). You will notice a few integrations do not work like any shell
+autocompletion or editor Git integration. I am sure that someone else has those
+things solved, I just haven’t found that yet. Note that with using the repo
+through the helper, you will need to explicitly add new files. This includes new
+files that are created as a product of renaming another file.
