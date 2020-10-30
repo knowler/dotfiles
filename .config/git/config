@@ -3,6 +3,7 @@
 	email = nathan@knowler.me
 [core]
 	editor = nvim
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/ignore
+	symlinks = true
 [init]
 	defaultBranch = main
