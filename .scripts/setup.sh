@@ -24,10 +24,15 @@ if [[ $OSTYPE =~ "linux" ]]; then
   # For Manjaro
   if [[ $(uname -r) =~ "MANJARO" ]]; then
     # Install packages
-    pacman -S --needed - < ~/.pkglist.txt
+    pacman -S --needed - < $HOME/.pkglist.txt
   fi
 fi
 
+# Install Prezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+# Install vim-plug
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | sh
 
 # Install Node, NPM, and Yarn
 which volta &>/dev/null
