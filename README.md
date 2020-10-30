@@ -43,5 +43,5 @@ Run the set up script:
 Reload the shell:
 
 ```bash
-eval "$SHELL -l"
+exec $SHELL -l
 ```
