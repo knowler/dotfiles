@@ -187,6 +187,7 @@ nano
 nautilus
 nautilus-admin
 nautilus-empty-file
+neofetch
 neovide
 neovim
 netctl
@@ -234,7 +235,9 @@ pulseaudio-ctl
 pulseaudio-zeroconf
 pv
 python-pip
+python-wheel
 python2-virtualenv
+qemu
 redshift-wayland-git
 reiserfsprogs
 ripgrep
@@ -248,6 +251,7 @@ signal-desktop
 signal-desktop-beta-bin
 slack-desktop
 slurp
+snapd
 spectre-meltdown-checker
 spotify
 squashfs-tools
@@ -279,8 +283,12 @@ usb_modeswitch
 usbutils
 util-linux
 v4l2loopback-dkms
+vagrant
 vi
+virt-manager
+virtualbox
 visual-studio-code-bin
+volta
 vulkan-intel
 vulkan-radeon
 waybar
