@@ -1,0 +1,27 @@
+alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+
+shift + alt - c : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# Window focus navigation
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# Window swapping
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# Create a space
+cmd + alt - n : yabai -m space --create && \
+		index=$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index') && \
+		yabai -m window --space "${index}" && \
+		yabai -m space --focus "${index}"
+
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
