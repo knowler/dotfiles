@@ -15,3 +15,33 @@ core software that I use:
 - Shell: Zsh
 - Editor: Neovim
 - Browser: Firefox
+
+## Installation
+
+Note that this presumes that you’ve already got `git` setup which may very well
+not be the case if you are on macOS. If that is you, run `xcode-select
+--install` first.
+
+Clone the bare repository:
+
+```bash
+git clone https://github.com/knowler/dotfiles.git $HOME/.dotfiles --bare
+```
+
+Checkout the files in your `$HOME` directory:
+
+```bash
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
+```
+
+Run the set up script:
+
+```bash
+./.scripts/setup.sh
+```
+
+Reload the shell:
+
+```bash
+eval "$SHELL -l"
+```
