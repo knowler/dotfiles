@@ -21,14 +21,18 @@ fi
 if [[ $OSTYPE =~ "linux" ]]; then
   echo "Install for Linux"
 
-  # Install packages
-  pacman -S --needed - < ../system/manjaro/packages.txt
+  # For Manjaro
+  if [[ $(uname -r) =~ "MANJARO" ]]; then
+    # Install packages
+    pacman -S --needed - < ~/.pkglist.txt
+  fi
 fi
 
 
 # Install Node, NPM, and Yarn
 which volta &>/dev/null
 if [[ $? == 1 ]]; then
-  volta install node
+  volta install node@latest
+  volta fetch node@lts
   volta install yarn
 fi
