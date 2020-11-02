@@ -35,3 +35,4 @@ cask "keepingyouawake"
 cask "lando"
 cask "slack"
 cask "spotify"
+mas "iA Writer", id: 775737590

@@ -346,6 +346,12 @@
           "full_name": "desaturate"
         }
       }
+    },
+    "mas": {
+      "iA Writer": {
+        "id": "775737590",
+        "version": "5.6.3"
+      }
     }
   },
   "system": {
