@@ -21,6 +21,9 @@
       },
       "roots/tap": {
         "revision": "b5f39aeb12490805a9da08bb88799fc999735dbb"
+      },
+      "knowler/tap": {
+        "revision": "d4166a1498a597a760cacff4d768af1a6dcf0ee2"
       }
     },
     "brew": {
@@ -335,6 +338,12 @@
         "version": "latest",
         "options": {
           "full_name": "spotify"
+        }
+      },
+      "desaturate": {
+        "version": "2.1",
+        "options": {
+          "full_name": "desaturate"
         }
       }
     }
