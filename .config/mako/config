@@ -1,0 +1,10 @@
+max-visible=5
+sort=-time
+output=""
+layer=top
+anchor=top-right
+
+background-color=#161821dd
+text-color=#d2d4deff
+border-radius=3
+default-timeout=300000
