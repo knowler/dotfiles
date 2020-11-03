@@ -33,10 +33,15 @@ bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume > $SWAYS
 bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob
 bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob ) || pamixer --get-volume > $SWAYSOCK.wob
 
+# Screenshot
 bindsym Mod4+Shift+Return exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$(date +%Y%m%dT%H%M%SZ --utc).png
+# Record video
 bindsym Mod4+Control+Return exec wf-recorder -g "$(slurp)" -f $(xdg-user-dir PICTURES)/screenshots/$(date +%Y%m%dT%H%M%SZ --utc).mp4
+# Stop recording
 bindsym Mod4+Control+BackSpace exec killall -s SIGINT wf-recorder
+# Screenshot + edit
 bindsym Mod4+Mod1+Return exec grim -g "$(slurp)" - | swappy -f -
+# Record video + audio
 bindsym Mod1+Control+Return exec wf-recorder -a alsa_output.usb-Focusrite_Scarlett_2i2_USB-00.analog-stereo.monitor -g "$(slurp)" -f $(xdg-user-dir PICTURES)/screenshots/$(date +%Y%m%dT%H%M%SZ --utc).mp4
 
 floating_modifier $mod normal
