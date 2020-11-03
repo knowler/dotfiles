@@ -8,6 +8,7 @@ tap "knowler/tap"
 tap "koekeishiya/formulae"
 tap "roots/tap"
 brew "composer"
+brew "dnsmasq", restart_service: true
 brew "dockutil"
 brew "dust"
 brew "eva"
@@ -23,7 +24,7 @@ brew "mas"
 brew "neovim"
 brew "nginx", restart_service: true
 brew "openssl@1.1"
-brew "php", link: true
+brew "php", restart_service: true, link: true
 brew "pv"
 brew "ripgrep"
 brew "starship"
