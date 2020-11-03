@@ -2,7 +2,7 @@
 
 sudo -v
 
-LANDO_TLD="local.test"
+LANDO_TLD=$(/usr/bin/yq r ~/.lando/config.yml 'domain')
 
 if [[ $OSTYPE =~ "darwin" ]]; then
   # Remove the CA if it already exists

@@ -316,5 +316,6 @@ xorg-xinit
 xsel
 yay
 youtube-dl
+yq2-bin
 zoom
 zsh
