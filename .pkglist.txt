@@ -118,6 +118,7 @@ i3-gaps
 ibus
 illyria-wallpaper
 inetutils
+inkscape
 inotify-tools
 intel-ucode
 inxi
