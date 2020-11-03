@@ -108,6 +108,10 @@ command:
 
 ```bash
 yay -Qqe > $HOME/.pkglist.txt
+
+# or from $HOME
+
+make -B .pkglist.txt
 ```
 
 I’ve seen a `systemctl` hook to automate this which I will be exploring in the
