@@ -27,6 +27,7 @@ brew "openssl@1.1"
 brew "php", restart_service: true, link: true
 brew "pv"
 brew "ripgrep"
+brew "rustup"
 brew "starship"
 brew "tmux"
 brew "tokei"
