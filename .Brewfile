@@ -26,6 +26,7 @@ brew "nginx", restart_service: true
 brew "openssl@1.1"
 brew "php", restart_service: true, link: true
 brew "pv"
+brew "python@3.9"
 brew "ripgrep"
 brew "rustup"
 brew "starship"
@@ -63,6 +64,8 @@ cask "slack"
 cask "spotify"
 cask "steam"
 cask "tableplus"
+cask "vagrant"
+cask "virtualbox"
 cask "vlc"
 cask "vox"
 mas "iA Writer", id: 775737590
