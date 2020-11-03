@@ -28,6 +28,11 @@ bindsym $mod+Shift+Return exec $browser
 bindsym $mod+Return exec $term
 bindsym $mod+Space exec $menu
 
+exec tail -f $SWAYSOCK.wob | wob -o 0 -H 10 -b 1 -p 2 -M 5 -a 'top' -a 'right'
+bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob
+bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob ) || pamixer --get-volume > $SWAYSOCK.wob
+
 bindsym Mod4+Shift+Return exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$(date +%Y%m%dT%H%M%SZ --utc).png
 bindsym Mod4+Control+Return exec wf-recorder -g "$(slurp)" -f $(xdg-user-dir PICTURES)/screenshots/$(date +%Y%m%dT%H%M%SZ --utc).mp4
 bindsym Mod4+Control+BackSpace exec killall -s SIGINT wf-recorder

@@ -216,6 +216,7 @@ pacman
 pacui
 pamac-gnome-integration
 pamac-gtk
+pamixer
 papirus-maia-icon-theme
 patch
 pavucontrol
@@ -297,6 +298,7 @@ wf-recorder
 wget
 which
 wl-clipboard
+wob
 workrave
 wpa_supplicant
 xdg-user-dirs
