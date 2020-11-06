@@ -24,6 +24,7 @@ bottom-bin
 brave
 btrfs-progs
 bzip2
+ccache
 composer
 coreutils
 cpupower
