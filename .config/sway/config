@@ -14,7 +14,7 @@ output * bg ~/.local/share/backgrounds/Glitch.png fit #000000
 
 for_window [class=".*"] border pixel 1
 default_border pixel 1
-gaps inner 30
+gaps inner 10
 # class                 border  backgr. text    indicator child_border
 client.focused          #000000 #161821 #84a0c6 #161821   #84a0c6
 client.focused_inactive #000000 #161821 #747369 #161821   #161821
