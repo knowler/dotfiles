@@ -103,9 +103,6 @@ bindsym $mod+v splitv
 
 bindsym $mod+t floating toggle
 
-# Exit
-bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway.' 'swaymsg exit'
-
 # Close
 bindsym $mod+q kill
 
@@ -128,6 +125,20 @@ input * {
     xkb_options caps:ctrl_modifier
 }
 
+# stolen from: https://github.com/rbnis/dotfiles/blob/c1cd27ffb6198e77fd0e1899a389a235d131bb7f/.config/sway/config
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown
+mode "$mode_system" {
+    bindsym l exec $lock, mode "default"
+    bindsym e exit
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"
 
 # reload the configuration file
 bindsym Mod1+Shift+c reload

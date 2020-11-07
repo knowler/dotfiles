@@ -6,6 +6,10 @@
   border-radius: 0;
 }
 
+#workspaces {
+  margin-right: 1rem;
+}
+
 #workspaces button.focused {
   background-color: #fff;
   color: rgba(43, 48, 59, 0.8);
