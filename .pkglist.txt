@@ -263,6 +263,7 @@ sudo
 sushi
 swappy
 sway
+swayidle
 swaylock
 sysfsutils
 systemd-fsck-silent
