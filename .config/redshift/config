@@ -1,0 +1,7 @@
+[redshift]
+location-provider=manual
+adjustment-method=wayland
+
+[manual]
+lat=49.8951
+lon=97.1384
