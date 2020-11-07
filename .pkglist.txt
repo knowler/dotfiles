@@ -27,6 +27,7 @@ bzip2
 ccache
 composer
 coreutils
+corrupter-bin
 cpupower
 crda
 cronie
@@ -262,6 +263,7 @@ sudo
 sushi
 swappy
 sway
+swaylock
 sysfsutils
 systemd-fsck-silent
 systemd-sysvcompat

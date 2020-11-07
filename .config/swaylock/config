@@ -1,0 +1,33 @@
+ignore-empty-password
+disable-caps-lock
+show-failed-attempts
+indicator-idle-visible
+
+font=Dank Mono
+
+# Iceberg colour scheme
+
+# Background colour
+color=0f1117
+
+# Text colour
+text-color=d2d4de
+text-clear-color=d2d4de
+text-ver-color=d2d4de
+text-wrong-color=d2d4de
+
+# Ring inside colour
+inside-color=0f1117
+inside-clear-color=0f1117
+inside-ver-color=0f1117
+inside-wrong-color=0f1117
+
+# Ring colour
+ring-color=161821
+ring-ver-color=84a0c6
+ring-wrong-color=e98989
+ring-clear-color=e9b189
+
+# Highlight colours
+key-hl-color=6b7089
+bs-hl-color=e27878
