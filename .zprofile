@@ -8,7 +8,9 @@
 #
 # Browser
 #
-
+if [[ $OSTYPE =~ "darwin" ]]; then
+  alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
+fi
 export BROWSER='firefox'
 
 #

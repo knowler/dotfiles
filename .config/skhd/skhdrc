@@ -2,7 +2,7 @@
 alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # Open Browser
-shift + alt - return : /Applications/Firefox.app/Contents/MacOS/firefox
+shift + alt - return : firefox
 
 # Reload yabai
 shift + alt - c : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
