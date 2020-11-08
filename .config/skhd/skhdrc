@@ -7,6 +7,12 @@ shift + alt - return : firefox
 # Reload yabai
 shift + alt - c : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
+# Stop yabai + spacebar
+shift + cmd + alt - c : brew services stop yabai; brew services stop spacebar
+
+# Start yabai + spacebar
+shift + cmd + alt - s : brew services start yabai; brew services start spacebar
+
 # Window focus navigation
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
