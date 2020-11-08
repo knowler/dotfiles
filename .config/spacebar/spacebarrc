@@ -14,4 +14,4 @@ spacebar -m config power_icon_strip    ⚡
 spacebar -m config space_icon         
 spacebar -m config clock_icon         
 spacebar -m config dnd_icon           
-spacebar -m config clock_format      "%A, %B %e, %Y %R %Z"
+spacebar -m config clock_format      "%A, %B %-d, %Y %R %Z"
