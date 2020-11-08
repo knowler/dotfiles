@@ -56,6 +56,10 @@ alt - e : yabai -m window --toggle split
 # zoom fullscreen
 alt - f : yabai -m window --toggle zoom-fullscreen
 
+# stack layout
+alt - s : yabai -m window --insert stack
+alt - b : yabai -m space --layout bsp
+
 # mirror tree y-axis
 alt - y : yabai -m space --mirror y-axis
 
