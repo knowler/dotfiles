@@ -43,11 +43,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "KNOJO-MBP"
-sudo scutil --set HostName "KNOJO-MBP"
-sudo scutil --set LocalHostName "KNOJO-MBP"
+sudo scutil --set ComputerName "KNOJO-MBP2"
+sudo scutil --set HostName "KNOJO-MBP2"
+sudo scutil --set LocalHostName "KNOJO-MBP2"
 sudo defaults write
-/Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "KNOJO-MBP"
+/Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "KNOJO-MBP2"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
