@@ -1,5 +1,5 @@
 # Open Terminal
-alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+alt - return : alacritty
 
 # Open Browser
 shift + alt - return : firefox
