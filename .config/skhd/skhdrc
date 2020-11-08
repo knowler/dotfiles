@@ -25,7 +25,7 @@ shift + alt - j : yabai -m window --warp south
 shift + alt - k : yabai -m window --warp north
 shift + alt - l : yabai -m window --warp east
 
-# Create a space
+# Create a space and move the current window to it
 cmd + alt - n : yabai -m space --create && \
 		index=$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index') && \
 		yabai -m window --space "${index}" && \
