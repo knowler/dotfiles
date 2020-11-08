@@ -59,3 +59,7 @@ alt - x : yabai -m space --mirror x-axis
 # float / unfloat window and center on screen
 alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 5:5:1:1:3:3
+
+# Close the window
+alt - q : yabai -m window --close;\
+          yabai -m window --focus recent
