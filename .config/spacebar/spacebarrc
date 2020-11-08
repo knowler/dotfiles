@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
  
-spacebar -m config text_font         "Dank Mono:Regular:12.0"
-spacebar -m config icon_font         "Dank Mono:Regular:12.0"
+spacebar -m config text_font         "DankMono Nerd Font Mono:Regular:12.0"
+spacebar -m config icon_font         "DankMono Nerd Font Mono:Regular:12.0"
 
 spacebar -m config background_color  0xff121212
 spacebar -m config foreground_color  0xff5cafb0
@@ -10,8 +10,8 @@ spacebar -m config foreground_color  0xff5cafb0
 
 spacebar -m config space_icon_strip 1 2 3 4 5 6 7 8 9
 
-spacebar -m config power_icon_strip    ⚡
+spacebar -m config power_icon_strip   ⚡ ⚡
 spacebar -m config space_icon         
-spacebar -m config clock_icon         
+spacebar -m config clock_icon         #
 spacebar -m config dnd_icon           
 spacebar -m config clock_format      "%A, %B %-d, %Y %R %Z"
