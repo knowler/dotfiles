@@ -14,8 +14,8 @@ fi
 #
 alias reload="exec $SHELL -l"
 alias vi=nvim
-alias ls="exa -l --group-directories-first"
-alias la="exa -la --group-directories-first"
+alias ls="exa -l --group-directories-first --icons"
+alias la="exa -la --group-directories-first --icons"
 # Replace tree with exa
 # --git-ignore only works if ignore pattern doesn't have slashes
 # See: https://github.com/ogham/exa/commit/827aa8bfc32eadf353f72b0ce41c88dc4ad411c1
