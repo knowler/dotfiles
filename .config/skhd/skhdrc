@@ -15,8 +15,8 @@ shift + cmd + alt - s : brew services start yabai; brew services start spacebar
 
 # Window focus navigation
 alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
+alt - j : yabai -m window --focus stack.next || yabai -m window --focus south
+alt - k : yabai -m window --focus stack.prev || yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
 # Window warping
@@ -57,7 +57,7 @@ alt - e : yabai -m window --toggle split
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # stack layout
-alt - s : yabai -m window --insert stack
+alt - s : yabai -m window --stack next
 alt - b : yabai -m space --layout bsp
 
 # mirror tree y-axis
