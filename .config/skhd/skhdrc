@@ -42,6 +42,14 @@ alt - 7 : yabai -m space --focus 7
 alt - 8 : yabai -m space --focus 8
 alt - 9 : yabai -m space --focus 9
 
+alt - 0x1B : frame=$(yabai -m query --windows --window | jq '.frame') && w=$(echo $frame | jq '.w') && h=$(echo $frame | jq '.h') && \
+             yabai -m window --resize abs:$(expr $w - 40):$(expr $h - 40) && \
+             yabai -m window --move rel:20:20
+
+shift + alt - 0x18 : frame=$(yabai -m query --windows --window | jq '.frame') && w=$(echo $frame | jq '.w') && h=$(echo $frame | jq '.h') && \
+                     yabai -m window --resize abs:$(expr $w + 40):$(expr $h + 40) && \
+                     yabai -m window --move rel:-20:-20
+
 # send window to desktop and follow focus
 shift + alt - 1 : yabai -m window --space  1; yabai -m space --focus 1
 shift + alt - 2 : yabai -m window --space  2; yabai -m space --focus 2
