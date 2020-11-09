@@ -1,8 +1,8 @@
 # Open Terminal
-alt - return : alacritty
+alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # Open Browser
-shift + alt - return : firefox
+shift + alt - return : /Applications/Firefox.app/Contents/MacOS/firefox
 
 # Reload yabai
 shift + alt - c : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
