@@ -5,7 +5,12 @@
 	editor = nvim
 	excludesfile = ~/.config/git/ignore
 	symlinks = true
+	pager = delta
 [init]
 	defaultBranch = main
 [pull]
 	ff = only
+[delta]
+  features = side-by-side line-numbers
+[interactive]
+	diffFilter = delta --color-only
