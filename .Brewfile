@@ -23,6 +23,7 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "jq"
+brew "just"
 brew "mas"
 brew "neovim"
 brew "nginx", restart_service: true
