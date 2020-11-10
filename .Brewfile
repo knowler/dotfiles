@@ -72,6 +72,7 @@ cask "steam"
 cask "tableplus"
 cask "vagrant"
 cask "virtualbox"
+cask "visual-studio-code"
 cask "vlc"
 cask "vox"
 mas "iA Writer", id: 775737590
