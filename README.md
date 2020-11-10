@@ -63,13 +63,16 @@ Some notes on maintaining.
 ### Using the `dots` Git wrapper alias
 
 Following those who have used the bare-repo method of dotfiles before me, I have
-made an alias (two actually) as a wrapper around Git to make updating these
-dotfiles a breeze. They are `dotfiles` and `dots` (I am lazy and use the
-latter). You will notice a few integrations do not work like any shell
+made an alias `dots` as a wrapper around Git to make updating these dotfiles a
+breeze. You will notice a few integrations do not work like any shell
 autocompletion or editor Git integration. I am sure that someone else has those
 things solved, I just haven’t found that yet. Note that with using the repo
 through the helper, you will need to explicitly add new files. This includes new
 files that are created as a product of renaming another file.
+
+### Quickly edit a tracked dotfile
+
+I have a script `dot` which feeds all tracked dotfiles into `fzf` for selection.
 
 ### Installing packages and keeping package lists up-to-date
 

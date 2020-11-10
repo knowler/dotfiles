@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [[ $OSTYPE =~ "darwin" ]]; then
+  /usr/bin/open $@
+fi
+
+if [[ $OSTYPE =~ "linux" ]]; then
+  detach xdg-open $@
+fi
