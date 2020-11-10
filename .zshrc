@@ -27,8 +27,7 @@ fi
 
 alias o="open"
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias dots=dotfiles
+alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # Quickly change to a sub-directory within the git project
 gd() {
