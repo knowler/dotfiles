@@ -76,4 +76,5 @@ cask "visual-studio-code"
 cask "vlc"
 cask "vox"
 cask "vox-preferences-pane"
+cask "zoomus"
 mas "iA Writer", id: 775737590
