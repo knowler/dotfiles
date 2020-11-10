@@ -75,4 +75,5 @@ cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
 cask "vox"
+cask "vox-preferences-pane"
 mas "iA Writer", id: 775737590
