@@ -10,6 +10,7 @@ tap "roots/tap"
 brew "openssl@1.1"
 brew "python@3.9"
 brew "composer"
+brew "coreutils"
 brew "dnsmasq", restart_service: true
 brew "dockutil"
 brew "dust"
