@@ -42,7 +42,8 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'fasd' \
   'pacman' \
-  'tmux'
+  'tmux' \
+  'gpg'
 
 #
 # Autosuggestions
