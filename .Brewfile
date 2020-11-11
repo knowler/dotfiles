@@ -32,6 +32,7 @@ brew "mas"
 brew "neovim"
 brew "nginx", restart_service: true
 brew "php", restart_service: true
+brew "pinentry-mac"
 brew "pv"
 brew "ripgrep"
 brew "rm-improved"
