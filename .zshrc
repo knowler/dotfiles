@@ -13,6 +13,8 @@ fi
 # Customize to your needs...
 #
 
+export GPG_TTY=$(tty)
+
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPS="--ansi"
 

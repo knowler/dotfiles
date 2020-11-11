@@ -1,6 +1,7 @@
 [user]
 	name = Nathan Knowler
 	email = nathan@knowler.me
+	signingkey = 3601C896EC39C1E1
 [core]
 	editor = nvim
 	excludesfile = ~/.config/git/ignore
@@ -14,3 +15,5 @@
   features = side-by-side line-numbers
 [interactive]
 	diffFilter = delta --color-only
+[commit]
+	gpgSign = true
