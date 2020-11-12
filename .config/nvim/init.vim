@@ -28,6 +28,7 @@ Plug 'vim-airline/vim-airline'
 
 " Helpful
 Plug 'junegunn/vim-slash'                             " Automatically clears search highlight when cursor is moved (and more)
+Plug 'junegunn/vim-peekaboo'                          " Show the contents of registers
 Plug 'Raimondi/delimitMate'                           " Auto-close parans, brackets, quotes, etc.
 Plug 'alvan/vim-closetag'                             " Auto-close XML-like tags
 
