@@ -92,6 +92,7 @@ set textwidth=80
 set mouse=n
 
 " Use system clipboard
+set clipboard+=unnamed
 set clipboard+=unnamedplus
 
 " Perf
