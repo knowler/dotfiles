@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 
-# Manually load scripting addition
+# Manually load scripting addition 
+#
+# Run ~/.scripts/yabai-setup.sh when initially setting up yabai and a sudoer
+# will be setup so this won’t fail because there’s no accessible password
+# prompt.
+#
 sudo yabai --load-sa
 
 yabai -m config external_bar                 all:26:0
