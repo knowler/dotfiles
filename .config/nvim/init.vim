@@ -7,7 +7,6 @@ set nocompatible
 call plug#begin(stdpath('data') . '/plugged')
 
 " Essentials
-Plug 'neoclide/coc.nvim', {'branch': 'release'}       " LSP aka Intellisense for vim (extensions are installed with :CocInstall)
 Plug 'sheerun/vim-polyglot'                           " The only syntax highlighting package you will ever need
 Plug 'AndrewRadev/splitjoin.vim'                      " Easily switch between single and multi line format for stuff (split: gS | join: gJ)
 Plug 'tpope/vim-fugitive'                             " Git for vim
@@ -147,16 +146,6 @@ nnoremap <silent> <C-s> :BufferPick<CR>
 " Fuzzy find files [fzf.vim]
 nnoremap <C-p> :Files!<CR>
 
-" Show LSP completion [coc.nvim]
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use enter to confirm completion menu item [coc.nvim]
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
-" Use tab + shift-tab for navigating through completion [coc.nvim]
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Italicize word [vim-surround]
 nmap <Leader>i T<Space>veS_
 let g:surround_{char2nr('i')} = "_\r_"
@@ -164,15 +153,6 @@ let g:surround_{char2nr('i')} = "_\r_"
 " Embolden word [vim-surround]
 nmap <Leader>b T<Space>veS*gvS*
 let g:surround_{char2nr('b')} = "**\r**"
-
-" Show LSP actions menu for selected [coc.nvim]
-function! s:cocActionsOpenFromSelected(type) abort
-  execute 'CocCommand actions.open ' . a:type
-endfunction
-xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-
-nmap <Leader>d :CocCommand docthis.documentThis<CR>
 
 " Close XML-like tags in JS and JSX files (i.e. for React) [closetag]
 let g:closetag_filenames = '*.js,*.jsx'
@@ -196,12 +176,6 @@ augroup END
 
 " Improve auto closing of stuff for files with JSX [delimitMate]
 autocmd FileType javascript,javascriptreact,typescript,typescriptreact let b:delimitMate_matchpairs = "(:),[:],{:}"
-
-" Format code when leaving insert mode [coc.nvim]
-autocmd InsertLeave * call CocActionAsync('format') " The wildcard might be a bad idea. Uses prettier if installed, also respects editorconfig
-
-" Highlight symbol when idling cursor on a word [coc.nvim]
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use JSONC for config files that support it [jsonc]
 autocmd BufNewFile,BufRead {.eslintrc,tsconfig}.json set syntax=json filetype=jsonc
