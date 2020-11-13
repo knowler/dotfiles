@@ -41,6 +41,11 @@ Plug 'wakatime/vim-wakatime'
 " Writing
 Plug 'vimwiki/vimwiki'
 
+" Neovim 0.5.0
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
+
 call plug#end()
 
 " Allow filetype plugins
@@ -134,6 +139,10 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+"nnoremap <silent> <C-Tab> :BufferPrevious<CR>
+nnoremap <silent> <C-Tab> :BufferNext<CR>
+nnoremap <silent> <C-s> :BufferPick<CR>
 
 " Fuzzy find files [fzf.vim]
 nnoremap <C-p> :Files!<CR>
