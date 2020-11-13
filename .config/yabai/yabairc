@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# Manually load scripting addition
+sudo yabai --load-sa
+
 yabai -m config external_bar                 all:26:0
 
 yabai -m config mouse_follows_focus          on
