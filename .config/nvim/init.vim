@@ -42,6 +42,7 @@ Plug 'vimwiki/vimwiki'
 
 " Neovim 0.5.0
 
+Plug 'neovim/nvim-lspconfig'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 
@@ -189,3 +190,8 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" LSP
+:lua << END
+  require'nvim_lsp'.tsserver.setup{}
+END
