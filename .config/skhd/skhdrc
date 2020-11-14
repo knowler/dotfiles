@@ -71,6 +71,9 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 alt - s : yabai -m window --stack next
 alt - b : yabai -m space --layout bsp
 
+# hide borders
+shift + alt - b : yabai -m window --toggle border
+
 # mirror tree y-axis
 alt - y : yabai -m space --mirror y-axis
 
