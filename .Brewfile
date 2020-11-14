@@ -30,6 +30,7 @@ brew "gnupg"
 brew "jq"
 brew "just"
 brew "mas"
+brew "neofetch"
 brew "neovim"
 brew "nginx", restart_service: true
 brew "php", restart_service: true
