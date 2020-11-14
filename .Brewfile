@@ -12,6 +12,7 @@ brew "bat"
 brew "python@3.9"
 brew "composer"
 brew "coreutils"
+brew "dark-mode"
 brew "dnsmasq", restart_service: true
 brew "dockutil"
 brew "dust"

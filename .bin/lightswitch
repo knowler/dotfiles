@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+DARK_MODE=$(dark-mode status)
+ALACRITTY_CONFIG=$HOME/.config/alacritty/alacritty.yml
+
+setAlacrittyColors() {
+  yq write --inplace $ALACRITTY_CONFIG --makeAlias colors $1
+  # Alacritty doesn’t pick up the change sometimes so force a noop write for
+  # good measure
+  echo "" >> $ALACRITTY_CONFIG
+}
+
+setSpacebarColors() {
+  spacebar -m config background_color $1 
+  spacebar -m config foreground_color $2
+}
+
+if [[ $DARK_MODE == 'on' ]]; then
+  dark-mode off
+  setAlacrittyColors light
+  setSpacebarColors 0xffe8e9ec 0xff33374c
+else
+  dark-mode on
+  setAlacrittyColors dark
+  setSpacebarColors 0xff121212 0xff5cafb0
+fi
