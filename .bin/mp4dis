@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Convert a file to libx264 mp4
+# File size is drastically reduced as well, but maybe not quality?
+ffmpeg -i "$1" -vcodec libx264 ${1%.*}.mp4
