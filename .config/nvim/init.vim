@@ -49,6 +49,7 @@ Plug 'nvim-treesitter/nvim-tree-docs'
 Plug 'nvim-treesitter/completion-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'romgrk/nvim-treesitter-context'
+Plug 'nvim-lua/lsp-status.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 
