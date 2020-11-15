@@ -7,7 +7,7 @@ set nocompatible
 call plug#begin(stdpath('data') . '/plugged')
 
 " Essentials
-Plug 'sheerun/vim-polyglot'                           " The only syntax highlighting package you will ever need
+"Plug 'sheerun/vim-polyglot'                           " The only syntax highlighting package you will ever need
 Plug 'AndrewRadev/splitjoin.vim'                      " Easily switch between single and multi line format for stuff (split: gS | join: gJ)
 Plug 'tpope/vim-fugitive'                             " Git for vim
 Plug 'tpope/vim-surround'                             " Surround stuff
@@ -43,6 +43,12 @@ Plug 'vimwiki/vimwiki'
 " Neovim 0.5.0
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-tree-docs'
+Plug 'nvim-treesitter/completion-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'romgrk/nvim-treesitter-context'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 
@@ -192,6 +198,21 @@ endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " LSP
-:lua << END
-  require'nvim_lsp'.tsserver.setup{}
-END
+lua require'lsp_config'
+
+" Treesitter
+lua require'treesitter_config'
+
+" Completion
+
+autocmd BufEnter * lua require'completion'.on_attach()
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
