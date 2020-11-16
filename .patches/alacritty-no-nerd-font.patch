@@ -1,0 +1,37 @@
+From a658eb55c3788b64a5eb13d8853916bbff9618d7 Mon Sep 17 00:00:00 2001
+From: Nathan Knowler <nathan@knowler.me>
+Date: Mon, 16 Nov 2020 00:02:49 -0600
+Subject: [PATCH] [alacritty] use Dank Mono b/c no Nerd Font
+
+---
+ .config/alacritty/alacritty.yml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/.config/alacritty/alacritty.yml b/.config/alacritty/alacritty.yml
+index 388e9af..2193e2a 100644
+--- a/.config/alacritty/alacritty.yml
++++ b/.config/alacritty/alacritty.yml
+@@ -13,16 +13,16 @@ scrolling:
+   multiplier: 3
+ font:
+   normal:
+-    family: DankMono Nerd Font Mono
++    family: Dank Mono
+     style: Regular
+   bold:
+-    family: DankMono Nerd Font Mono
++    family: Dank Mono
+     style: Bold
+   italic:
+-    family: DankMono Nerd Font Mono
++    family: Dank Mono
+     style: Italic
+   bold_italic:
+-    family: DankMono Nerd Font Mono
++    family: Dank Mono
+     style: Bold Italic
+   size: 14.0
+ schemes:
+-- 
+2.29.0
+
