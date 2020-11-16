@@ -13,6 +13,9 @@ shift + cmd + alt - c : brew services stop yabai; brew services stop spacebar
 # Start yabai + spacebar
 shift + cmd + alt - s : brew services start yabai; brew services start spacebar
 
+# Flip the lightswitch
+cmd + alt - l : $HOME/.bin/lightswitch
+
 # Window focus navigation
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus stack.next || yabai -m window --focus south
