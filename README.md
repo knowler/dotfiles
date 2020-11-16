@@ -91,7 +91,7 @@ brew bundle install --global --cleanup --no-upgrade
 If you’ve installed packages, run the following command to “update” the file:
 
 ```bash
-brew bundle dump --global --force
+brew bundle dump --global --force --no-lock
 ```
 
 The `--force` flag allows the command to write over the file (kind of annoying,
