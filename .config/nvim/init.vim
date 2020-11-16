@@ -75,6 +75,7 @@ set title
 set number
 set ruler
 set signcolumn=yes
+set noshowmode
 
 " Split behaviour
 set splitbelow
