@@ -65,4 +65,10 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
+#
+# bat
+#
+
+export BAT_THEME=$(if [[ $(dark-mode status) == "on" ]]; then echo "Nord"; else echo "OneHalfLight"; fi)
+
 export PATH="$HOME/.cargo/bin:$PATH"
