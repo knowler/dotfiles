@@ -56,6 +56,15 @@ repo:
 dots config --local status.showUntrackedFiles no
 ```
 
+### Generating Nerd Font for Dank Mono (used in Alacritty)
+
+I still need to write out the instructions for this. For now, if you don’t have
+the Nerd Font, then run apply the patch and just don’t commit the change:
+
+```bash
+dots apply ~/.patches/alacritty-no-nerd-font.patch
+```
+
 ## Maintaining
 
 Some notes on maintaining.
