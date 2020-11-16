@@ -62,10 +62,14 @@ endif
 
 " Colorscheme in dark mode [iceberg.vim]
 colorscheme iceberg
-if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+if has('mac')
+  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+    set background=dark
+  else
+    set background=light
+  endif
+elseif has('unix')
   set background=dark
-else
-  set background=light
 endif
 
 " For terminal title
