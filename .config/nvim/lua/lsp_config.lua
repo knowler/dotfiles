@@ -1,11 +1,11 @@
-local nvim_lsp = require'nvim_lsp'
+local lsp = require'lspconfig'
 
-nvim_lsp.vimls.setup{}
-nvim_lsp.sumneko_lua.setup{}
-nvim_lsp.tsserver.setup{}
---nvim_lsp.rome.setup{}
-nvim_lsp.jsonls.setup{}
-nvim_lsp.cssls.setup{}
-nvim_lsp.bashls.setup{}
-nvim_lsp.intelephense.setup{}
-nvim_lsp.html.setup{}
+lsp.vimls.setup{}
+lsp.sumneko_lua.setup{}
+lsp.tsserver.setup{}
+--lsp.rome.setup{}
+lsp.jsonls.setup{}
+lsp.cssls.setup{}
+lsp.bashls.setup{}
+lsp.intelephense.setup{}
+lsp.html.setup{}
