@@ -85,7 +85,7 @@ package list _before_ you pull so that you can merge the changes accordingly.
 On macOS, use the following command to install new packages from `~/.Brewfile`:
 
 ```bash
-brew bundle install --global --cleanup
+brew bundle install --global --cleanup --no-upgrade
 ```
 
 If you’ve installed packages, run the following command to “update” the file:
