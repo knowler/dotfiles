@@ -89,6 +89,7 @@ set expandtab
 set smarttab
 set smartindent
 set nojoinspaces
+set emoji
 
 " Wrap at 80 for text
 set textwidth=80
