@@ -17,3 +17,5 @@
 	diffFilter = delta --color-only
 [commit]
 	gpgSign = true
+[alias]
+  triage = "!triage"
