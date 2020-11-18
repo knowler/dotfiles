@@ -19,3 +19,5 @@
 	gpgSign = true
 [alias]
 	triage = !triage
+[rebase]
+	autoSquash = true
