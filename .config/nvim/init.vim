@@ -44,7 +44,7 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " Allow filetype plugins
-filetype plugin on
+filetype plugin indent on
 
 " Enable syntax
 syntax on
