@@ -1,3 +1,4 @@
+# vim: noexpandtab
 [user]
 	name = Nathan Knowler
 	email = nathan@knowler.me
@@ -12,13 +13,13 @@
 [pull]
 	ff = only
 [delta]
-  features = side-by-side line-numbers
+	features = side-by-side line-numbers
 [interactive]
 	diffFilter = delta --color-only
 [commit]
 	gpgSign = true
 [alias]
 	triage = !triage
-  restage = !git add $(git diff --name-only --staged)
+	restage = !git add $(git diff --name-only --staged)
 [rebase]
 	autoSquash = true
