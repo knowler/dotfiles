@@ -21,6 +21,7 @@
 [alias]
 	triage = !triage
 	restage = !git add $(git diff --name-only --staged)
+	unstage = !git restore $(git diff --name-only --staged)
 [rebase]
 	autoSquash = true
 [status]
