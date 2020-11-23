@@ -35,7 +35,7 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | sh
 
 # Install Tmux Plugin Manager
-git clone https://github.com/tmux-plugins/tpm $HOME/.config/tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/plugins/tpm
 
 # Install Node, NPM, and Yarn
 which volta &>/dev/null

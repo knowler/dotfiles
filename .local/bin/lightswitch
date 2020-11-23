@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DARK_MODE=$(dark-mode status)
-ALACRITTY_CONFIG=$HOME/.config/alacritty/alacritty.yml
+ALACRITTY_CONFIG=${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml
 
 setAlacrittyColors() {
   yq write --inplace $ALACRITTY_CONFIG --makeAlias colors $1
