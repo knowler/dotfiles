@@ -89,8 +89,6 @@ cask "vagrant"
 cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
-cask "vox"
-cask "vox-preferences-pane"
 cask "zoomus"
 mas "iA Writer", id: 775737590
 mas "Xcode", id: 497799835
