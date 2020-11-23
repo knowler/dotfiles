@@ -1,3 +1,6 @@
+# Example: https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
+# Keywords: https://github.com/koekeishiya/skhd/issues/1
+
 :: default : yabai -m config window_border off
 
 # Important: `@` will capture _everything_ so make sure there is a way back to default mode defined
