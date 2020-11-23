@@ -92,4 +92,4 @@ alt - q : yabai -m window --close;\
           yabai -m window --focus recent
 
 # Toggle music app focus
-alt -m : yabai -m window --focus $(yabai -m query --windows --space mouse | jq -e '.[] | select(.app=="IINA" and .focused!=1) | .id' || echo 'recent')
+alt - m : yabai -m window --focus $(yabai -m query --windows --space mouse | jq -e '.[] | select(.app=="IINA" and .focused!=1) | .id' || echo 'recent')
