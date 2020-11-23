@@ -11,11 +11,11 @@ alt - r ; resize
 
 resize < escape ; default
 
-resize < alt - h :          yabai -m window --resize left:-5:0.0
-resize < shift + alt - l :  yabai -m window --resize left:5:0.0
+resize < h :          yabai -m window --resize left:-5:0.0
+resize < shift - l :  yabai -m window --resize left:5:0.0
 
-resize < alt - l :          yabai -m window --resize right:5:0.0
-resize < shift + alt - h :  yabai -m window --resize right:-5:0.0
+resize < l :          yabai -m window --resize right:5:0.0
+resize < shift - h :  yabai -m window --resize right:-5:0.0
 
 # Open Terminal
 alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
