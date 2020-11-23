@@ -19,7 +19,7 @@ export FZF_DEFAULT_OPS="--ansi"
 export VOLTA_HOME="$HOME/.volta"
 
 # Path exports
-export PATH="$VOLTA_HOME/bin:$HOME/.bin:$PATH"
+export PATH="$VOLTA_HOME/bin:$HOME/.local/bin:$PATH"
 
 # Autoload scripts
 source "$HOME/.scripts/autoload.sh"
