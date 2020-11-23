@@ -31,6 +31,7 @@ Plug 'junegunn/vim-slash'                             " Automatically clears sea
 Plug 'junegunn/vim-peekaboo'                          " Show the contents of registers
 Plug 'Raimondi/delimitMate'                           " Auto-close parans, brackets, quotes, etc.
 Plug 'alvan/vim-closetag'                             " Auto-close XML-like tags
+Plug 'pbrisbin/vim-mkdir'                             " Automatically create any non-existant directories before writing the buffer
 
 " Additional Syntax
 Plug 'neoclide/jsonc.vim'
