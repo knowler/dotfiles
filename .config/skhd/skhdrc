@@ -1,3 +1,19 @@
+:: default : yabai -m config window_border off
+
+# Important: `@` will capture _everything_ so make sure there is a way back to default mode defined
+:: resize @ : yabai -m config window_border on
+
+# Enter resize mode
+alt - r ; resize
+
+resize < escape ; default
+
+resize < alt - h :          yabai -m window --resize left:-5:0.0
+resize < shift + alt - l :  yabai -m window --resize left:5:0.0
+
+resize < alt - l :          yabai -m window --resize right:5:0.0
+resize < shift + alt - h :  yabai -m window --resize right:-5:0.0
+
 # Open Terminal
 alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
