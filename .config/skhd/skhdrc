@@ -104,8 +104,10 @@ alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 7:7:1:1:5:5
 
 # Close the window
-alt - q : yabai -m window --close;\
-          yabai -m window --focus recent
+alt - q [
+  "discord" : yabai -m window --minimize; yabai -m wndow --focus recent
+  * : yabai -m window --close; yabai -m window --focus recent
+]
 
 # Toggle music app focus
 alt - m : yabai -m window --focus $(yabai -m query --windows --space mouse | jq -e '.[] | select(.app=="IINA" and .focused!=1) | .id' || echo 'recent')
