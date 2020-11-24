@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+stash=$(git $@ stash list | cut -d: -f1 | fzf --preview "git $@ show --color=always {}")
+
+if [[ -n "$stash" ]]; then
+  git $@ stash pop $stash
+fi

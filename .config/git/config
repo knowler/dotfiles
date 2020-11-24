@@ -23,6 +23,7 @@
 	restage = !git add $(git diff --name-only --staged)
 	unstage = !git restore $(git diff --name-only --staged)
 	ls-unmerged = diff --diff-filter=U --name-only
+	loot = !loot
 [rebase]
 	autoSquash = true
 [status]
