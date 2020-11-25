@@ -22,11 +22,11 @@ dump-macos:
 dump-linux:
 	yay -Qqe > $HOME/.pkglist.txt
 
-upgrade:
-	@just upgrade-{{os()}}
+upgrade *PACKAGES:
+	@just upgrade-{{os()}} {{PACKAGES}}
 
-upgrade-macos:
-	brew upgrade
+upgrade-macos *PACKAGES:
+	brew upgrade {{PACKAGES}}
 
-upgrade-linux:
-	yay -Syu
+upgrade-linux *PACKAGES:
+	yay -Syu {{PACKAGES}}
