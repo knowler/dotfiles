@@ -1,6 +1,7 @@
 #!/usr/bin/env just --justfile
 # vim: set filetype=make :
 
+# Install new packages
 install:
 	@just install-{{os()}}
 
@@ -10,6 +11,7 @@ install-macos:
 install-linux:
 	yay -S --needed - < $HOME/.pkglist.txt
 
+# Dump installed packages
 dump:
 	@just dump-{{os()}}
 
@@ -19,6 +21,7 @@ dump-macos:
 dump-linux:
 	yay -Qqe > $HOME/.pkglist.txt
 
+# Upgrade all or specified packages
 upgrade *PACKAGES:
 	@just upgrade-{{os()}} {{PACKAGES}}
 
