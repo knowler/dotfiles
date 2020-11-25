@@ -83,48 +83,36 @@ files that are created as a product of renaming another file.
 
 I have a script `dot` which feeds all tracked dotfiles into `fzf` for selection.
 
-### Installing packages and keeping package lists up-to-date
+### Installing new packages
 
-Note that running the setup script again will install new packages for you. If
-you want packages that you’ve added to persist, make sure to generate a new
-package list _before_ you pull so that you can merge the changes accordingly.
-
-#### macOS
-
-On macOS, use the following command to install new packages from `~/.Brewfile`:
+To install new packages for either system run:
 
 ```bash
-brew bundle install --global --cleanup --no-upgrade
+just install
 ```
 
-If you’ve installed packages, run the following command to “update” the file:
+### Upgrading packages
+
+To upgrade _all_ packages for either system run:
 
 ```bash
-brew bundle dump --global --force --no-lock
+just upgrade
 ```
 
-The `--force` flag allows the command to write over the file (kind of annoying,
-if you ask me).
-
-#### Manjaro
-
-On Manjaro, use the following command to install new packages from
-`~/.pkglist.txt`:
+To upgrade _specified_ packages for either system run:
 
 ```bash
-yay -S --needed - < $HOME/.pkglist.txt
+just upgrade [packages]
 ```
 
-If you’ve installed packages, generate a new list of packages run the following
-command:
+### Dumping package lists
+
+To dump recent packages you might have installed to package list use:
 
 ```bash
-yay -Qqe > $HOME/.pkglist.txt
-
-# or from $HOME
-
-make -B .pkglist.txt
+just dump
 ```
 
-I’ve seen a `systemctl` hook to automate this which I will be exploring in the
-near future. I guess a Git hook could work well for the installation part.
+Ideally, this would be automated when installing packages and I’ve seen a
+`systemctl` hook to automate this which I will be exploring in the near future.
+I guess a Git hook could work well for the installation part.
