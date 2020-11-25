@@ -17,6 +17,7 @@
 [interactive]
 	diffFilter = delta --color-only
 [commit]
+	verbose = true
 	gpgSign = true
 [alias]
 	triage = !triage
