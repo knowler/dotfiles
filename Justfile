@@ -1,12 +1,8 @@
 #!/usr/bin/env just --justfile
 # vim: set filetype=make :
 
-test:
-	echo $HOME
-
 install:
 	@just install-{{os()}}
-
 install-macos:
 	brew bundle install --global --cleanup --no-upgrade
 
@@ -29,4 +25,4 @@ upgrade-macos *PACKAGES:
 	brew upgrade {{PACKAGES}}
 
 upgrade-linux *PACKAGES:
-	yay -Syu {{PACKAGES}}
+	if [ -n "{{PACKAGES}}" ]; then yay -Sy {{PACKAGES}}; else yay -Syu; fi
