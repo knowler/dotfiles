@@ -34,6 +34,7 @@ brew "just"
 brew "luarocks"
 brew "mas"
 brew "mpv"
+brew "mutt"
 brew "neofetch"
 brew "neovim"
 brew "nginx", restart_service: true
