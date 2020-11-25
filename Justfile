@@ -3,6 +3,7 @@
 
 install:
 	@just install-{{os()}}
+
 install-macos:
 	brew bundle install --global --cleanup --no-upgrade
 
@@ -25,4 +26,4 @@ upgrade-macos *PACKAGES:
 	brew upgrade {{PACKAGES}}
 
 upgrade-linux *PACKAGES:
-	if [ -n "{{PACKAGES}}" ]; then yay -Sy {{PACKAGES}}; else yay -Syu; fi
+	yay -Sy{{ if PACKAGES != '' {' '+PACKAGES} else {'u'} }}
