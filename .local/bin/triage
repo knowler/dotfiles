@@ -3,4 +3,4 @@
 # $@ is only meant to pass flags to locate the git directory and the work tree
 # if non-standard
 
-[[ -n $(git $@ status -s) ]] && git $@ commit -pv && $0 $@
+[[ -n $(git $@ status -s) ]] && git $@ commit -p && $0 $@
