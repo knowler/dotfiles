@@ -22,6 +22,7 @@ resize < shift - h :  yabai -m window --resize right:-5:0.0
 
 # Open Terminal
 alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+cmd + alt - return : /Applications/kitty.app/Contents/MacOS/kitty -1
 
 # Open Browser
 shift + alt - return : /Applications/Firefox.app/Contents/MacOS/firefox
