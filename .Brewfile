@@ -39,7 +39,7 @@ brew "mpv"
 brew "mutt"
 brew "neofetch"
 brew "neovim"
-brew "nginx", restart_service: true
+brew "nginx"
 brew "php"
 brew "pinentry-mac"
 brew "pv"
