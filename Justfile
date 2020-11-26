@@ -3,30 +3,30 @@
 
 # Install new packages
 install:
-	@just install-{{os()}}
+	@just _install-{{os()}}
 
-install-macos:
+_install-macos:
 	brew bundle install --global --cleanup --no-upgrade
 
-install-linux:
+_install-linux:
 	yay -S --needed - < $HOME/.pkglist.txt
 
 # Dump installed packages
 dump:
-	@just dump-{{os()}}
+	@just _dump-{{os()}}
 
-dump-macos:
+_dump-macos:
 	brew bundle dump --global --force --no-lock
 
-dump-linux:
+_dump-linux:
 	yay -Qqe > $HOME/.pkglist.txt
 
 # Upgrade all or specified packages
 upgrade *PACKAGES:
-	@just upgrade-{{os()}} {{PACKAGES}}
+	@just _upgrade-{{os()}} {{PACKAGES}}
 
-upgrade-macos *PACKAGES:
+_upgrade-macos *PACKAGES:
 	brew upgrade {{PACKAGES}}
 
-upgrade-linux *PACKAGES:
+_upgrade-linux *PACKAGES:
 	yay -Sy{{ if PACKAGES != '' {' '+PACKAGES} else {'u'} }}
