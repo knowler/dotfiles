@@ -14,6 +14,7 @@ brew "cmake"
 brew "composer"
 brew "coreutils"
 brew "dark-mode"
+brew "deno"
 brew "dnsmasq", restart_service: true
 brew "dockutil"
 brew "dust"
