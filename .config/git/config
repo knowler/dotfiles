@@ -31,3 +31,5 @@
 	autoSquash = true
 [status]
 	showStash = true
+[fetch]
+	prune = true
