@@ -8,6 +8,8 @@
 	excludesfile = ~/.config/git/ignore
 	symlinks = true
 	pager = delta
+[help]
+	autocorrect = 1
 [init]
 	defaultBranch = main
 [pull]
