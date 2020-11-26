@@ -33,3 +33,5 @@
 	showStash = true
 [fetch]
 	prune = true
+[stash]
+	showPatch = true
