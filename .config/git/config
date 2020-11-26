@@ -35,3 +35,5 @@
 	prune = true
 [stash]
 	showPatch = true
+[includeIf "gitdir:~/code/impress/"]
+	path = ~/code/impress/.gitconfig
