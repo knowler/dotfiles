@@ -18,42 +18,8 @@ core software that I use:
 
 ## Installation
 
-Note that this presumes that you’ve already got `git` setup which may very well
-not be the case if you are on macOS. If that is you, run `xcode-select
---install` first.
-
-Clone the bare repository:
-
 ```bash
-git clone https://github.com/knowler/dotfiles.git $HOME/.dotfiles --bare
-```
-
-Checkout the files in your `$HOME` directory:
-
-```bash
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
-```
-
-Note that if any of these files exist, this will fail and you will need to
-either remove them or back them up using a different file name.
-
-Run the setup script:
-
-```bash
-~/.scripts/setup.sh
-```
-
-Reload the shell:
-
-```bash
-exec $SHELL -l
-```
-
-Using the Git wrapper, set untracked files not to show in status calls for the
-repo:
-
-```bash
-dots config --local status.showUntrackedFiles no
+curl --proto https --tlsv1.2 -sSf https://dots.knowlerkno.ws | bash
 ```
 
 ### Generating Nerd Font for Dank Mono (used in Alacritty)
