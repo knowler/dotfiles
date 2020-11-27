@@ -41,6 +41,7 @@ dots-alias install '!just install'
 dots-alias setup '!just setup'
 dots-alias upgrade '!just upgrade'
 dots-alias dump '!just dump'
+dots-alias patch '!dots-patch'
 dots-alias open '!dot'
 dots-alias web '!$BROWSER https://github.com/knowler/dotfiles'
 # End maintenance command aliases
