@@ -18,7 +18,7 @@ release=$(uname -r)
 if [[ $os =~ "Darwin" ]]; then
   installed brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   alias install_package="brew"
-elif [[ $os =~ "Linux" && $release =~ "Manjaro" ]]; then
+elif [[ $os =~ "Linux" && $release =~ "MANJARO" ]]; then
   installed yay || sudo pacman -S yay
   alias install_package="yay -Sy"
 else
