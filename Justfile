@@ -32,8 +32,11 @@ _upgrade-linux *PACKAGES:
 	yay -Sy{{ if PACKAGES != '' {' '+PACKAGES} else {'u'} }}
 
 # Setup the specified programs
-setup *PROGRAMS:
-	programs=({{PROGRAMS}}); for program in ${programs[*]}; do just _setup-$program; done
+setup *PROGRAMS='all':
+	@programs=({{PROGRAMS}}); for program in ${programs[@]}; do just _setup-$program; done
+
+_setup-all:
+	@echo "Todo: setup all programs"
 
 _setup-zsh:
 	@echo "Setting up zsh..."
