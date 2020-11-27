@@ -11,6 +11,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Helpers
 installed() { command -v $1 >/dev/null 2>&1; }
+dots() { git --git-dir=$git_dir --work-tree=$install_dir $@; }
+dots-alias() { 
+  # Unset the alias so we have a fresh one
+  dots config --unset alias.$1
+  # Funky string stuff happens when trying to use dots here so we set with git itself
+  git --git-dir=$git_dir config alias.$1 "$2"; 
+}
 os=$(uname -s); 
 release=$(uname -r)
 
@@ -26,13 +33,19 @@ else
   exit 1
 fi
 
-# Quick alias the git command for the dotfiles
-alias dots="git --git-dir=$git_dir --work-tree=$install_dir"
-
 installed just || install_package just              # Install just, if not already
-[ -d $git_dir ] || git clone $repo $git_dir --bare  # Clone as a bare repository
+[ -d $git_dir ] || git clone $repo $git_dir --bare  # Clone as a bare repository, if not already
+
+# Alias maintenance commands
+dots-alias install '!just install'
+dots-alias setup '!just setup'
+dots-alias upgrade '!just upgrade'
+dots-alias dump '!just dump'
+dots-alias open '!dot'
+# End maintenance command aliases
+
+dots config status.showUntrackedFiles no            # Set dotfiles config to not show untracked file in status
 dots checkout                                       # Checkout in install directory
-dots config --local status.showUntrackedFiles no    # Set dotfiles config to not show untracked file in status
-just install                                        # Install packages
-just setup                                          # Run extra set up for some applications
+dots install                                        # Install packages
+dots setup                                          # Run post-install setup for some applications
 exec $SHELL -l                                      # Reload the shell

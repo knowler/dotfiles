@@ -47,14 +47,19 @@ files that are created as a product of renaming another file.
 
 ### Quickly edit a tracked dotfile
 
-I have a script `dot` which feeds all tracked dotfiles into `fzf` for selection.
+Optionally enter the name of the file. If specific enough, the file will just
+open in the editor.
+
+```bash
+dots open <file?>
+```
 
 ### Installing new packages
 
 To install new packages for either system run:
 
 ```bash
-just install
+dots install
 ```
 
 ### Upgrading packages
@@ -62,13 +67,13 @@ just install
 To upgrade _all_ packages for either system run:
 
 ```bash
-just upgrade
+dots upgrade
 ```
 
 To upgrade _specified_ packages for either system run:
 
 ```bash
-just upgrade [packages]
+dots upgrade [packages]
 ```
 
 ### Dumping package lists
@@ -76,7 +81,7 @@ just upgrade [packages]
 To dump recent packages you might have installed to package list use:
 
 ```bash
-just dump
+dots dump
 ```
 
 Ideally, this would be automated when installing packages and I’ve seen a
