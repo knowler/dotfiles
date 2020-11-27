@@ -69,6 +69,6 @@ fi
 # bat
 #
 
-export BAT_THEME=$(if [[ $(dark-mode status) == "on" ]]; then echo "Nord"; else echo "OneHalfLight"; fi)
+export BAT_THEME=$(if [[ -x $(command -v dark-mode) && $(dark-mode status) == "on" ]]; then echo "Nord"; else echo "OneHalfLight"; fi)
 
 export PATH="$HOME/.cargo/bin:$PATH"
