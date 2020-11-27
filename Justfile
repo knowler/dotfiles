@@ -6,7 +6,7 @@ install:
 	@just _install-{{os()}}
 
 _install-macos:
-	brew bundle install --global --cleanup --no-upgrade
+	brew bundle install --global --cleanup --no-upgrade --no-lock
 
 _install-linux:
 	yay -S --needed - < $HOME/.pkglist.txt
@@ -16,7 +16,7 @@ dump:
 	@just _dump-{{os()}}
 
 _dump-macos:
-	brew bundle dump --global --force --no-lock
+	brew bundle dump --global --force
 
 _dump-linux:
 	yay -Qqe > $HOME/.pkglist.txt
