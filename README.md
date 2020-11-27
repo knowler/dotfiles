@@ -28,7 +28,7 @@ I still need to write out the instructions for this. For now, if you don’t hav
 the Nerd Font, then run apply the patch and just don’t commit the change:
 
 ```bash
-dots apply ~/.patches/alacritty-no-nerd-font.patch
+dots patch no-nerd-font
 ```
 
 ## Maintaining
