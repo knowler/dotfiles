@@ -42,6 +42,7 @@ dots-alias setup '!just setup'
 dots-alias upgrade '!just upgrade'
 dots-alias dump '!just dump'
 dots-alias open '!dot'
+dots-alias web '!$BROWSER https://github.com/knowler/dotfiles'
 # End maintenance command aliases
 
 dots config status.showUntrackedFiles no            # Set dotfiles config to not show untracked file in status
