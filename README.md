@@ -19,7 +19,7 @@ core software that I use:
 ## Installation
 
 ```bash
-curl --proto https --tlsv1.2 -sSf https://dots.knowlerkno.ws | bash
+curl --proto '=https' --tlsv1.2 -sSf https://dots.knowlerkno.ws | bash
 ```
 
 ### Generating Nerd Font for Dank Mono (used in Alacritty)
