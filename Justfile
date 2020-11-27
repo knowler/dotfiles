@@ -6,7 +6,7 @@ install:
 	@just _install-{{os()}}
 
 _install-macos:
-	brew bundle install --global --cleanup --no-upgrade --no-lock
+	brew bundle install --global --no-upgrade --no-lock
 
 _install-linux:
 	yay -S --needed - < $HOME/.pkglist.txt
