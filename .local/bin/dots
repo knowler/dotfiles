@@ -1,3 +1,31 @@
 #!/usr/bin/env bash
 
-git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+dots-git() { git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" $@; }
+
+case "$1" in
+  install)
+    just install $@
+    ;;
+  dump)
+    just dump $@
+    ;;
+  upgrade)
+    just upgrade $@
+    ;;
+  setup)
+    just setup $@
+    ;;
+  patch)
+    dots-git apply $(dots-git ls-files $HOME/.patches | fzf --query "$2" --multi --select-1 --preview="bat --color=always {}")
+    ;;
+  open)
+    $EDITOR "$HOME/$(dots-git ls-files | fzf --query "$2" --select-1 --preview "bat --color=always $HOME/{}")"
+    ;;
+  web)
+    $BROWSER "https://github.com/knowler/dotfiles"
+    ;;
+  *)
+    dots-git $@
+    ;;
+esac
+

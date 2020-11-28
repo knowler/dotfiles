@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-dots apply $(dots ls-files $HOME/.patches | fzf -q "$1" -m -1 --preview="bat {}")
