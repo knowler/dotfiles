@@ -53,7 +53,6 @@ _setup-neovim:
 
 _setup-node:
 	@echo "Setting up Node..."
-	command -v volta >/dev/null 2>&1 || just install volta
 	volta install node@latest
 	volta fetch node@lts
 	volta install yarn
