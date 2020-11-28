@@ -49,3 +49,6 @@ export BAT_THEME=$(if [[ -x $(command -v dark-mode) && $(dark-mode status) == "o
 # fzf
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPS="--ansi"
+
+# Volta
+export VOLTA_HOME="$HOME/.volta"
