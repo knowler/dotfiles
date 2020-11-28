@@ -1,8 +1,38 @@
 #!/usr/bin/env bash
 
+usage() {
+  cat 1>&2 <<EOF
+dots
+A git wrapper for dotfiles with a few tricks.
+
+USAGE:
+    dots [CUSTOM SUBCOMMAND]
+    or
+    dots [GIT SUBCOMMAND]
+
+CUSTOM SUBCOMMANDS:
+    install                 Install new system packages
+    setup <packages>...     Run additional setup for system packages
+    upgrade <packages>...   Upgrade all packages or specified ones
+    dump                    Dump installed packages to list
+    patch <patch-file>      Apply a pre-made patch
+    open <dotfile>          Open a dotfile in an editor
+    web                     Open the repo in the browser
+EOF
+}
+
 dots-git() { git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" $@; }
 
 case "$1" in
+  -h)
+    usage
+    ;;
+  --help)
+    usage
+    ;;
+  help)
+    usage
+    ;;
   install)
     just install $@
     ;;
