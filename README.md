@@ -31,19 +31,13 @@ the Nerd Font, then run apply the patch and just don’t commit the change:
 dots patch no-nerd-font
 ```
 
-## Maintaining
+## Using and maintaining
 
-Some notes on maintaining.
-
-### Using the `dots` Git wrapper alias
-
-Following those who have used the bare-repo method of dotfiles before me, I have
-made an alias `dots` as a wrapper around Git to make updating these dotfiles a
-breeze. You will notice a few integrations do not work like any shell
-autocompletion or editor Git integration. I am sure that someone else has those
-things solved, I just haven’t found that yet. Note that with using the repo
-through the helper, you will need to explicitly add new files. This includes new
-files that are created as a product of renaming another file.
+In order to make using and maintaining these dotfiles a _breeze_, I have setup a
+command called `dots` which both wraps Git as well as provides some helpful
+custom commands. The command works from any directory. The following sections
+will cover what the custom commands do. You can run `dots` with `-h`, `--help`,
+or `help` to see the usage at anytime.
 
 ### Quickly edit a tracked dotfile
 
@@ -87,3 +81,19 @@ dots dump
 Ideally, this would be automated when installing packages and I’ve seen a
 `systemctl` hook to automate this which I will be exploring in the near future.
 I guess a Git hook could work well for the installation part.
+
+### Apply a patch
+
+Pre-defined patches live in the `~/.patches` directory. You can use the
+following command to open a fuzzy chooser for selecting which patches you want
+to apply:
+
+```bash
+dots patch
+```
+
+### Open the GitHub repo in a browser window
+
+```bash
+dots web
+```
