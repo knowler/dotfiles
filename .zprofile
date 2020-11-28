@@ -1,14 +1,6 @@
-#
 # Executes commands at login pre-zshrc.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
-#
 # Browser
-#
-
 if [[ $OSTYPE =~ "darwin" ]]; then
   export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
 fi
@@ -16,33 +8,20 @@ if [[ $OSTYPE =~ "linux" ]]; then
   export BROWSER='firefox'
 fi
 
-#
 # Editors
-#
-
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
 
-#
 # Language
-#
-
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
-#
 # Paths
-#
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
-
-# Set the list of directories that cd searches.
-# cdpath=(
-#   $cdpath
-# )
 
 # Set the list of directories that Zsh searches for programs.
 path=(
@@ -51,9 +30,7 @@ path=(
   $path
 )
 
-#
 # Less
-#
 
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
@@ -66,15 +43,9 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-#
-# bat
-#
-
+# Bat
 export BAT_THEME=$(if [[ -x $(command -v dark-mode) && $(dark-mode status) == "on" ]]; then echo "Nord"; else echo "OneHalfLight"; fi)
 
-#
 # fzf
-#
- 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPS="--ansi"
