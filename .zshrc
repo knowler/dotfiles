@@ -13,9 +13,6 @@ fi
 # Customize to your needs...
 #
 
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
-export FZF_DEFAULT_OPS="--ansi"
-
 # Autoload scripts
 source "$HOME/.scripts/autoload.sh"
 
