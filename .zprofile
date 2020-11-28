@@ -46,6 +46,7 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/.{local,volta,cargo}/bin
   /usr/local/{bin,sbin}
   $path
 )
@@ -71,4 +72,9 @@ fi
 
 export BAT_THEME=$(if [[ -x $(command -v dark-mode) && $(dark-mode status) == "on" ]]; then echo "Nord"; else echo "OneHalfLight"; fi)
 
-export PATH="$HOME/.cargo/bin:$PATH"
+#
+# fzf
+#
+ 
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
+export FZF_DEFAULT_OPS="--ansi"
