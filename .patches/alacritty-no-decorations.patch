@@ -1,0 +1,25 @@
+From 0c676d2d94d364a1c0b01a1e9daed8b12a829752 Mon Sep 17 00:00:00 2001
+From: Nathan Knowler <nathan@knowler.me>
+Date: Sun, 29 Nov 2020 21:07:02 -0600
+Subject: [PATCH] [manjaro-alacritty] set decorations to none
+
+---
+ .config/alacritty/alacritty.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/.config/alacritty/alacritty.yml b/.config/alacritty/alacritty.yml
+index 388e9af..37ea661 100644
+--- a/.config/alacritty/alacritty.yml
++++ b/.config/alacritty/alacritty.yml
+@@ -5,7 +5,7 @@ window:
+     x: 16
+     y: 12
+   dynamic_padding: true
+-  decorations: buttonless
++  decorations: none
+   dynamic_title: true
+   gtk_theme_variant: None
+ scrolling:
+-- 
+2.29.0
+
