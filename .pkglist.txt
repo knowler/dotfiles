@@ -74,6 +74,7 @@ gettext
 git-delta
 github-cli
 glibc
+glow
 gnome-backgrounds
 gnome-calculator
 gnome-calendar
