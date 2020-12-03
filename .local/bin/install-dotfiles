@@ -13,8 +13,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 installed() { command -v "$1" >/dev/null 2>&1; }
 
 # Set up package manager
-[[ "$(uname -s)" =~ "Darwin" ]] && installed brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-[[ "$(uname -r)" =~ "MANJARO" ]] && installed yay || sudo pacman -S yay
+[[ "$(uname -s)" =~ "Darwin" ]] && (installed brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
+[[ "$(uname -r)" =~ "MANJARO" ]] && (installed yay || sudo pacman -S yay)
 
 [ -d "$git_dir" ] || git clone "$repo" "$git_dir" --bare      # Clone as a bare repository, if not already
 git --git-dir="$git_dir" --work-tree="$install_dir" checkout  # Checkout in install directory
