@@ -22,6 +22,9 @@ EOF
 }
 
 dots-git() { git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" $@; }
+run_command() { echo "$1"; eval "$1"; }
+macos_command() { [[ "$(uname -s)" =~ "Darwin" ]] && run_command "$1"; }
+manjaro_command() { [[ "$(uname -r)" =~ "MANJARO" ]] && run_command "$1"; }
 
 case "$1" in
   -h)
@@ -34,13 +37,16 @@ case "$1" in
     usage
     ;;
   install)
-    just install $@
+    macos_command 'brew bundle install --global --no-upgrade --no-lock'
+    manjaro_command 'yay -S --needed - < $HOME/.pkglist.txt'
     ;;
   dump)
-    just dump $@
+    macos_command 'brew bundle dump --global --force'
+    manjaro_command 'yay -Qqe > $HOME/.pkglist.txt'
     ;;
   upgrade)
-    just upgrade $@
+    macos_command 'brew upgrade'
+    manjaro_command 'yay -Syu'
     ;;
   setup)
     just setup $@
@@ -58,4 +64,3 @@ case "$1" in
     dots-git $@
     ;;
 esac
-

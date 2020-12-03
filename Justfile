@@ -1,26 +1,6 @@
 #!/usr/bin/env just --justfile
 # vim: set filetype=make :
 
-# Install new packages
-install:
-	@just _install-{{os()}}
-
-_install-macos:
-	brew bundle install --global --no-upgrade --no-lock
-
-_install-linux:
-	yay -S --needed - < $HOME/.pkglist.txt
-
-# Dump installed packages
-dump:
-	@just _dump-{{os()}}
-
-_dump-macos:
-	brew bundle dump --global --force
-
-_dump-linux:
-	yay -Qqe > $HOME/.pkglist.txt
-
 # Upgrade all or specified packages
 upgrade *PACKAGES:
 	@just _upgrade-{{os()}} {{PACKAGES}}
