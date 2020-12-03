@@ -24,8 +24,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://dots.knowlerkno.ws | bash
 
 ### Generating Nerd Font for Dank Mono (used in Alacritty)
 
-I still need to write out the instructions for this. For now, if you don’t have
-the Nerd Font, then run apply the patch and just don’t commit the change:
+I still need to write out the instructions for this. For now, if you don't have
+the Nerd Font, then run apply the patch and just don't commit the change:
 
 ```bash
 dots patch no-nerd-font
@@ -78,13 +78,13 @@ To dump recent packages you might have installed to package list use:
 dots dump
 ```
 
-Ideally, this would be automated when installing packages and I’ve seen a
+Ideally, this would be automated when installing packages and I've seen a
 `systemctl` hook to automate this which I will be exploring in the near future.
 I guess a Git hook could work well for the installation part.
 
 ### Apply a patch
 
-Pre-defined patches live in the `~/.patches` directory. You can use the
+Predefined patches live in the `~/.patches` directory. You can use the
 following command to open a fuzzy chooser for selecting which patches you want
 to apply:
 
