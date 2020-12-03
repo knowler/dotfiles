@@ -22,45 +22,62 @@ EOF
 }
 
 dots-git() { git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" $@; }
-run_command() { echo "$1"; eval "$1"; }
-macos_command() { [[ "$(uname -s)" =~ "Darwin" ]] && run_command "$1"; }
-manjaro_command() { [[ "$(uname -r)" =~ "MANJARO" ]] && run_command "$1"; }
+run-command() { echo "$1"; eval "$1"; }
+os() {
+  [[ "$(uname -s)" =~ "Darwin" ]] && echo "macOS"
+  [[ "$(uname -r)" =~ "MANJARO" ]] && echo "Manjaro"
+}
+err-not-supported() { 
+  echo "Operating system not supported for this command"
+  exit 1
+}
 
 case "$1" in
-  -h)
-    usage
-    ;;
-  --help)
-    usage
-    ;;
-  help)
-    usage
-    ;;
+
+  -h | --help | help) usage;;
+
   install)
-    macos_command 'brew bundle install --global --no-upgrade --no-lock'
-    manjaro_command 'yay -S --needed - < $HOME/.pkglist.txt'
+    case `os` in
+      macOS)   run-command 'brew bundle install --global --no-upgrade --no-lock';;
+      Manjaro) run-command 'yay -S --needed - < $HOME/.pkglist.txt';;
+      *)       err-not-supported;;
+    esac
     ;;
+
   dump)
-    macos_command 'brew bundle dump --global --force'
-    manjaro_command 'yay -Qqe > $HOME/.pkglist.txt'
+    case `os` in
+      macOS)   run-command 'brew bundle dump --global --force';;
+      Manjaro) run-command 'yay -Qqe > $HOME/.pkglist.txt';;
+      *)       err-not-supported;;
+    esac
     ;;
+
   upgrade)
-    macos_command 'brew upgrade'
-    manjaro_command 'yay -Syu'
+    case `os` in
+      macOS)   run-command 'brew upgrade';;
+      Manjaro) run-command 'yay -Syu';;
+      *)       err-not-supported;;
+    esac
     ;;
+
   setup)
-    just setup $@
+    just setup ${@:2}
     ;;
+
   patch)
     dots-git apply $(dots-git ls-files $HOME/.patches | fzf --query "$2" --multi --select-1 --preview="bat --color=always {}")
     ;;
+
   open)
     $EDITOR "$HOME/$(dots-git ls-files | fzf --query "$2" --select-1 --preview "bat --color=always $HOME/{}")"
     ;;
+
   web)
     $BROWSER "https://github.com/knowler/dotfiles"
     ;;
+
   *)
     dots-git $@
     ;;
+
 esac
