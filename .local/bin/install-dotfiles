@@ -5,6 +5,8 @@ repo="https://github.com/knowler/dotfiles.git"
 git_dir="$HOME/.dotfiles"
 install_dir="$HOME"
 
+echo "Installing dotfiles..."
+
 # Ask for sudo password and keep alive
 sudo -v 
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
