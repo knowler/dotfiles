@@ -51,6 +51,9 @@ filetype plugin indent on
 syntax on
 syntax enable
 
+" I am Canadian
+set spelllang=en_ca
+
 " tmux + alacritty + color scheme related
 set t_Co=256
 if &term =~ '256color' | set t_ut= | endif
