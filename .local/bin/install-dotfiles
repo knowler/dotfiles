@@ -11,22 +11,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Helpers
 installed() { command -v "$1" >/dev/null 2>&1; }
-os=$(uname -s); 
-release=$(uname -r)
 
 # Set up package manager
-if [[ "$os" =~ "Darwin" ]]; then
-  installed brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  alias install_package="brew install"
-elif [[ "$os" =~ "Linux" && "$release" =~ "MANJARO" ]]; then
-  installed yay || sudo pacman -S yay
-  alias install_package="yay -Sy"
-else
-  echo "Does not support this operating system or distribution." 
-  exit 1
-fi
+[[ "$(uname -s)" =~ "Darwin" ]] && installed brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+[[ "$(uname -r)" =~ "MANJARO" ]] && installed yay || sudo pacman -S yay
 
-installed just || install_package just                        # Install just, if not already
 [ -d "$git_dir" ] || git clone "$repo" "$git_dir" --bare      # Clone as a bare repository, if not already
 git --git-dir="$git_dir" --work-tree="$install_dir" checkout  # Checkout in install directory
 dots config status.showUntrackedFiles no                      # Set dotfiles config to not show untracked file in status
