@@ -41,6 +41,13 @@ Plug 'wakatime/vim-wakatime'
 
 " Writing
 Plug 'vimwiki/vimwiki'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-wordy'
+Plug 'reedes/vim-litecorrect'
+Plug 'reedes/vim-textobj-quote'
+Plug 'reedes/vim-lexical'
 
 call plug#end()
 
@@ -200,6 +207,72 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use JSONC for config files that support it [jsonc]
 autocmd BufNewFile,BufRead {.eslintrc,tsconfig}.json set syntax=json filetype=jsonc
+
+" Writing [pencil,litecorrect]
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,gitcommit call pencil#init()
+        \ | call lexical#init()
+        \ | call litecorrect#init()
+        \ | call textobj#quote#init()
+  autocmd FileType markdown set tw=72
+augroup END
+
+let g:airline_section_x = '%{PencilMode()}'
+let g:pencil#mode_indicators = {'hard': 'H', 'auto': 'A', 'soft': 'S', 'off': '',}
+
+" Typewriting mode [goyo,limelight]
+" the real mvp: https://github.com/junegunn/limelight.vim/issues/39#issuecomment-466664354
+let g:limelight_conceal_ctermfg = '#3e445e'
+let g:limelight_conceal_guifg = '#3e445e'
+
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  silent !yabai -m window mouse --toggle native-fullscreen
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  nmap j jzz
+  nmap j jzz
+  nmap k kzz
+  nmap G Gzz
+  nmap gg ggzz
+  Limelight
+  let &l:statusline = '%M'
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  silent !yabai -m window mouse --toggle native-fullscreen
+
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Use Ripgrep + FZF for fuzzy searching code (source: FZF plugin README) [fzf.vim + ripgrep]
 function! RipgrepFzf(query, fullscreen)
