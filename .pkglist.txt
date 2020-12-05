@@ -302,6 +302,7 @@ volta
 vulkan-intel
 vulkan-radeon
 waybar
+wayvnc
 wf-recorder
 wget
 which
