@@ -1,3 +1,4 @@
+(server-start)
 (setq user-full-name "Nathan Knowler"
       user-mail-address "nathan@knowler.me")
 
