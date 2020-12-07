@@ -7,7 +7,6 @@ set nocompatible
 call plug#begin(stdpath('data') . '/plugged')
 
 " Essentials
-Plug 'neoclide/coc.nvim', {'branch': 'release'}       " LSP aka Intellisense for vim (extensions are installed with :CocInstall)
 Plug 'sheerun/vim-polyglot'                           " The only syntax highlighting package you will ever need
 Plug 'AndrewRadev/splitjoin.vim'                      " Easily switch between single and multi line format for stuff (split: gS | join: gJ)
 Plug 'tpope/vim-fugitive'                             " Git for vim
@@ -15,6 +14,25 @@ Plug 'tpope/vim-surround'                             " Surround stuff
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }   " Fuzzy find stuff
 Plug 'junegunn/fzf.vim'
+
+" LSP
+Plug 'neoclide/coc.nvim', {'branch': 'release'}       " LSP aka Intellisense for vim (extensions are installed with :CocInstall)
+Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-actions', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-svg', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
+Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+
 
 " Tmux essentials
 Plug 'christoomey/vim-tmux-navigator'
