@@ -2,6 +2,7 @@
   "dependencies": {
     "coc-actions": ">=1.4.3",
     "coc-css": ">=1.2.6",
+    "coc-diagnostic": ">=0.14.0",
     "coc-eslint": ">=1.3.2",
     "coc-highlight": ">=1.2.6",
     "coc-json": ">=1.3.2",
