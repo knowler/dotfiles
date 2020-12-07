@@ -81,6 +81,17 @@
   :ensure t 
   :bind ("C-x g" . magit-status))
 
+(leaf elfeed
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x w") 'elfeed))
+
+(leaf elfeed-org
+    :after elfeed
+    :ensure t
+    :init
+    (elfeed-org))
+
 (leaf evil 
   :ensure t
   :init
