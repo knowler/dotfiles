@@ -78,7 +78,7 @@
   :commands company-lsp)
 
 (leaf magit 
-  :ensure-t 
+  :ensure t 
   :bind ("C-x g" . magit-status))
 
 (leaf evil 
