@@ -21,6 +21,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Cosmetic
 Plug 'cocopon/iceberg.vim'
+Plug 'cocopon/colorswatch.vim'
 
 " Helpful cosmetic
 Plug 'airblade/vim-gitgutter'                         " Show git status for lines in gutter
