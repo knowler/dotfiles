@@ -49,6 +49,7 @@ Plug 'reedes/vim-wordy'
 Plug 'reedes/vim-litecorrect'
 Plug 'kana/vim-textobj-user'
 Plug 'reedes/vim-textobj-quote'
+Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-lexical'
 
 call plug#end()
