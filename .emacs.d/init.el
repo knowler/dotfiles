@@ -104,5 +104,11 @@
   :config
   (evil-collection-init))
 
+(leaf wakatime-mode
+  :ensure t
+  :init
+  (setq wakatime-cli-path "/usr/local/bin/wakatime")
+  (global-wakatime-mode))
+
 (set-frame-parameter (selected-frame) 'alpha '(90 88))
 (add-to-list 'default-frame-alist '(alpha 90 88))
