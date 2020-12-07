@@ -10,7 +10,7 @@ source "$HOME/.scripts/autoload.sh"
 
 # Aliases
 alias vi="nvim"
-alias goyo="nvim +Goyo"
+alias goyo="nvim +Goyo +'set ft=markdown'"
 alias ls="exa -l --group-directories-first --icons"
 alias la="exa -la --group-directories-first --icons"
 alias o="open"
