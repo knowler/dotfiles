@@ -37,6 +37,7 @@ device-mapper
 dhclient
 dhcpcd
 diffutils
+direnv
 disable-tracker
 discord_arch_electron
 dmenu

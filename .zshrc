@@ -17,3 +17,4 @@ alias o="open"
 
 eval "$(starship init zsh)"
 eval "$(trellis shell-init zsh)"
+eval "$(direnv hook zsh)"
