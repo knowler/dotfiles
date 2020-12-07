@@ -103,3 +103,6 @@
   :ensure t
   :config
   (evil-collection-init))
+
+(set-frame-parameter (selected-frame) 'alpha '(90 88))
+(add-to-list 'default-frame-alist '(alpha 90 88))
