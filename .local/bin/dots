@@ -64,7 +64,7 @@ case "$1" in
 
   patch) dots-git apply $(dots-git ls-files $HOME/.patches | fzf --query "$2" --multi --select-1 --preview="bat --color=always {}");;
 
-  open) $EDITOR "$HOME/$(dots-git ls-files | fzf --query "$2" --select-1 --preview "bat --color=always $HOME/{}")";;
+  open) $EDITOR "$HOME/$(git --git-dir="$HOME/.dotfiles" ls-files | fzf --query "$2" --select-1 --preview "bat --color=always $HOME/{}")";;
 
   web) $BROWSER "https://github.com/knowler/dotfiles";;
 
