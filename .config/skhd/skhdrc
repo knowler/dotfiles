@@ -120,4 +120,5 @@ alt - q [
 alt - m : yabai -m window --focus $(yabai -m query --windows --space mouse | jq -e '.[] | select(.app=="IINA" and .focused!=1) | .id' || echo 'recent')
 
 .blacklist [
+  "vnc viewer"
 ]

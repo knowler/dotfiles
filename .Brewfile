@@ -100,6 +100,7 @@ cask "vagrant"
 cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
+cask "vnc-viewer"
 cask "zoomus"
 mas "Contrast", id: 1254981365
 mas "iA Writer", id: 775737590
