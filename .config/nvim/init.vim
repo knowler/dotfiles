@@ -47,6 +47,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-wordy'
 Plug 'reedes/vim-litecorrect'
+Plug 'kana/vim-textobj-user'
 Plug 'reedes/vim-textobj-quote'
 Plug 'reedes/vim-lexical'
 
