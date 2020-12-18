@@ -131,6 +131,12 @@ set emoji
 " Wrap at 80 for text
 set textwidth=80
 
+" Fold all the things
+set foldlevel=0
+set foldmethod=syntax
+set foldtext=CustomFoldText('.')
+set fillchars=fold:.
+
 " Allow mouse
 set mouse=n
 
@@ -305,3 +311,43 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" Copied from Yoshua Wuyts
+" https://github.com/yoshuawuyts/dotfiles/blob/93cb44331fdfe09a942c81e33511c61d9db2b662/vim/vimrc#L81-L124
+function! CustomFoldText(string)
+  let fs = v:foldstart
+
+  while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+  endwhile
+
+  if fs > v:foldend
+    let line = getline(v:foldstart)
+  else
+    let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+  endif
+
+  let pat  = matchstr(&l:cms, '^\V\.\{-}\ze%s\m')
+  let line = substitute(line, '^\s*'.pat.'\s*', '', '')
+  let pat  = '\%('. pat. '\)\?\s*'. split(&l:fmr, ',')[0]. '\s*\d\+'
+  let line = substitute(line, pat, '', '')
+
+  let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
+
+  let foldSize = 1 + v:foldend - v:foldstart
+  let foldSizeStr = " " . foldSize . " "
+  let foldLevelStr = '    '
+  let lineCount = line("$")
+  if has("float")
+    try
+      let foldPercentage = printf("[%.0f", (foldSize*1.0)/lineCount*100) . "%] "
+    catch /^Vim\%((\a\+)\)\=:E806/	" E806: Using Float as String
+      let foldPercentage = printf("[of %d] ", lineCount)
+    endtry
+  endif
+  if exists("*strwdith")
+      let expansionString = repeat(a:string, w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
+        else
+      let expansionString = repeat(a:string, w - strlen(substitute(foldSizeStr.line.foldLevelStr.foldPercentage, '.', 'x', 'g')))
+  endif
+  return line . ' ' . expansionString . foldSizeStr . foldPercentage . foldLevelStr
+endf
