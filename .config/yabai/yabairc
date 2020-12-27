@@ -45,4 +45,4 @@ yabai -m rule --add app="System Preferences" manage=off layer=above
 
 yabai -m rule --add app="IINA" sticky=on
 
-yabai -m rule --add app="Contrast" manage=off
+yabai -m rule --add app="Contrast" manage=off layer=above
