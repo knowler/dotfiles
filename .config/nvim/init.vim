@@ -60,6 +60,7 @@ Plug 'neoclide/jsonc.vim'
 Plug 'wakatime/vim-wakatime'
 
 " Writing
+Plug 'jceb/vim-orgmode'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
