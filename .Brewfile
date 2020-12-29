@@ -49,7 +49,8 @@ brew "neofetch"
 brew "neovim"
 brew "nginx"
 brew "pandoc"
-brew "php"
+brew "php", link: false
+brew "php@7.4", link: true
 brew "pinentry-mac"
 brew "pv"
 brew "ripgrep"
