@@ -1,6 +1,6 @@
 # dotfiles
 
-all the cool kids do this
+Personal dotfiles for macOS and Manjaro.
 
 ## Overview
 
