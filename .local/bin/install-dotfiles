@@ -22,5 +22,8 @@ installed() { command -v "$1" >/dev/null 2>&1; }
 git --git-dir="$git_dir" --work-tree="$install_dir" checkout  # Checkout in install directory
 dots config status.showUntrackedFiles no                      # Set dotfiles config to not show untracked file in status
 dots install                                                  # Install packages
-dots setup                                                    # Run post-install setup for some applications
+setup-zsh                                                     # Setup Zsh (Prezto)
+setup-tmux                                                    # Setup Tmux (TPM)
+setup-neovim                                                  # Setup Neovim (vim-plug + plugins)
+setup-node                                                    # Install Node Latest + LTS and Yarn
 exec "$SHELL" -l                                              # Reload the shell

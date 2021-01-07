@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+volta install node@latest
+volta fetch node@lts
+volta install yarn

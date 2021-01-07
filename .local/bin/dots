@@ -12,7 +12,6 @@ USAGE:
 
 CUSTOM SUBCOMMANDS:
     install                 Install new system packages
-    setup <packages>...     Run additional setup for system packages
     upgrade <packages>...   Upgrade all packages or specified ones
     dump                    Dump installed packages to list
     patch <patch-file>      Apply a pre-made patch
@@ -59,8 +58,6 @@ case "$1" in
       *)       err-not-supported;;
     esac
     ;;
-
-  setup) just setup ${@:2};;
 
   patch) dots-git apply $(dots-git ls-files $HOME/.patches | fzf --query "$2" --multi --select-1 --preview="bat --color=always {}");;
 
