@@ -353,3 +353,5 @@ function! CustomFoldText(string)
   endif
   return line . ' ' . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endf
+
+let g:vimtex_view_method='zathura'
