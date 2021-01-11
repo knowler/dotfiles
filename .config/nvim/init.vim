@@ -313,6 +313,7 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+nmap <Leader>r :Rg!<CR>
 
 " Copied from Yoshua Wuyts
 " https://github.com/yoshuawuyts/dotfiles/blob/93cb44331fdfe09a942c81e33511c61d9db2b662/vim/vimrc#L81-L124
