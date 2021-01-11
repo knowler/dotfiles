@@ -1,1 +1,11 @@
 #!/usr/bin/env bash
+
+changed_files=$(git diff-tree -r --name-only --no-commit-id $1 $2)
+has_changed() { echo "$changed_files" | grep --quiet "$1"; }
+
+# Node deps
+has_changed yarn.lock && yarn
+has_changed package-lock.json && npm install
+
+# Composer deps
+has_changed composer.lock && composer install
