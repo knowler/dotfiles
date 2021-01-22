@@ -29,6 +29,7 @@
 	ls-unmerged = diff --diff-filter=U --name-only
 	loot = !loot
 	limb = !limb
+	litter = !litter
 [rebase]
 	autoSquash = true
 [status]

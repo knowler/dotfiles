@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# h/t Jason Adams for inspiration
+git branch --format="%(refname:lstrip=2)" | fzf --multi --query "$1" | xargs git branch -D
