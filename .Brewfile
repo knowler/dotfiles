@@ -62,6 +62,7 @@ brew "pandoc"
 brew "php", link: false
 brew "php@7.4", link: true
 brew "pinentry-mac"
+brew "pup"
 brew "pv"
 brew "ripgrep"
 brew "rm-improved"
