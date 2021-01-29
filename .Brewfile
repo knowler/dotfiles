@@ -3,6 +3,7 @@ tap "d12frosted/emacs-plus"
 tap "googlechrome/simplehttp2server", "https://github.com/GoogleChrome/simplehttp2server"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
@@ -138,6 +139,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
 cask "zoomus"
+cask "zsa-wally"
 mas "Contrast", id: 1254981365
 mas "iA Writer", id: 775737590
 mas "Xcode", id: 497799835
