@@ -30,6 +30,7 @@
 	loot = !loot
 	limb = !limb
 	litter = !litter
+	update = !gitupdate
 [rebase]
 	autoSquash = true
 [status]
