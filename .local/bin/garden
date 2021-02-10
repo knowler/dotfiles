@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+$EDITOR "$HOME/code/knowlerkno.ws/content/garden/$(slugify "$@").md"
