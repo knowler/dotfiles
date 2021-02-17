@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-# Requirements
-# - fzf
-# - moreutils (includes vipe)
-# - gh (GitHub CLI + you need to be signed in)
+# Usage: gist [filename]
+#
+# 1. If the gist exists (out of the 10 most recent gists), it will open it in an
+#    editor
+#
+# 2. If it does not exist, it will open a blank file in the editor, and create
+#    the gist on exit (provided the file isn’t empty).
+#
+# Requirements: fzf, moreutils, gh
 
-# Fuzzy search for the Gist to edit
 FILE="$1"
 GIST=$(gh gist list | cut -f1,2 | fzf --query "$FILE" --select-1 --exit-0 | cut -f1)
 
