@@ -1,3 +1,17 @@
 #!/usr/bin/env bash
 
-gh gist edit `gh gist list | cut -f1,2 | fzf --query "$1" --select-1 | cut -f1`
+# Requirements
+# - fzf
+# - moreutils (includes vipe)
+# - gh (GitHub CLI + you need to be signed in)
+
+# Fuzzy search for the Gist to edit
+FILE="$1"
+GIST=$(gh gist list | cut -f1,2 | fzf --query "$FILE" --select-1 --exit-0 | cut -f1)
+
+if [ -n "$GIST" ]
+then
+  gh gist edit "$GIST"
+else
+  echo "" | vipe --suffix "${FILE##*.}" | gh gist create -f "$FILE"
+fi
