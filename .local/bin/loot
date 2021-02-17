@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-stash=$(git $@ stash list | cut -d: -f1 | fzf --preview "git $@ show --color=always {}")
+stash=$(git $@ stash list | fzf --delimiter=: --with-nth=3.. --preview "git $@ show --color=always {1}" | cut -d: -f1)
 
 if [[ -n "$stash" ]]; then
   git $@ stash pop $stash
