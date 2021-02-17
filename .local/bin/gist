@@ -11,7 +11,7 @@
 # Requirements: fzf, moreutils, gh
 
 FILE="$1"
-GIST=$(gh gist list | cut -f1,2 | fzf --query "$FILE" --select-1 --exit-0 | cut -f1)
+GIST=$(gh gist list | cut -f1,2 | fzf --query "$FILE" --select-1 --exit-0 --preview="gh gist view {1}" | cut -f1)
 
 if [ -n "$GIST" ]
 then
