@@ -212,7 +212,7 @@ let g:closetag_filenames = '*.js,*.jsx'
 
 " vimwiki config [vimwiki]
 let g:vimwiki_list = [
-  \ { 'path': '~/content', 'syntax': 'markdown', 'ext': '.md', 'index': 'main'}
+  \ { 'path': '~/wiki', 'syntax': 'markdown', 'ext': '.md', 'index': 'main'}
 \]
 let g:vimwiki_global_ext = 0    " Do not use vimwiki for every Markdown file
 let g:vimwiki_auto_header = 1   " Add a header to new files
