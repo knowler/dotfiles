@@ -48,3 +48,5 @@ yabai -m rule --add app="IINA" sticky=on
 yabai -m rule --add app="Contrast" manage=off layer=above
 
 yabai -m rule --add app="iA Writer" title="(General|Accounts|Files|Library|Editor|Templates)" manage=off layer=above
+
+yabai -m rule --add app="Discord" title="Discord Updater" manage=off
