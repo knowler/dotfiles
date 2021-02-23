@@ -76,4 +76,17 @@ cursor:
   style: Block
   unfocused_hollow: true
 live_config_reload: true
-
+shell:
+  program: /usr/local/bin/tmux
+  args:
+    - attach
+    - -d
+key_bindings:
+# New "tab" (tmux window)
+- { key: T, mods: Command, chars: "\x01\x63"  } 
+# Close "tab" (tmux window)
+- { key: W, mods: Command, chars: "\x01\x78"  } 
+- { key: Key1, mods: Command, chars: "\x01\x31"  } 
+- { key: Key2, mods: Command, chars: "\x01\x32"  } 
+- { key: Key3, mods: Command, chars: "\x01\x33"  } 
+- { key: Key4, mods: Command, chars: "\x01\x34"  } 
