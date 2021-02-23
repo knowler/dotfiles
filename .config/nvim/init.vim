@@ -246,7 +246,7 @@ augroup pencil
         \ | call lexical#init()
         \ | call litecorrect#init()
         \ | call textobj#quote#init()
-  autocmd FileType markdown set tw=72
+  autocmd FileType markdown,tex set tw=72
 augroup END
 
 let g:airline_section_x = '%{PencilMode()}'
@@ -271,7 +271,6 @@ function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set scrolloff=999
-  nmap j jzz
   nmap j jzz
   nmap k kzz
   nmap G Gzz
@@ -355,5 +354,3 @@ function! CustomFoldText(string)
   endif
   return line . ' ' . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endf
-
-let g:vimtex_view_method='zathura'
