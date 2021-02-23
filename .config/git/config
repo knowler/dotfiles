@@ -12,7 +12,7 @@
 	autocorrect = 1
 [init]
 	defaultBranch = main
-	templateDir = ~/.local/share/git-core/templates
+	#templateDir = ~/.local/share/git-core/templates
 [pull]
 	ff = only
 [delta]
