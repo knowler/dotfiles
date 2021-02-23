@@ -79,14 +79,38 @@ live_config_reload: true
 shell:
   program: /usr/local/bin/tmux
   args:
-    - attach
-    - -d
+    - new-session
+    - -A
+    - -D
+    - -s
+    - code
+
+# tmux keybindings
 key_bindings:
-# New "tab" (tmux window)
-- { key: T, mods: Command, chars: "\x01\x63"  } 
-# Close "tab" (tmux window)
-- { key: W, mods: Command, chars: "\x01\x78"  } 
-- { key: Key1, mods: Command, chars: "\x01\x31"  } 
-- { key: Key2, mods: Command, chars: "\x01\x32"  } 
-- { key: Key3, mods: Command, chars: "\x01\x33"  } 
-- { key: Key4, mods: Command, chars: "\x01\x34"  } 
+
+# New tmux window
+- { key: T, mods: Command, command: { program: "tmux", args: ["new-window"] } }
+
+# Close tmux window
+- { key: W, mods: Command, command: { program: "tmux", args: ["confirm-before", "-p", "Close window? (y/p)", "kill-window"] } } 
+
+# Split window in direction
+- { key: H, mods: Command, command: { program: "tmux", args: ["split-window", "-h", "-b"] } }
+- { key: J, mods: Command, command: { program: "tmux", args: ["split-window", "-b"] } }
+- { key: K, mods: Command, command: { program: "tmux", args: ["split-window"] } }
+- { key: L, mods: Command, command: { program: "tmux", args: ["split-window", "-h"] } }
+
+# Go to numbered window
+- { key: Key1, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "1"] } } 
+- { key: Key2, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "2"] } } 
+- { key: Key3, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "3"] } } 
+- { key: Key4, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "4"] } } 
+- { key: Key5, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "5"] } } 
+- { key: Key6, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "6"] } } 
+- { key: Key7, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "7"] } } 
+- { key: Key8, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "8"] } } 
+- { key: Key9, mods: Command, command: { program: "tmux", args: ["select-window", "-t", "9"] } } 
+
+# Move window order
+- { key: H, mods: Command|Shift, command: { program: "tmux", args: ["swap-window", "-t", "-1", ";", "select-window", "-t", "-1"] } }
+- { key: L, mods: Command|Shift, command: { program: "tmux", args: ["swap-window", "-t", "+1", ";", "select-window", "-t", "+1"] } }
