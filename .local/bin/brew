@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Pass everything to brew
+/usr/local/bin/brew "$@"
+
+# Dump after install or upgrade
+case "$1" in
+  install | upgrade) /usr/local/bin/brew bundle dump --global --force;;
+esac
