@@ -38,7 +38,6 @@ Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 
-
 " Tmux essentials
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -154,9 +153,6 @@ set clipboard+=unnamedplus
 " Perf
 set ttyfast
 set updatetime=250
-
-" Blink the cursor (doesn’t work)
-set guicursor=a:blinkon100
 
 " LSP plugins like this
 set hidden
