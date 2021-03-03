@@ -1,3 +1,4 @@
+tap "apenngrace/vulkan"
 tap "bradyjoslin/sharewifi"
 tap "cmacrae/formulae"
 tap "d12frosted/emacs-plus"
@@ -164,6 +165,7 @@ cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
+cask "vulkan-sdk"
 cask "zoomus"
 cask "zsa-wally"
 mas "Contrast", id: 1254981365
