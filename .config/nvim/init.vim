@@ -355,3 +355,9 @@ function! CustomFoldText(string)
   endif
   return line . ' ' . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endf
+
+augroup paper
+  autocmd!
+  autocmd BufRead paper.tex VimtexCompile
+  autocmd BufWritePost paper.tex silent !gitupdate % &
+augroup end
