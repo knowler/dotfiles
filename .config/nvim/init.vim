@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'                             " Surround stuff
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }   " Fuzzy find stuff
 Plug 'junegunn/fzf.vim'
+Plug 'tommcdo/vim-exchange'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}       " LSP aka Intellisense for vim (extensions are installed with :CocInstall)
