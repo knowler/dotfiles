@@ -242,7 +242,8 @@ autocmd BufNewFile,BufRead {.eslintrc,tsconfig}.json set syntax=json filetype=js
 " Writing [pencil,litecorrect]
 augroup pencil
   autocmd!
-  autocmd FileType markdown,gitcommit call pencil#init()
+  autocmd FileType tex,markdown,gitcommit
+        \ | call pencil#init() 
         \ | call lexical#init()
         \ | call litecorrect#init()
         \ | call textobj#quote#init()
