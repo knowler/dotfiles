@@ -7,7 +7,10 @@ set nocompatible
 call plug#begin(stdpath('data') . '/plugged')
 
 " Essentials
+" Syntax (we use another plugin for this)
+let g:polyglot_disabled = ['markdown']
 Plug 'sheerun/vim-polyglot'                           " The only syntax highlighting package you will ever need
+Plug 'tpope/vim-markdown'
 Plug 'AndrewRadev/splitjoin.vim'                      " Easily switch between single and multi line format for stuff (split: gS | join: gJ)
 Plug 'tpope/vim-fugitive'                             " Git for vim
 Plug 'tpope/vim-surround'                             " Surround stuff
