@@ -225,7 +225,7 @@ autocmd FileType gitcommit set tw=72 cc=51,+1
 augroup vimrc
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END
+augroup end
 
 " Improve auto closing of stuff for files with JSX [delimitMate]
 autocmd FileType javascript,javascriptreact,typescript,typescriptreact let b:delimitMate_matchpairs = "(:),[:],{:}"
@@ -248,7 +248,7 @@ augroup pencil
         \ | call litecorrect#init()
         \ | call textobj#quote#init()
   autocmd FileType markdown,tex set tw=72
-augroup END
+augroup end
 
 let g:airline_section_x = '%{PencilMode()}'
 let g:pencil#mode_indicators = {'hard': 'H', 'auto': 'A', 'soft': 'S', 'off': '',}
@@ -356,6 +356,7 @@ function! CustomFoldText(string)
   return line . ' ' . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endf
 
+" Paper writing auto commands
 augroup paper
   autocmd!
   autocmd BufRead paper.tex VimtexCompile
