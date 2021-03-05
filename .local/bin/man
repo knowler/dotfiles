@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+zsh -ic "/usr/bin/man $1"
