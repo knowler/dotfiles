@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+gh repo list --limit 1000 "${1:-knowler}" \
+  | cut -f1 \
+  | fzf --delimiter=\/ --with-nth=2 --layout=reverse --height=10
