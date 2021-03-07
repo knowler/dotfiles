@@ -9,9 +9,6 @@
 # Enter resize mode
 alt - r ; resize
 
-# Open rx
-alt - p : rx
-
 resize < escape ; default
 
 resize < h :          yabai -m window --resize left:-5:0.0
