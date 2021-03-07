@@ -31,6 +31,7 @@ brew "deno"
 brew "direnv"
 brew "dnsmasq", restart_service: true
 brew "dockutil"
+brew "dolt"
 brew "dust"
 brew "eva"
 brew "exa"
