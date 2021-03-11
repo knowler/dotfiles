@@ -13,6 +13,7 @@ Plug 'sheerun/vim-polyglot'                           " The only syntax highligh
 Plug 'tpope/vim-markdown'
 Plug 'AndrewRadev/splitjoin.vim'                      " Easily switch between single and multi line format for stuff (split: gS | join: gJ)
 Plug 'tpope/vim-fugitive'                             " Git for vim
+Plug 'tpope/vim-rhubarb'                              " GitHub for vim
 Plug 'tpope/vim-surround'                             " Surround stuff
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }   " Fuzzy find stuff
