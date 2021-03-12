@@ -65,6 +65,8 @@ case "$1" in
 
   web) $BROWSER "https://github.com/knowler/dotfiles";;
 
+  issue | pr) gh $@ --repo knowler/dotfiles;;
+
   *) dots-git $@;;
 
 esac
