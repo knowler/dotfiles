@@ -63,7 +63,7 @@ case "$1" in
 
   open) $EDITOR "$HOME/$(git --git-dir="$HOME/.dotfiles" ls-files | fzf --query "$2" --select-1 --preview "bat --color=always $HOME/{}")";;
 
-  web) $BROWSER "https://github.com/knowler/dotfiles";;
+  web) gh repo view --web knowler/dotfiles;;
 
   issue | pr) gh $@ --repo knowler/dotfiles;;
 
