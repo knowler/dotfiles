@@ -31,6 +31,7 @@
 	limb = !limb
 	litter = !litter
 	update = !gitupdate
+	history = !git-file-history
 [rebase]
 	autoSquash = true
 [status]
