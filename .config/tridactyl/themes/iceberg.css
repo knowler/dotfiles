@@ -1,7 +1,27 @@
-/* Work in progress */
 :root {
-  --tridactyl-bg: #161821 !important;
-  --tridactyl-fg: #7da0ca !important;
+  /* Iceberg colour palette */
+  --background: #161821;
+  --foreground: #c6c8d1;
+  --black: #1e2132;
+  --red: #e27878;
+  --green: #b4be82;
+  --yellow: #e2a478;
+  --blue: #84a0c6;
+  --magenta: #a093c7;
+  --cyan: #89b8c2;
+  --white: #c6c8d1;
+  --lightBlack: #6b7089;
+  --lightRed: #e98989;
+  --lightGreen: #c0ca8e;
+  --lightYellow: #e9b189;
+  --lightBlue: #91acd1;
+  --lightMagenta: #ada0d3;
+  --lightCyan: #95c4ce;
+  --lightWhite: #d2d4de;
+
+  /* Work in progress */
+  --tridactyl-bg: var(--background) !important;
+  --tridactyl-fg: var(--foreground) !important;
 
   --tridactyl-header-first-bg: var(--tridactyl-bg);
   --tridactyl-header-second-bg: var(--tridactyl-bg);
