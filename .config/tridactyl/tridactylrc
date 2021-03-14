@@ -15,6 +15,9 @@ set autofocus false
 " No need for distracting new tab pages
 set newtab about:blank
 
+" Hide mode indicator when page is ignored
+set modeindicatormodes.ignore false
+
 " Only load a restored tab when it becomes active
 setpref browser.sessionstore.restore_on_demand true
 
