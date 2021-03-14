@@ -1,0 +1,14 @@
+:root {
+  --tridactyl-bg: #161821 !important;
+  --tridactyl-fg: #7da0ca !important;
+
+  --tridactyl-header-first-bg: var(--tridactyl-bg);
+  --tridactyl-header-second-bg: var(--tridactyl-bg);
+  --tridactyl-header-third-bg: var(--tridactyl-bg);
+
+  --tridactyl-of-bg: var(--tridactyl-bg);
+  --tridactyl-of-fg: var(--tridactyl-fg);
+
+  --tridactyl-url-bg: var(--tridactyl-bg);
+  --tridactyl-url-fg: var(--tridactyl-fg);
+}
