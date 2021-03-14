@@ -9,6 +9,9 @@ colourscheme iceberg
 " Privacy search
 set searchengine duckduckgo
 
+" Prevents Firefox from focusing the URL bar immediately
+set autofocus false
+
 " No need for distracting new tab pages
 set newtab about:blank
 
