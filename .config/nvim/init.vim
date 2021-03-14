@@ -78,6 +78,8 @@ Plug 'reedes/vim-textobj-quote'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-lexical'
 
+Plug 'tridactyl/vim-tridactyl'
+
 call plug#end()
 
 " Allow filetype plugins
