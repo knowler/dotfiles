@@ -1,4 +1,4 @@
-" vim: set filetype=tridactyl
+" vim: set filetype=vim
 
 " Wipe existing settings
 sanitize tridactyllocal tridactylsync
