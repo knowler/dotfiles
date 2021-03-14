@@ -4,7 +4,7 @@
 " @see https://github.com/BurntSushi/dotfiles/blob/58606ed73c085c7a3f5402bc93c3d4fe571ce02a/.config/tridactyl/tridactylrc#L3-L6
 sanitize tridactyllocal tridactylsync
 
-colourscheme knowler
+colourscheme iceberg
 
 " Privacy search
 set searchengine duckduckgo
