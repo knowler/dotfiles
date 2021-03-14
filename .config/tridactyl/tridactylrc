@@ -1,16 +1,16 @@
 " vim: set filetype=tridactyl
 
-" This apparently ensures this file is respected
-" @see https://github.com/BurntSushi/dotfiles/blob/58606ed73c085c7a3f5402bc93c3d4fe571ce02a/.config/tridactyl/tridactylrc#L3-L6
+" Wipe existing settings
 sanitize tridactyllocal tridactylsync
 
+" Use my work in progress iceberg theme
 colourscheme iceberg
 
 " Privacy search
 set searchengine duckduckgo
 
 " No need for distracting new tab pages
-set browser.newtab.url "about:blank"
+set newtab about:blank
 
 " ========
 " Bindings
@@ -24,7 +24,7 @@ bind zv composite js document.location.href | exclaim_quiet /usr/local/bin/iina
 " =========
 
 " GitHub: most of the time the activity feed is distracting and notifications keep me on task
-autocmd DocStart ^https://github.com$ js tri.excmds.urlmodify('-g', 0, 'notifications')
+autocmd DocStart ^https://github.com/$ js tri.excmds.urlmodify('-g', 0, 'notifications')
 
 " YouTube: show me my subscriptions
-autocmd DocStart ^https://www.youtube.com$ js tri.excmds.urlmodify('-g', 0, 'feed/subscriptions')
+autocmd DocStart ^https://www.youtube.com/$ js tri.excmds.urlmodify('-g', 0, 'feed/subscriptions')
