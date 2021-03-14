@@ -43,3 +43,6 @@ autocmd DocStart ^https://www.youtube.com/$ urlmodify -g 0 feed/subscriptions
 
 " Gmail: ignore
 autocmd DocStart mail.google.com mode ignore
+
+" Ignore development pages
+autocmd DocStart local.test|localhost|127.0.0.1 mode ignore
