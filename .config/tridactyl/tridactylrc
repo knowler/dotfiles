@@ -40,3 +40,6 @@ autocmd DocStart ^https://github.com/$ urlmodify -g 0 notifications
 
 " YouTube: show me my subscriptions
 autocmd DocStart ^https://www.youtube.com/$ urlmodify -g 0 feed/subscriptions
+
+" Gmail: ignore
+autocmd DocStart mail.google.com mode ignore
