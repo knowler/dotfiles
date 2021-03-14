@@ -16,6 +16,9 @@ set newtab about:blank
 " Hide mode indicator when page is ignored
 set modeindicatormodes.ignore false
 
+" Show keys in mode indicator
+set modeindicatorshowkeys true
+
 " Only load a restored tab when it becomes active
 setpref browser.sessionstore.restore_on_demand true
 
