@@ -32,6 +32,8 @@
 	litter = !litter
 	update = !gitupdate
 	history = !git-file-history
+[merge]
+	tool = nvimdiff
 [rebase]
 	autoSquash = true
 [status]
