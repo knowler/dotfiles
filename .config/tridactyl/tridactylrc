@@ -36,9 +36,6 @@ bind zv composite js document.location.href | exclaim_quiet /usr/local/bin/iina
 " Redirects
 " =========
 
-" GitHub: most of the time the activity feed is distracting and notifications keep me on task
-autocmd DocStart ^https://github.com/$ urlmodify -g 0 notifications
-
 " YouTube: show me my subscriptions
 autocmd DocStart ^https://www.youtube.com/$ urlmodify -g 0 feed/subscriptions
 
