@@ -59,7 +59,7 @@ case "$1" in
     esac
     ;;
 
-  patch) dots-git apply $(dots-git ls-files $HOME/.patches | fzf --query "$2" --multi --select-1 --preview="bat --color=always {}");;
+  patch) dots-git apply $(dots-git ls-files ${XDG_DATA_HOME:-$HOME/.local/share}/patches | fzf --query "$2" --multi --select-1 --preview="bat --color=always {}");;
 
   open) $EDITOR "$HOME/$(git --git-dir="$HOME/.dotfiles" ls-files | fzf --query "$2" --select-1 --preview "bat --color=always $HOME/{}")";;
 
