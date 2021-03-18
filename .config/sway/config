@@ -3,7 +3,7 @@ set $mod Mod1
 set $browser firefox
 set $term alacritty
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $lock ~/.scripts/lock.sh
+set $lock ~/.local/share/scripts/lock.sh
 
 set $left h
 set $down j
