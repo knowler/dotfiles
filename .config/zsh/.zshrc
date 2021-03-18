@@ -6,7 +6,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Autoload scripts
-source "$HOME/.local/share/scripts/autoload.sh"
+source "${XDG_DATA_HOME:-$HOME/.local/share}/scripts/autoload.sh"
 
 # Aliases
 alias vi="nvim"
