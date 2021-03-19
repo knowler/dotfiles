@@ -5,5 +5,5 @@
 
 # Dump after install or upgrade
 case "$1" in
-  install | upgrade) /usr/local/bin/brew bundle dump --global --force;;
+  install | uninstall | upgrade) /usr/local/bin/brew bundle dump --global --force;;
 esac
