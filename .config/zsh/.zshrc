@@ -30,8 +30,6 @@ zinit light-mode for \
 
 zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
 zinit light g-plane/zsh-yarn-autocompletions
-zinit light g-plane/icd
-
 
 # Autoload scripts
 source "${XDG_DATA_HOME:-$HOME/.local/share}/scripts/autoload.sh"
