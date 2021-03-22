@@ -176,6 +176,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
 cask "vulkan-sdk"
+cask "xscreensaver"
 cask "zoomus"
 cask "zsa-wally"
 mas "Contrast", id: 1254981365
