@@ -178,6 +178,7 @@ cask "vnc-viewer"
 cask "vulkan-sdk"
 cask "xscreensaver"
 cask "zoomus"
+cask "zotero"
 cask "zsa-wally"
 mas "Contrast", id: 1254981365
 mas "iA Writer", id: 775737590
