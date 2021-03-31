@@ -26,6 +26,7 @@ shift + alt - return : /Applications/Firefox.app/Contents/MacOS/firefox
 
 # Read screen catpure aloud
 shift + alt - space : $HOME/.local/bin/readshot
+shift + alt - escape : kill $(ps -ax | grep 'say' | awk '{print $1}' | head -1)
 
 # Reload yabai
 shift + alt - c : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
