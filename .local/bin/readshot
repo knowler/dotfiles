@@ -4,4 +4,4 @@ SCREENSHOT=$(mktemp -t screenshot.png)
 
 screencapture -sx "$SCREENSHOT"
 
-tesseract "$SCREENSHOT" stdout 2> /dev/null | say -r 300
+tesseract "$SCREENSHOT" stdout 2> /dev/null | say -r 250
