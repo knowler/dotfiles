@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+case "$1" in
+  web) gh repo view --web knowler/macos-preferences;;
+  open) $EDITOR "$HOME/$(git --git-dir="$HOME/.prefs" ls-files | fzf --query "$2" --select-1 --preview "bat --color=always $HOME/{}")";;
+  *) git --git-dir="$HOME/.prefs" --work-tree="$HOME" $@;;
+esac
+
