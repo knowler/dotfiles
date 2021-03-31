@@ -24,6 +24,9 @@ cmd + alt - return : emacs --chdir $HOME
 # Open Browser
 shift + alt - return : /Applications/Firefox.app/Contents/MacOS/firefox
 
+# Read screen catpure aloud
+shift + alt - space : $HOME/.local/bin/readshot
+
 # Reload yabai
 shift + alt - c : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
