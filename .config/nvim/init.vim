@@ -15,6 +15,9 @@ Plug 'AndrewRadev/splitjoin.vim'                      " Easily switch between si
 Plug 'tpope/vim-fugitive'                             " Git for vim
 Plug 'tpope/vim-rhubarb'                              " GitHub for vim
 Plug 'tpope/vim-surround'                             " Surround stuff
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }   " Fuzzy find stuff
 Plug 'junegunn/fzf.vim'
