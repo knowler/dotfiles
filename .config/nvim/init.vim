@@ -247,6 +247,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufNewFile,BufRead {.eslintrc,tsconfig}.json set syntax=json filetype=jsonc
 
 " Writing [pencil,litecorrect]
+let g:pencil#wrapModeDefault = 'soft'
 augroup pencil
   autocmd!
   autocmd FileType tex,markdown,gitcommit
