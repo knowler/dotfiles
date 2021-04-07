@@ -43,6 +43,8 @@ Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fannheyward/coc-react-refactor', {'do': 'yarn install --frozen-lockfile'}
 
+Plug 'vim-vdebug/vdebug'
+
 " Tmux essentials
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -370,3 +372,12 @@ augroup paper
   autocmd BufRead paper.tex VimtexCompile
   autocmd BufWritePost paper.tex silent !gitupdate % &
 augroup end
+
+let g:vdebug_features = { 'max_children': 256 }
+if !exists('g:vdebug_options')
+  let g:vdebug_options = {}
+endif
+let g:vdebug_options['break_on_open'] = 0
+let g:vdebug_options['path_maps'] = {'/app': getcwd()}
+let g:vdebug_options['server'] = '127.0.0.1'
+let g:vdebug_options['port'] = '9003'
