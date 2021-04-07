@@ -25,7 +25,7 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  $HOME/.{local,volta,cargo}/bin
+  $HOME/.{local,volta,cargo,composer/vendor}/bin
   $HOME/go/bin
   /usr/local/{bin,sbin}
   $path
