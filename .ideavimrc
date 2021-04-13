@@ -1,0 +1,24 @@
+" Split behaviour
+set splitbelow
+set splitright
+
+" Tabs (default width 2, style spaces)
+set tabstop=2
+set softtabstop=0
+set shiftwidth=0
+set expandtab
+set smarttab
+set smartindent
+set nojoinspaces
+
+" Disable arrow keys for navigation
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Easier split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
