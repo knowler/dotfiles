@@ -1,5 +1,3 @@
-" vim: set filetype=vim
-
 " Split behaviour
 set splitbelow
 set splitright
