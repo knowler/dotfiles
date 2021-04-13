@@ -64,6 +64,8 @@ Plug 'alvan/vim-closetag'                             " Auto-close XML-like tags
 Plug 'pbrisbin/vim-mkdir'                             " Automatically create any non-existant directories before writing the buffer
 Plug 'wellle/targets.vim'                             " Adds more text objects
 
+Plug 'soywod/himalaya', {'rtp': 'vim'}
+
 " Additional Syntax
 Plug 'neoclide/jsonc.vim'
 
