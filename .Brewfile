@@ -113,7 +113,7 @@ brew "yq"
 brew "zola"
 brew "zsh"
 brew "bradyjoslin/sharewifi/sharewifi"
-brew "cmacrae/formulae/spacebar"
+brew "cmacrae/formulae/spacebar", args: ["HEAD"]
 brew "d12frosted/emacs-plus/emacs-plus@27"
 brew "fabianishere/personal/pam_reattach"
 brew "federico-terzi/espanso/espanso"
