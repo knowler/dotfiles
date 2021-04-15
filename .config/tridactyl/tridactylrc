@@ -40,7 +40,10 @@ bind zv composite js document.location.href | exclaim_quiet /usr/local/bin/iina
 " =========
 
 " YouTube: show me my subscriptions
-autocmd DocStart ^https://www.youtube.com/$ urlmodify -g 0 feed/subscriptions
+jsb browser.webRequest.onBeforeRequest.addListener( \
+    details => ({redirectUrl: 'https://www.youtube.com/feed/subscriptions'}), \
+    {urls:['https://www.youtube.com/'], types:['main_frame']}, ['blocking'], \
+);
 
 " Gmail: ignore
 autocmd DocStart mail.google.com mode ignore
