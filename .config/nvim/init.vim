@@ -27,6 +27,19 @@ Plug 'tommcdo/vim-exchange'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-github.nvim'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'romgrk/nvim-treesitter-context'
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
+
 " Tmux essentials
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -333,6 +346,7 @@ augroup paper
 augroup end
 
 lua require'lsp_config'
+lua require'treesitter_config'
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noselect
