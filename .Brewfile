@@ -78,7 +78,7 @@ brew "youtube-dl"
 brew "mpv"
 brew "mutt"
 brew "neofetch"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "nginx"
 brew "nnn"
 brew "pandoc"

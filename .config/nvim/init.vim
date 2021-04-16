@@ -24,26 +24,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'tommcdo/vim-exchange'
 
 " LSP
-Plug 'neoclide/coc.nvim', {'branch': 'release'}       " LSP aka Intellisense for vim (extensions are installed with :CocInstall)
-Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-actions', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-svg', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
-Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
-Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-Plug 'fannheyward/coc-react-refactor', {'do': 'yarn install --frozen-lockfile'}
-
-Plug 'vim-vdebug/vdebug'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 " Tmux essentials
 Plug 'christoomey/vim-tmux-navigator'
@@ -191,16 +173,6 @@ map <C-l> <C-w>l
 " Fuzzy find files [fzf.vim]
 nnoremap <C-p> :Files!<CR>
 
-" Show LSP completion [coc.nvim]
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use enter to confirm completion menu item [coc.nvim]
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
-" Use tab + shift-tab for navigating through completion [coc.nvim]
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Italicize word [vim-surround]
 nmap <Leader>i T<Space>veS_
 let g:surround_{char2nr('i')} = "_\r_"
@@ -208,15 +180,6 @@ let g:surround_{char2nr('i')} = "_\r_"
 " Embolden word [vim-surround]
 nmap <Leader>b T<Space>veS*gvS*
 let g:surround_{char2nr('b')} = "**\r**"
-
-" Show LSP actions menu for selected [coc.nvim]
-function! s:cocActionsOpenFromSelected(type) abort
-  execute 'CocCommand actions.open ' . a:type
-endfunction
-xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-
-nmap <Leader>d :CocCommand docthis.documentThis<CR>
 
 " Close XML-like tags in JS and JSX files (i.e. for React) [closetag]
 let g:closetag_filenames = '*.js,*.jsx'
@@ -240,12 +203,6 @@ augroup end
 
 " Improve auto closing of stuff for files with JSX [delimitMate]
 autocmd FileType javascript,javascriptreact,typescript,typescriptreact let b:delimitMate_matchpairs = "(:),[:],{:}"
-
-" Format code when leaving insert mode [coc.nvim]
-autocmd InsertLeave * call CocActionAsync('format') " The wildcard might be a bad idea. Uses prettier if installed, also respects editorconfig
-
-" Highlight symbol when idling cursor on a word [coc.nvim]
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use JSONC for config files that support it [jsonc]
 autocmd BufNewFile,BufRead {.eslintrc,tsconfig}.json set syntax=json filetype=jsonc
@@ -375,11 +332,38 @@ augroup paper
   autocmd BufWritePost paper.tex silent !gitupdate % &
 augroup end
 
-let g:vdebug_features = { 'max_children': 256 }
-if !exists('g:vdebug_options')
-  let g:vdebug_options = {}
-endif
-let g:vdebug_options['break_on_open'] = 0
-let g:vdebug_options['path_maps'] = {'/app': getcwd()}
-let g:vdebug_options['server'] = '127.0.0.1'
-let g:vdebug_options['port'] = '9003'
+lua require'lsp_config'
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'always'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+"let g:compe.source.vsnip = v:true
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <Tab>      compe#confirm('<Tab>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
