@@ -37,7 +37,7 @@ device-mapper
 dhclient
 dhcpcd
 diffutils
-direnv
+direnv-bin
 disable-tracker
 discord_arch_electron
 dmenu
@@ -118,6 +118,7 @@ gvfs-mtp
 gvfs-smb
 gzip
 haveged
+himalaya
 i3-gaps
 ibus
 illyria-wallpaper
@@ -195,7 +196,7 @@ nautilus-admin
 nautilus-empty-file
 neofetch
 neovide
-neovim
+neovim-nightly-bin
 netctl
 networkmanager
 networkmanager-openconnect
@@ -242,6 +243,7 @@ pulseaudio-bluetooth
 pulseaudio-ctl
 pulseaudio-zeroconf
 pv
+pyenv
 python-pip
 python-wheel
 python2-virtualenv
@@ -274,7 +276,7 @@ systemd-fsck-silent
 systemd-sysvcompat
 tableplus
 tar
-terminus-font-otb
+terminus-font
 texinfo
 tlp
 tmux
