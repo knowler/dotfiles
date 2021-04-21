@@ -145,4 +145,4 @@ bindsym $mod+Shift+e mode "$mode_system"
 # reload the configuration file
 bindsym Mod1+Shift+c reload
 
-include /etc/sway/config.d/*
+#include /etc/sway/config.d/*
