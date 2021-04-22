@@ -77,8 +77,9 @@ cursor:
   unfocused_hollow: true
 live_config_reload: true
 shell:
-  program: /usr/local/bin/tmux
+  program: /usr/bin/env
   args:
+    - tmux
     - new-session
     - -A
     - -D
