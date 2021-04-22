@@ -79,6 +79,7 @@ brew "mpv"
 brew "mutt"
 brew "neofetch"
 brew "neovim", args: ["HEAD"]
+brew "newsboat"
 brew "nginx"
 brew "nnn"
 brew "pandoc"
