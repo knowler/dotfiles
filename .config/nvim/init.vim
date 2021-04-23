@@ -381,3 +381,9 @@ inoremap <silent><expr> <Tab>      compe#confirm('<Tab>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" Run a command on the current file in a tmux split
+nnoremap <Leader>h :execute '!tmux split-pane -bh "tmux set-option remain-on-exit on;'.input('run left: ').' %"'<CR>
+nnoremap <Leader>j :execute '!tmux split-pane "tmux set-option remain-on-exit on;'.input('run below: ').' %"'<CR>
+nnoremap <Leader>k :execute '!tmux split-pane -b "tmux set-option remain-on-exit on;'.input('run above: ').' %"'<CR>
+nnoremap <Leader>l :execute '!tmux split-pane -h "tmux set-option remain-on-exit on;'.input('run right: ').' %"'<CR>
