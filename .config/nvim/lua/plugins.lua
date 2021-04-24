@@ -22,8 +22,20 @@ return require'packer'.startup(function ()
   use 'wakatime/vim-wakatime'             -- Personal time tracking
 
   --LSP
-  use 'neovim/nvim-lspconfig'
+  use { 
+    'neovim/nvim-lspconfig',
+    config = function () require'lsp-config' end
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function () vim.cmd [[TSUpdate]] end,
+    config = function () require'treesitter-config' end
+  }
 
   --Completion
-  use 'hrsh7th/nvim-compe'
+  use {
+    'hrsh7th/nvim-compe',
+    config = function () require'completion' end
+  }
 end)
