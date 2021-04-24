@@ -1,4 +1,5 @@
 local lsp = require'lspconfig'
+local autocmd = require'utils'.autocmd
 
 local prettier = { 
   formatCommand = "prettier --stdin-filepath ${INPUT}",
@@ -35,7 +36,6 @@ lsp.efm.setup {
     'javascriptreact',
     'javascript.jsx',
   },
-  on_attach = on_attach,
 }
 lsp.html.setup {}
 lsp.intelephense.setup {}
@@ -48,3 +48,5 @@ lsp.tsserver.setup {
   settings = {documentFormatting = false},
 }
 lsp.vimls.setup {}
+
+autocmd('formatting_sync', 'BufWritePost * silent! lua vim.lsp.buf.formatting()', true)
