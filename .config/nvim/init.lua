@@ -7,6 +7,7 @@ A lot of this is a concoction of configs I copied from the following:
 - tjdevries
 - wbthomason
 - tomaskallup
+- disrupted
 
 --]]
 
