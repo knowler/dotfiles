@@ -4,7 +4,6 @@ return require'packer'.startup(function ()
 
   --Essentials
   use 'AndrewRadev/splitjoin.vim'         -- Easily switch between single and multi line format for stuff (split: gS | join: gJ)
-  use 'airblade/vim-gitgutter'            -- Show git status for lines in gutter
   use 'pbrisbin/vim-mkdir'                -- Automatically create any non-existant directories before writing the buffer
   use 'christoomey/vim-tmux-navigator'
   use 'cocopon/iceberg.vim'               -- Colour scheme
@@ -15,6 +14,11 @@ return require'packer'.startup(function ()
   use 'junegunn/fzf.vim'
   use 'junegunn/goyo.vim'
   use 'junegunn/limelight.vim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    config = function () require'gitsigns'.setup{} end,
+  }
   use 'Raimondi/delimitMate'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
