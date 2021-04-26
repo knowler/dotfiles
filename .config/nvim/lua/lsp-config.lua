@@ -6,6 +6,11 @@ local prettier = {
   formatStdin = true,
 }
 
+local phpcs = {
+  formatCommand = "./vendor/bin/phpcs --stdin-path=${INPUT} -",
+  formatStdin = true,
+}
+
 local eslint = {
   lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
@@ -27,6 +32,7 @@ lsp.efm.setup {
       javascript = {prettier, eslint},
       javascriptreact = {prettier, eslint},
       ['javascript.jsx'] = {prettier, eslint},
+      php = {phpcs},
     },
     log_level = 1,
     log_file = "~/efm.log",
@@ -35,6 +41,7 @@ lsp.efm.setup {
     'javascript',
     'javascriptreact',
     'javascript.jsx',
+    'php',
   },
 }
 lsp.html.setup {}
