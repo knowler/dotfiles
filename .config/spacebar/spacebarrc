@@ -16,5 +16,5 @@ spacebar -m config clock_icon         #
 spacebar -m config dnd_icon           
 spacebar -m config clock_format      "%A, %B %-d, %Y %R %Z"
 
-spacebar -m config left_shell         on
-spacebar -m config left_shell_command "wakatime --today"
+#spacebar -m config left_shell         on
+#spacebar -m config left_shell_command "wakatime --today"
