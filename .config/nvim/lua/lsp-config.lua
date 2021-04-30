@@ -21,6 +21,7 @@ local phpcs = {
 }
 
 lsp.cssls.setup {}
+--lsp.denols.setup {}
 lsp.efm.setup {
   init_options = {
     codeAction = true,
