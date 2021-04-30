@@ -18,3 +18,6 @@ cmd [[inoremap <silent><expr> <tab>     compe#confirm('<tab>')]]
 cmd [[inoremap <silent><expr> <c-e>     compe#close('<c-e>')]]
 cmd [[inoremap <silent><expr> <c-f>     compe#scroll({ 'delta': +4 })]]
 cmd [[inoremap <silent><expr> <c-d>     compe#scroll({ 'delta': -4 })]]
+
+cmd [[nnoremap <silent><leader>ca :Lspsaga code_action<cr>]]
+cmd [[vnoremap <silent><leader>ca :<c-u>Lspsaga range_code_action<cr>]]

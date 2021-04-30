@@ -32,6 +32,11 @@ return require'packer'.startup(function ()
   }
 
   use {
+    'glepnir/lspsaga.nvim',
+    config = function () require'lspsaga'.init_lsp_saga() end
+  }
+
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = function () vim.cmd [[TSUpdate]] end,
     config = function () require'treesitter-config' end
