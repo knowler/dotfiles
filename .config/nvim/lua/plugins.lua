@@ -37,6 +37,8 @@ return require'packer'.startup(function ()
     config = function () require'treesitter-config' end
   }
 
+  use 'liuchengxu/vista.vim'
+
   --Completion
   use {
     'hrsh7th/nvim-compe',
