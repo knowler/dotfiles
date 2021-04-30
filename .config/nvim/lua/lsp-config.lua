@@ -6,17 +6,17 @@ local prettier = {
   formatStdin = true,
 }
 
-local phpcs = {
-  formatCommand = "./vendor/bin/phpcs --stdin-path=${INPUT} -",
-  formatStdin = true,
-}
-
 local eslint = {
   lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
   lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m"},
   lintIgnoreExitCode = true,
   formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename ${INPUT}",
+  formatStdin = true,
+}
+
+local phpcs = {
+  formatCommand = "./vendor/bin/phpcs --stdin-path=${INPUT} -",
   formatStdin = true,
 }
 
