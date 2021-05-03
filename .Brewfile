@@ -203,3 +203,4 @@ cask "zsa-wally"
 mas "Contrast", id: 1254981365
 mas "iA Writer", id: 775737590
 mas "Xcode", id: 497799835
+whalebrew "sridca/neuron"
