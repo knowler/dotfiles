@@ -25,6 +25,17 @@ return require'packer'.startup(function ()
   use 'vim-airline/vim-airline'
   use 'wakatime/vim-wakatime'             -- Personal time tracking
 
+  use {
+    'oberblastmeister/neuron.nvim',
+    branch = 'unstable',
+    requires = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function () require'neuron-config' end
+  }
+
   --LSP
   use { 
     'neovim/nvim-lspconfig',
