@@ -19,3 +19,6 @@ if [ -n "$HTTP_TOOLKIT_ACTIVE" ]; then
     fi
 fi
 # --httptoolkit-end--
+
+if [ -e /Users/knowler/.nix-profile/etc/profile.d/nix.sh ]
+then . /Users/knowler/.nix-profile/etc/profile.d/nix.sh; fi
