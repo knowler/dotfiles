@@ -36,6 +36,8 @@ return require'packer'.startup(function ()
     config = function () require'neuron-config' end
   }
 
+  use 'sheerun/vim-polyglot'
+
   --LSP
   use { 
     'neovim/nvim-lspconfig',
