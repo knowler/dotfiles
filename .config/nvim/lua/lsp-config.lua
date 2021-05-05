@@ -29,8 +29,8 @@ lsp.efm.setup {
     codeAction = true,
     documentFormatting = true,
   },
+  root_dir = lsp.util.root_pattern("yarn.lock", ".git"),
   settings = {
-    rootMarkers = {".git/"},
     languages = {
       javascript = {prettier, eslint},
       javascriptreact = {prettier, eslint},
@@ -55,6 +55,7 @@ lsp.tsserver.setup {
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end,
+  root_dir = lsp.util.root_pattern("yarn.lock", ".git"),
   settings = {
     documentFormatting = false,
   },
