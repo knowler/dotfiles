@@ -11,7 +11,7 @@ map('n', '<c-j>', '<c-w>j')
 map('n', '<c-k>', '<c-w>k')
 map('n', '<c-l>', '<c-w>l')
 
-map('n', '<c-p>', ':Files!<cr>')
+map('n', '<c-p>', ':Telescope git_files<cr>')
 
 cmd [[inoremap <silent><expr> <c-space> compe#complete()]]
 cmd [[inoremap <silent><expr> <tab>     compe#confirm('<tab>')]]
