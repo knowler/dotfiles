@@ -53,6 +53,12 @@ return require'packer'.startup(function ()
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function () vim.cmd [[TSUpdate]] end,
+    requires = {
+      'windwp/nvim-ts-autotag',
+      'romgrk/nvim-treesitter-context',
+      'p00f/nvim-ts-rainbow',
+      'nvim-treesitter/nvim-treesitter-refactor',
+    },
     config = function () require'treesitter-config' end
   }
 
