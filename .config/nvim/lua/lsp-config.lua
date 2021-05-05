@@ -57,7 +57,7 @@ lsp.tsserver.setup {
   end,
   root_dir = lsp.util.root_pattern("yarn.lock", ".git"),
   settings = {
-    documentFormatting = false,
+    documentFormatting = true,
   },
 }
 lsp.vimls.setup {}
