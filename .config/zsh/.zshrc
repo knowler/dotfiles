@@ -35,7 +35,7 @@ zinit light g-plane/zsh-yarn-autocompletions
 zinit load wfxr/forgit
 
 # Autoload scripts
-#source "${XDG_DATA_HOME:-$HOME/.local/share}/scripts/autoload.sh"
+source "${XDG_DATA_HOME:-$HOME/.local/share}/scripts/autoload.sh"
 
 # Aliases
 alias vi="nvim"

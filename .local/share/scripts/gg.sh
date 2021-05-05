@@ -3,7 +3,7 @@
 # Quickly change to any tracked sub-directory within the git work tree from
 # anywhere inside the work tree
 
-gd() {
+_gd() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == "true" ]]; then
     work_tree=$(git rev-parse --show-toplevel)
 
@@ -13,4 +13,4 @@ gd() {
   fi
 }
 
-alias gg="gd && clear"
+alias gg="_gd && clear"
