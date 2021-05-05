@@ -1,3 +1,5 @@
+require'lspinstall'.setup()
+
 local lsp = require'lspconfig'
 local autocmd = require'utils'.autocmd
 

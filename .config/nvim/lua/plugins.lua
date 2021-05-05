@@ -39,8 +39,9 @@ return require'packer'.startup(function ()
   use 'sheerun/vim-polyglot'
 
   --LSP
-  use { 
+  use {
     'neovim/nvim-lspconfig',
+    requires = {'kabouzeid/nvim-lspinstall'},
     config = function () require'lsp-config' end
   }
 
