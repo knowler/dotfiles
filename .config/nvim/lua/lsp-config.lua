@@ -2,7 +2,7 @@ local lsp = require'lspconfig'
 local autocmd = require'utils'.autocmd
 
 local prettier = { 
-  formatCommand = "prettier --stdin-filepath ${INPUT}",
+  formatCommand = "./node_modules/bin/prettier --config-precedence prefer-file --stdin-filepath ${INPUT}",
   formatStdin = true,
 }
 
