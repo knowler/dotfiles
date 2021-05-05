@@ -2,6 +2,7 @@ local utils = require'utils'
 local opt = utils.opt
 local buffer = utils.buffer
 local window = utils.window
+local autocmd = utils.autocmd
 local cmd = vim.cmd
 
 opt('compatible', false)
@@ -35,3 +36,5 @@ opt('softtabstop', 0, buffer)
 opt('shiftwidth', 0, buffer)
 opt('expandtab', true, buffer)
 opt('textwidth', 80, buffer)
+
+autocmd('zettelkasten', 'BufWritePost *.md silent !gitupdate % &')
