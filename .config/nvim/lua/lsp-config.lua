@@ -1,10 +1,11 @@
-require'lspinstall'.setup()
+local lspinstall = require'lspinstall'
+lspinstall.setup()
 
 local lsp = require'lspconfig'
 local autocmd = require'utils'.autocmd
 
-local prettier = { 
-  formatCommand = "./node_modules/bin/prettier --config-precedence prefer-file --stdin-filepath ${INPUT}",
+local prettier = {
+  formatCommand = "./node_modules/.bin/prettier --config-precedence prefer-file --stdin-filepath ${INPUT}",
   formatStdin = true,
 }
 
@@ -22,9 +23,7 @@ local phpcs = {
   formatStdin = true,
 }
 
-lsp.cssls.setup {}
---lsp.denols.setup {}
-lsp.efm.setup {
+local efm_config = {
   init_options = {
     codeAction = true,
     documentFormatting = true,
@@ -47,11 +46,8 @@ lsp.efm.setup {
     'php',
   },
 }
-lsp.html.setup {}
-lsp.intelephense.setup {}
-lsp.jsonls.setup {}
-lsp.sumneko_lua.setup {}
-lsp.tsserver.setup {
+
+local typescript_config = {
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end,
@@ -60,6 +56,28 @@ lsp.tsserver.setup {
     documentFormatting = true,
   },
 }
-lsp.vimls.setup {}
+
+local function setup_servers()
+  for _, server in pairs(lspinstall.installed_servers()) do
+    local config = {}
+
+    if server == "efm" then
+      config = efm_config
+    end
+
+    if server == "typescript" then
+      config = typescript_config
+    end
+
+    lsp[server].setup(config)
+  end
+end
+
+setup_servers()
+
+lspinstall.post_install_hook = function ()
+  setup_servers()
+  vim.cmd("bufdo e")
+end
 
 autocmd('formatting_sync', 'BufWritePost * silent! lua vim.lsp.buf.formatting()', true)
