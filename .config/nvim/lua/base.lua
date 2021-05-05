@@ -38,3 +38,4 @@ opt('expandtab', true, buffer)
 opt('textwidth', 80, buffer)
 
 autocmd('zettelkasten', 'BufWritePost *.md silent !gitupdate % &')
+autocmd('plugins', 'BufWritePost plugins.lua PackerCompile')
