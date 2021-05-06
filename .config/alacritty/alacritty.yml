@@ -90,7 +90,7 @@ key_bindings:
   # New tmux window
   - {key: T, mods: Command, command: {program: "tmux", args: ["new-window"]}}
   # Close tmux window
-  - {key: W, mods: Command, command: {program: "tmux", args: ["confirm-before", "-p", "Close window? (y/p)", "kill-window"]}}
+  - {key: W, mods: Command, command: {program: "tmux", args: ["confirm-before", "-p", "Close window? (y/n)", "kill-window"]}}
   # Split window in direction
   - {key: H, mods: Command, command: {program: "tmux", args: ["split-window", "-h", "-b"]}}
   - {key: J, mods: Command, command: {program: "tmux", args: ["split-window", "-b"]}}
