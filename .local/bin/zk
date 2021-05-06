@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-neuron search -ed "$HOME/zettelkasten"

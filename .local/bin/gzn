@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+neuron new -ed $HOME/zettelkasten

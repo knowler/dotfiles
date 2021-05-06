@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nvim -c "lua require'neuron/telescope'.find_zettels()"
