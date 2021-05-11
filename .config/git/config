@@ -44,3 +44,5 @@
 	showPatch = true
 [includeIf "gitdir:~/code/impress/"]
 	path = ~/code/impress/.gitconfig
+[advice]
+	addEmptyPathspec = false
