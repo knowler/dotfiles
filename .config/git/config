@@ -32,6 +32,7 @@
 	litter = !litter
 	update = !gitupdate
 	history = !git-file-history
+	track = !track
 [merge]
 	tool = nvimdiff
 [rebase]

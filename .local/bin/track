@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+git add --intent-to-add $(git ls-files --others --exclude-standard | fzf --query "$1" --multi --preview 'bat --color=always {}')
