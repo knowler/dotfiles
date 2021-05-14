@@ -43,7 +43,7 @@
 	prune = true
 [stash]
 	showPatch = true
-[includeIf "gitdir:~/code/impress/"]
-	path = ~/code/impress/.gitconfig
+[includeIf "gitdir:~/code/stellar/"]
+	path = ~/code/stellar/.gitconfig
 [advice]
 	addEmptyPathspec = false
