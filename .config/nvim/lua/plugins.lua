@@ -30,6 +30,12 @@ return require'packer'.startup(function (use)
   }
 
   use {
+    'TimUntersberger/neogit', 
+    requires = 'nvim-lua/plenary.nvim',
+    config = function() require('neogit').setup() end,
+  }
+
+  use {
     'oberblastmeister/neuron.nvim',
     branch = 'unstable',
     requires = {
