@@ -24,6 +24,10 @@ return require'packer'.startup(function (use)
   use 'tpope/vim-surround'
   use 'vim-airline/vim-airline'
   use 'wakatime/vim-wakatime'             -- Personal time tracking
+  use {
+    'nacro90/numb.nvim',
+    config = function () require('numb').setup() end,
+  }
 
   use {
     'oberblastmeister/neuron.nvim',
