@@ -26,6 +26,7 @@ opt('updatetime', 250)
 opt('hidden', true)
 opt('backup', false)
 opt('writebackup', false)
+opt('swapfile', false)
 opt('completeopt', 'menuone,noselect')
 
 opt('number', true, window)
