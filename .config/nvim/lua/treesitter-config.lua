@@ -13,6 +13,7 @@ require'nvim-treesitter.configs'.setup{
     'latex', 
     'lua', 
     'php', 
+    'swift',
     'toml', 
     --'tsx', 
     --'typescript', 
