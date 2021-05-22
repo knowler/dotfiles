@@ -1,2 +1,4 @@
 set selection-clipboard clipboard
 set font "Dank Mono normal 14"
+
+map <C-i> recolor
