@@ -1,4 +1,11 @@
 set selection-clipboard clipboard
 set font "Dank Mono normal 14"
 
-map <C-i> recolor
+set default-bg "#161821"
+set default-fg "#d2d4de"
+
+set recolor-lightcolor "#161821"
+set recolor-darkcolor "#d2d4de"
+set recolor true
+
+set adjust-open width
