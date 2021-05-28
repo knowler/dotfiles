@@ -20,20 +20,15 @@ return require'packer'.startup(function (use)
     requires = {'nvim-lua/plenary.nvim'},
     config = function () require'gitsigns'.setup{} end,
   }
+
   use 'Raimondi/delimitMate'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
-  use 'vim-airline/vim-airline'
+  use 'itchyny/lightline.vim'
   use 'wakatime/vim-wakatime'             -- Personal time tracking
   use {
     'nacro90/numb.nvim',
     config = function () require('numb').setup() end,
-  }
-
-  use {
-    'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function() require('neogit').setup() end,
   }
 
   use {
@@ -56,28 +51,32 @@ return require'packer'.startup(function (use)
     config = function () require'lsp-config' end
   }
 
+  use 'folke/lsp-colors.nvim'
   use {
-    'glepnir/lspsaga.nvim',
-    config = function () require'lspsaga'.init_lsp_saga() end
+    'folke/trouble.nvim',
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function() require("trouble").setup{} end
+  }
+
+  use {
+    'onsails/lspkind-nvim',
+    config = function () require'lspkind'.init({ preset = 'codicons' }) end
   }
 
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function () vim.cmd [[TSUpdate]] end,
     requires = {
-      'windwp/nvim-ts-autotag',
       'romgrk/nvim-treesitter-context',
-      'p00f/nvim-ts-rainbow',
-      'nvim-treesitter/nvim-treesitter-refactor',
     },
     config = function () require'treesitter-config' end
   }
-
-  use 'liuchengxu/vista.vim'
 
   --Completion
   use {
     'hrsh7th/nvim-compe',
     config = function () require'completion' end
   }
+
+  use 'famiu/nvim-reload'
 end)
