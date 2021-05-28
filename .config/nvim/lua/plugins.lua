@@ -7,6 +7,7 @@ return require'packer'.startup(function (use)
   use 'pbrisbin/vim-mkdir'                -- Automatically create any non-existant directories before writing the buffer
   use 'christoomey/vim-tmux-navigator'
   use 'cocopon/iceberg.vim'               -- Colour scheme
+  use 'folke/tokyonight.nvim'
   use 'editorconfig/editorconfig-vim'
   use 'junegunn/vim-peekaboo'             -- Show the contens of registers
   use 'junegunn/vim-slash'                -- Automatically clears search highlight when cursor is moved (and more)
