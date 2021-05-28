@@ -2,10 +2,24 @@ local lspinstall = require'lspinstall'
 lspinstall.setup()
 
 local lsp = require'lspconfig'
+local configs = require'lspconfig/configs'
 local autocmd = require'utils'.autocmd
 
 local efm = require'lsp.efm'
 local typescript = require'lsp.typescript'
+
+if not lsp.psalmls then
+  configs.psalmls = {
+    default_config = {
+      cmd = {'./vendor/bin/psalm-language-server'},
+      root_dir = lsp.util.root_pattern("psalm.xml", "psalm.xml.dist"),
+      filetypes = {'php'},
+      settings = {},
+    }
+  }
+end
+
+lsp.psalmls.setup{}
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
