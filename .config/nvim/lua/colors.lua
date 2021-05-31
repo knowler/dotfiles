@@ -1,13 +1,13 @@
-local utils = require'utils'
-local opt = utils.opt
 local cmd = vim.cmd
+local opt = vim.opt
 
-opt('t_Co', '256')
+--cmd [[set t_Co = 256]]
 cmd [[if &term =~ '256color' | set t_ut= | endif]]
 cmd [[let $NVIM_TUI_ENABLE_TRUE_COLOR=1]]
-opt('termguicolors', true)
+opt.termguicolors = true
+cmd [[let g:tokyonight_style = "night"]]
 cmd [[colorscheme tokyonight]]
-opt('background', 'dark')
+opt.background = 'dark'
 cmd [[highlight NonText guibg=NONE ctermbg=NONE]]
 cmd [[highlight Normal guibg=NONE ctermbg=NONE]]
 cmd [[highlight EndOfBuffer guibg=NONE ctermbg=NONE]]
