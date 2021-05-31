@@ -32,6 +32,18 @@ return require'packer'.startup(function (use)
   }
 
   use {
+    'akinsho/nvim-bufferline.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function ()
+      require'bufferline'.setup {
+        options = {
+          diagnostics = "nvim_lsp"
+        },
+      }
+    end
+  }
+
+  use {
     'oberblastmeister/neuron.nvim',
     branch = 'unstable',
     requires = {
