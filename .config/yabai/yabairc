@@ -52,4 +52,4 @@ yabai -m rule --add app="iA Writer" title="(General|Accounts|Files|Library|Edito
 
 yabai -m rule --add app="Discord" title="Discord Updater" manage=off
 
-yabai -m rule -add app="PhpStorm" manage=off
+yabai -m rule --add app="PhpStorm" manage=off
