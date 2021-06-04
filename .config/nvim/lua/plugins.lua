@@ -54,7 +54,7 @@ return require'packer'.startup(function (use)
     config = function () require'neuron-config' end
   }
 
-  use {'sheerun/vim-polyglot', disable = true}
+  use {'sheerun/vim-polyglot'}
 
   --LSP
   use {

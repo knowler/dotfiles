@@ -10,7 +10,6 @@ require'nvim-treesitter.configs'.setup{
     'jsonc',
     'latex',
     'lua',
-    'php',
     'swift',
     'toml',
     'yaml',
