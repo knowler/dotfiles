@@ -18,3 +18,5 @@ cmd [[inoremap <silent><expr> <tab>     compe#confirm('<tab>')]]
 cmd [[inoremap <silent><expr> <c-e>     compe#close('<c-e>')]]
 cmd [[inoremap <silent><expr> <c-f>     compe#scroll({ 'delta': +4 })]]
 cmd [[inoremap <silent><expr> <c-d>     compe#scroll({ 'delta': -4 })]]
+
+cmd [[nnoremap <c-n> :NvimTreeToggle<cr>]]
