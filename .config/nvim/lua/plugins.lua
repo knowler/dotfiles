@@ -32,6 +32,12 @@ return require'packer'.startup(function (use)
   }
 
   use {
+    'winston0410/range-highlight.nvim',
+    requires = 'winston0410/cmd-parser.nvim',
+    config = function () require'range-highlight'.setup{} end,
+  }
+
+  use {
     'romgrk/barbar.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
   }
