@@ -207,6 +207,8 @@ cask "xscreensaver"
 cask "zoomus"
 cask "zotero"
 cask "zsa-wally"
+mas "Color Picker", id: 1545870783
 mas "Contrast", id: 1254981365
 mas "iA Writer", id: 775737590
+mas "Pandan", id: 1569600264
 mas "Xcode", id: 497799835
