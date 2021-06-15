@@ -65,6 +65,16 @@ return require'packer'.startup(function (use)
   }
 
   use {
+    'jvgrootveld/telescope-zoxide',
+    requires = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function () require'telescope'.load_extension('zoxide') end
+  }
+
+  use {
     'oberblastmeister/neuron.nvim',
     branch = 'unstable',
     requires = {
