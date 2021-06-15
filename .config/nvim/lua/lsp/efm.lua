@@ -10,7 +10,7 @@ local eslint = {
 }
 
 local prettier = {
-  formatCommand = "./node_modules/.bin/prettier --config-precedence prefer-file --stdin-filepath ${INPUT}",
+  formatCommand = "prettier_d_slim --config-precedence prefer-file --stdin --stdin-filepath ${INPUT}",
   formatStdin = true,
 }
 
