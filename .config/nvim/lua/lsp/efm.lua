@@ -28,10 +28,6 @@ local languages = {
   javascript = {prettier, eslint},
   javascriptreact = {prettier, eslint},
   ['javascript.jsx'] = {prettier, eslint},
-  php = {
-    phpcs,
-    phpcbf,
-  },
 }
 
 return {

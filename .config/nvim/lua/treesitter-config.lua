@@ -10,15 +10,11 @@ require'nvim-treesitter.configs'.setup{
     'jsonc',
     'latex',
     'lua',
-    'php',
     'swift',
     'toml',
     'yaml',
   },
-  highlight = {
-    enable = true,
-    disable = {'php'}
-  },
+  highlight = { enable = true },
   indent = { enable = true },
   incremental_selection = { enable = true },
 }
