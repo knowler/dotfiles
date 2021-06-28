@@ -74,17 +74,6 @@ return require'packer'.startup(function (use)
     config = function () require'telescope'.load_extension('zoxide') end
   }
 
-  use {
-    'oberblastmeister/neuron.nvim',
-    branch = 'unstable',
-    requires = {
-      'nvim-lua/popup.nvim',
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-    },
-    config = function () require'neuron-config' end
-  }
-
   use {'sheerun/vim-polyglot'}
 
   --LSP
@@ -122,4 +111,15 @@ return require'packer'.startup(function (use)
   }
 
   use 'famiu/nvim-reload'
+
+  use {
+    'oberblastmeister/neuron.nvim',
+    branch = 'unstable',
+    requires = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function () require'neuron-config' end
+  }
 end)
