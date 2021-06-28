@@ -18,6 +18,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.smarttab = true
 opt.smartindent = true
+opt.autoindent = true
 opt.joinspaces = false
 opt.ttyfast = true
 opt.updatetime = 250
