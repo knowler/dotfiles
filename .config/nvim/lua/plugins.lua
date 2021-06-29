@@ -124,4 +124,9 @@ return require'packer'.startup(function (use)
   }
 
   use 'vimwiki/vimwiki'
+
+  use {
+    'kristijanhusak/orgmode.nvim',
+    config = function() require('orgmode').setup{} end,
+  }
 end)
