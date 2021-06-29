@@ -122,4 +122,6 @@ return require'packer'.startup(function (use)
     },
     config = function () require'neuron-config' end
   }
+
+  use 'vimwiki/vimwiki'
 end)
