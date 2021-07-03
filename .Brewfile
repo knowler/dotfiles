@@ -83,8 +83,8 @@ brew "youtube-dl"
 brew "mpv"
 brew "mutt"
 brew "neofetch"
-brew "tree-sitter", args: ["HEAD"]
-brew "neovim", args: ["HEAD"]
+brew "tree-sitter"
+brew "neovim"
 brew "newsboat"
 brew "nginx"
 brew "nnn"
