@@ -14,7 +14,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'fasd' \
   'pacman' \
   'gpg'
 
