@@ -15,6 +15,7 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
 fi
 
 source "${ZDOTDIR:-$HOME}/.fzf.zsh"
+source $(brew --prefix asdf)/asdf.sh
 
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
