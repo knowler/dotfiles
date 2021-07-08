@@ -102,7 +102,7 @@ brew "pup"
 brew "pv"
 brew "pyenv"
 brew "ranger"
-brew "rclone"
+brew "rclone", args: ["HEAD"]
 brew "ripgrep"
 brew "rm-improved"
 brew "rust"
