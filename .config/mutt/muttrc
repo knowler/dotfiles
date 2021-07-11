@@ -1,0 +1,4 @@
+set realname = "Nathan Knowler"
+set folder = "$HOME/mail"
+
+source "${XDG_CONFIG_HOME:-$HOME/.config}/mutt/accounts/gmail"
