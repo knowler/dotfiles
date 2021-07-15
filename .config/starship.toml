@@ -10,3 +10,9 @@ use_symbol_for_status = true
 truncation_length = 1
 truncate_to_repo = false
 fish_style_pwd_dir_length = 1
+
+[git_status]
+disabled = true
+
+[git_branch]
+disabled = true
