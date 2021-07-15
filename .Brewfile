@@ -39,6 +39,7 @@ brew "dnsmasq", restart_service: true
 brew "dockutil"
 brew "dolt"
 brew "dust"
+brew "earthly"
 brew "efm-langserver"
 brew "node"
 brew "eva"
