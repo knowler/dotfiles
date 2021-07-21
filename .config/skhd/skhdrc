@@ -19,7 +19,6 @@ resize < shift - h :  yabai -m window --resize right:-5:0.0
 
 # Open Terminal
 alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
-cmd + alt - return : emacs --chdir $HOME
 
 # Open Browser
 shift + alt - return : /Applications/Firefox.app/Contents/MacOS/firefox
