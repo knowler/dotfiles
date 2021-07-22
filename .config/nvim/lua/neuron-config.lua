@@ -14,10 +14,8 @@ if not(nf[1] == nil) then
   nd = (nf[1]):gsub("/neuron.dhall", "")
 end
 
-print(nd)
-
 require'neuron'.setup {
-  virtual_titles = true,
+  virtual_titles = false,
   mappings = true,
   run = nil,
   neuron_dir = nd,
