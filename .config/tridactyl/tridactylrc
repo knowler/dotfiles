@@ -45,6 +45,12 @@ jsb browser.webRequest.onBeforeRequest.addListener( \
     {urls:['https://www.youtube.com/'], types:['main_frame']}, ['blocking'], \
 );
 
+" GitHub: no feed only notifications
+jsb browser.webRequest.onBeforeRequest.addListener( \
+    details => ({redirectUrl: 'https://github.com/notifications'}), \
+    {urls:['https://github.com/'], types:['main_frame']}, ['blocking'], \
+);
+
 " Gmail: ignore
 autocmd DocStart mail.google.com mode ignore
 
