@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Get the distracting domains
+DOMAINS=(`cat ~knowler/.config/distractions`)
+
+for DOMAIN in ${DOMAINS[@]}; do
+  # Check if the domain is already being set in the hosts file (and it is not commented out)
+  if ! grep "[^#]*$DOMAIN" -xq /etc/hosts; then
+    # Add the domains to the hosts file
+    echo "127.0.0.1 $DOMAIN" | sudo tee -a /etc/hosts > /dev/null
+    echo "127.0.0.1 www.$DOMAIN" | sudo tee -a /etc/hosts > /dev/null
+  fi
+done
+
