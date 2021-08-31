@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-HOOKS_DIR="$(git rev-parse --git-dir)/hooks"
+HOOKS_DIR=$(git rev-parse --git-path hooks)
 
 $EDITOR $HOOKS_DIR/$(exa --ignore-glob="*sample" $HOOKS_DIR | fzf --query "$1" --select-1 --preview="bat --color=always $HOOKS_DIR/{}")
