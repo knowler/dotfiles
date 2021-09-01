@@ -129,4 +129,7 @@ return require'packer'.startup(function (use)
     'kristijanhusak/orgmode.nvim',
     config = function() require('orgmode').setup{} end,
   }
+
+  use 'tpope/vim-projectionist'
+  use 'tpope/vim-dispatch'
 end)
