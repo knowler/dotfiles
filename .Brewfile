@@ -231,5 +231,6 @@ mas "Color Picker", id: 1545870783
 mas "Contrast", id: 1254981365
 mas "HP Smart", id: 1474276998
 mas "iA Writer", id: 775737590
+mas "Keynote", id: 409183694
 mas "Pandan", id: 1569600264
 mas "Xcode", id: 497799835
