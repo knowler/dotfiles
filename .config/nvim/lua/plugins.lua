@@ -132,4 +132,6 @@ return require'packer'.startup(function (use)
 
   use 'tpope/vim-projectionist'
   use 'tpope/vim-dispatch'
+
+  use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
 end)
