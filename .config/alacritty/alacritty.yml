@@ -121,7 +121,7 @@ schemes:
       cyan: '0x327698'
       white: '0x262a3f'
 colors: *dark
-background_opacity: 0.9
+background_opacity: 1.0
 cursor:
   style: Block
   unfocused_hollow: true
