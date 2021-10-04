@@ -133,5 +133,7 @@ return require'packer'.startup(function (use)
   use 'tpope/vim-projectionist'
   use 'tpope/vim-dispatch'
 
+  use {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'}
+
   use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
 end)
