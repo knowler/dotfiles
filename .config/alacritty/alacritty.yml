@@ -26,7 +26,7 @@ font:
     style: Bold Italic
   size: 14.0
 schemes:
-  tokyonight_night: &dark
+  tokyonight_night:
     primary:
       background: '0x1a1b26'
       foreground: '0xc0caf5'
@@ -51,7 +51,7 @@ schemes:
     indexed_colors:
       - {index: 16, color: '0xff9e64'}
       - {index: 17, color: '0xdb4b4b'}
-  tokyonight_day: &light
+  tokyonight_day:
     primary:
       background: '0xe1e2e7'
       foreground: '0x3760bf'
@@ -76,7 +76,7 @@ schemes:
     indexed_colors:
       - {index: 16, color: '0xb15c00'}
       - {index: 17, color: '0xc64343'}
-  iceberg_dark:
+  iceberg_dark: &dark
     primary:
       background: '#161821'
       foreground: '#d2d4de'
@@ -98,7 +98,7 @@ schemes:
       magenta: '#ada0d3'
       cyan: '#95c4ce'
       white: '#d2d4de'
-  iceberg_light:
+  iceberg_light: &light
     primary:
       background: '0xe8e9ec'
       foreground: '0x33374c'
@@ -159,4 +159,3 @@ key_bindings:
   # Move window order
   - {key: H, mods: Command|Shift, command: {program: "tmux", args: ["swap-window", "-t", "-1", ";", "select-window", "-t", "-1"]}}
   - {key: L, mods: Command|Shift, command: {program: "tmux", args: ["swap-window", "-t", "+1", ";", "select-window", "-t", "+1"]}}
-

@@ -6,7 +6,7 @@ return require'packer'.startup(function (use)
   use 'AndrewRadev/splitjoin.vim'         -- Easily switch between single and multi line format for stuff (split: gS | join: gJ)
   use 'pbrisbin/vim-mkdir'                -- Automatically create any non-existant directories before writing the buffer
   use 'christoomey/vim-tmux-navigator'
-  use 'cocopon/iceberg.vim'               -- Colour scheme
+  use 'woodyZootopia/iceberg.vim'         -- Colour scheme
   use 'folke/tokyonight.nvim'
   use 'editorconfig/editorconfig-vim'
   use 'junegunn/vim-peekaboo'             -- Show the contens of registers
