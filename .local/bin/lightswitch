@@ -6,10 +6,10 @@ if [[ -x $(command -v dark-mode) ]]; then
   ALACRITTY_CONFIG=${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml
 
   setAlacrittyColors() {
-    yq write --inplace $ALACRITTY_CONFIG --makeAlias colors $1
+    yq eval ".colors alias = ${1}" --inplace $ALACRITTY_CONFIG
     # Alacritty doesn’t pick up the change sometimes so force a noop write for
     # good measure
-    echo "" >> $ALACRITTY_CONFIG
+    #echo "" >> $ALACRITTY_CONFIG
   }
 
   setSpacebarColors() {
