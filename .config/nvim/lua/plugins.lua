@@ -136,4 +136,7 @@ return require'packer'.startup(function (use)
   use {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'}
 
   use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
+
+  use { 'cormacrelf/dark-notify', config = function() require('dark_notify').run() end }
+
 end)
