@@ -46,13 +46,41 @@ return require'packer'.startup(function (use)
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function ()
-      vim.cmd [[ let g:nvim_tree_side = 'right' ]]
-      vim.cmd [[ let g:nvim_tree_width = 45 ]]
-      vim.cmd [[ let g:nvim_tree_width_allow_resize = 1 ]]
-      vim.cmd [[ let g:nvim_tree_auto_close = 1 ]]
-      vim.cmd [[ let g:nvim_tree_highlight_opened_files = 1 ]]
-      vim.cmd [[ let g:nvim_tree_indent_markers = 1 ]]
-      vim.cmd [[ let g:nvim_tree_root_folder_modifier = '%:.' ]]
+      require'nvim-tree'.setup {
+        disable_netrw       = true,
+        hijack_netrw        = true,
+        open_on_setup       = false,
+        ignore_ft_on_setup  = {},
+        auto_close          = true,
+        open_on_tab         = false,
+        update_to_buf_dir   = {
+          enable = true,
+          auto_open = true,
+        },
+        hijack_cursor       = false,
+        update_cwd         = false,
+        lsp_diagnostics     = false,
+        update_focused_file = {
+          enable      = false,
+          update_cwd  = false,
+          ignore_list = {}
+        },
+        system_open = {
+          cmd  = nil,
+          args = {}
+        },
+
+        view = {
+          width = 45,
+          height = 30,
+          side = 'right',
+          auto_resize = true,
+          mappings = {
+            custom_only = false,
+            list = {}
+          }
+        }
+      }
     end,
   }
 
