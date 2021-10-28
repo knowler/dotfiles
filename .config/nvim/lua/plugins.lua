@@ -166,6 +166,8 @@ return require'packer'.startup(function (use)
 
   use { 'cormacrelf/dark-notify', config = function() require('dark_notify').run() end }
 
+  use 'iamcco/markdown-preview.nvim'
+
   use 'mattn/emmet-vim'
 
 end)
