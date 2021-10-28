@@ -43,6 +43,7 @@ brew "direnv"
 brew "dnsmasq", restart_service: true
 brew "dockutil"
 brew "dolt"
+brew "dprint"
 brew "dust"
 brew "earthly"
 brew "efm-langserver"
