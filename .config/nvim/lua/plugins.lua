@@ -59,7 +59,6 @@ return require'packer'.startup(function (use)
         },
         hijack_cursor       = false,
         update_cwd         = false,
-        lsp_diagnostics     = false,
         update_focused_file = {
           enable      = false,
           update_cwd  = false,
