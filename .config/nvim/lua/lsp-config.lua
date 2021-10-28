@@ -22,6 +22,23 @@ end
 
 lsp.psalmls.setup{}
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+if not lsp.emmet_ls then
+  configs.emmet_ls = {
+    default_config = {
+      cmd = {'emmet-ls', '--stdio'};
+      filetypes = {'html', 'css'};
+      root_dir = function()
+        return vim.loop.cwd()
+      end;
+      settings = {};
+    };
+  }
+end
+lsp.emmet_ls.setup{ capabilities = capabilities; }
+
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
