@@ -168,6 +168,8 @@ return require'packer'.startup(function (use)
 
   use 'iamcco/markdown-preview.nvim'
 
+  use 'lepture/vim-jinja'
+
   use 'mattn/emmet-vim'
 
 end)
