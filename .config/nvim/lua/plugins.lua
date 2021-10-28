@@ -172,4 +172,6 @@ return require'packer'.startup(function (use)
 
   use 'mattn/emmet-vim'
 
+  use 'github/copilot.vim'
+
 end)
