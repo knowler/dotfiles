@@ -96,7 +96,7 @@ brew "mpv"
 brew "mutt"
 brew "neofetch"
 brew "tree-sitter"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "newsboat"
 brew "nginx"
 brew "nnn"
