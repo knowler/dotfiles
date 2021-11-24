@@ -1,2 +1,52 @@
+#show-read-feeds no
+auto-reload yes
+reload-time 120
+reload-threads 10
+download-retries 5
+download-timeout 60
+
+prepopulate-query-feeds yes
+
+notify-program              "nb-notify"
+notify-format               "New articles: %d\nTotal unread: %n article(s), %f feed(s)"
+
+player "iina"
+
 bind-key j down
 bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key g home
+bind-key G end
+bind-key d pagedown
+bind-key u pageup
+bind-key h quit
+bind-key a toggle-article-read
+bind-key l open
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+macro v set browser "iina --pip --mpv-ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"; open-in-browser; set browser $BROWSER
+macro E set browser "echo %u >> ~/.config/newsboat/queue"; open-in-browser; set browser $BROWSER
+
+# colors
+color background          black      default
+color listnormal          color8     default
+color listnormal_unread   green      default bold
+color listfocus           white     blue bold
+color listfocus_unread    yellow     blue bold
+color info                cyan      color235 bold standout
+color article             white      default
+
+# highlights
+highlight article "^(Feed|Link):.*$" yellow default bold
+highlight article "^(Title|Date|Author):.*$" yellow default bold
+highlight article "https?://[^ ]+" blue default underline
+highlight article "\\[[0-9]+\\]" yellow default bold
+highlight article "\\[image\\ [0-9]+\\]" yellow default bold
+highlight feedlist "^─.*$" yellow color235 bold
