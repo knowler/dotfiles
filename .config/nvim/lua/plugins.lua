@@ -154,7 +154,21 @@ return require'packer'.startup(function (use)
 
   use {
     'kristijanhusak/orgmode.nvim',
-    config = function() require('orgmode').setup{} end,
+    config = function()
+      local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+      parser_config.org = {
+        install_info = {
+          url = 'https://github.com/milisims/tree-sitter-org',
+          revision = 'main',
+          files = {'src/parser.c', 'src/scanner.cc'},
+        },
+        filetype = 'org',
+      }
+      require('orgmode').setup({
+        org_agenda_files = {'~/Dropbox/org/*'},
+        org_default_notes_file = '~/Dropbox/org/refile.org',
+      })
+    end,
   }
 
   use 'tpope/vim-projectionist'

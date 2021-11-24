@@ -11,11 +11,16 @@ require'nvim-treesitter.configs'.setup{
     'jsonc',
     'latex',
     'lua',
+    'org',
     'swift',
     'toml',
     'yaml',
   },
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    disable = {'org'},
+    additional_vim_regex_highlighting = {'org'},
+  },
   indent = { enable = true },
   incremental_selection = { enable = true },
 }
