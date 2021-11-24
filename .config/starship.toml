@@ -1,10 +1,8 @@
 add_newline = false
 
 [character]
-symbol = "▷"
 success_symbol = "[▷](bold green)"
 error_symbol = "▶"
-use_symbol_for_status = true
 
 [directory]
 truncation_length = 1
