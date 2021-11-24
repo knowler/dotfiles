@@ -2,42 +2,37 @@ local lspinstall = require'lspinstall'
 lspinstall.setup()
 
 local lsp = require'lspconfig'
-local configs = require'lspconfig/configs'
 local autocmd = require'utils'.autocmd
-
-local efm = require'lsp.efm'
-local typescript = require'lsp.typescript'
-local inferPhpVersion = require'php-version'.inferPhpVersion
-
-if not lsp.psalmls then
-  configs.psalmls = {
-    default_config = {
-      cmd = {'./vendor/bin/psalm-language-server'},
-      root_dir = lsp.util.root_pattern("psalm.xml", "psalm.xml.dist"),
-      filetypes = {'php'},
-      settings = {},
-    }
-  }
-end
-
-lsp.psalmls.setup{}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-if not lsp.emmet_ls then
-  configs.emmet_ls = {
-    default_config = {
-      cmd = {'emmet-ls', '--stdio'};
-      filetypes = {'html', 'css'};
-      root_dir = function()
-        return vim.loop.cwd()
-      end;
-      settings = {};
-    };
-  }
-end
-lsp.emmet_ls.setup{ capabilities = capabilities; }
+local textConfig = {
+  filetypes = {'text', 'markdown', 'vimwiki', 'tex'},
+}
+
+local null_ls = require("null-ls")
+null_ls.config({
+    sources = {
+        --null_ls.builtins.code_actions.gitsigns,
+        null_ls.builtins.hover.dictionary.with(textConfig),
+        null_ls.builtins.diagnostics.write_good.with(textConfig),
+        null_ls.builtins.diagnostics.proselint.with(textConfig),
+        null_ls.builtins.hover.dictionary.with(textConfig),
+        --null_ls.builtins.diagnostics.markdownlint.with(textConfig),
+        null_ls.builtins.diagnostics.misspell.with(textConfig),
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.phpcbf.with({
+          extra_args = {"--standard=PSR12"},
+        }),
+        null_ls.builtins.diagnostics.phpcs.with({
+          extra_args = {
+            "--standard=PSR12",
+            "--runtime-set", "testVersion", "5.6-",
+          },
+        }),
+    },
+})
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -74,16 +69,66 @@ local function setup_servers()
   for _, server in pairs(lspinstall.installed_servers()) do
     local config = {on_attach = on_attach}
 
-    if server == "efm" then
-      config = efm
-      config.on_attach = on_attach
+    if server == "json" then
+      config.settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+        },
+      }
     end
 
     if server == "typescript" then
-      config = typescript
+      --config = typescript
+      --config.filetypes = {"javascript", "javascriptreact", "javascript.jsx"}
+      config.init_options = require("nvim-lsp-ts-utils").init_options
       config.on_attach = function(client, bufnr)
         client.resolved_capabilities.document_formatting = false
-        on_attach(client, bufnr)
+        on_attach = function(client, bufnr)
+          local ts_utils = require("nvim-lsp-ts-utils")
+
+          -- defaults
+          ts_utils.setup({
+            debug = true,
+            disable_commands = false,
+            enable_import_on_completion = false,
+
+            enable_formatting = true,
+            formatter = 'prettier_d_slim',
+
+            -- import all
+            import_all_timeout = 5000, -- ms
+            -- lower numbers = higher priority
+            import_all_priorities = {
+              same_file = 1, -- add to existing import statement
+              local_files = 2, -- git files or files with relative path markers
+              buffer_content = 3, -- loaded buffer content
+              buffers = 4, -- loaded buffer names
+            },
+            import_all_scan_buffers = 100,
+            import_all_select_source = false,
+
+            -- filter diagnostics
+            filter_out_diagnostics_by_severity = {},
+            filter_out_diagnostics_by_code = {},
+
+            -- inlay hints
+            auto_inlay_hints = true,
+            inlay_hints_highlight = "Comment",
+
+            -- update imports on file move
+            update_imports_on_move = false,
+            require_confirmation_on_move = false,
+            watch_dir = nil,
+          })
+
+          -- required to fix code action ranges and filter diagnostics
+          ts_utils.setup_client(client)
+
+          local opts = { silent = true }
+          vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
+          vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
+          vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", ":TSLspImportAll<CR>", opts)
+        end
       end
     end
 
@@ -116,7 +161,7 @@ local function setup_servers()
               enable = false,
             },
             environment = {
-              phpVersion = inferPhpVersion(),
+              phpVersion = "5.6"
             },
             stubs = { "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date", "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext", "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "phpunit", "pgsql", "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "wordpress", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib" }
           },
@@ -126,6 +171,8 @@ local function setup_servers()
 
     lsp[server].setup(config)
   end
+
+  lsp["null-ls"].setup({on_attach = on_attach})
 end
 
 setup_servers()

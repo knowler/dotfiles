@@ -174,4 +174,8 @@ return require'packer'.startup(function (use)
 
   use 'github/copilot.vim'
 
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'b0o/schemastore.nvim'
+
 end)
