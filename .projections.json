@@ -3,5 +3,12 @@
     "template": [
       "#!/usr/bin/env bash"
     ]
+  },
+  "package.json": {
+    "template": [
+      "{",
+      "  \"private\": true",
+      "}"
+    ]
   }
 }
