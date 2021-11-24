@@ -9,7 +9,7 @@
 	symlinks = true
 	pager = delta
 [help]
-	autocorrect = 1
+	autoCorrect = prompt
 [init]
 	defaultBranch = main
 	#templateDir = ~/.local/share/git-core/templates
