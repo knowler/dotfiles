@@ -77,6 +77,9 @@ schemes:
       - {index: 16, color: '0xb15c00'}
       - {index: 17, color: '0xc64343'}
   iceberg_dark: &dark
+    cursor:
+      text:   '#161821'
+      cursor: '#ffffff'
     primary:
       background: '#161821'
       foreground: '#d2d4de'
