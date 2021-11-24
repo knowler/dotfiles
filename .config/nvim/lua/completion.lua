@@ -19,5 +19,6 @@ return require'compe'.setup {
     nvim_lua = true;
     vsnip = true;
     tabnine = false;
+    orgmode = true;
   };
 }
