@@ -137,6 +137,7 @@ brew "sox"
 brew "sphinx-doc"
 brew "starship"
 brew "subversion"
+brew "tailscale"
 brew "task-spooler", link: false
 brew "tccutil"
 brew "terminal-notifier"
