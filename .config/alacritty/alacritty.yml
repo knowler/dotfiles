@@ -1,6 +1,7 @@
 env:
   TERM: xterm-256color
 window:
+  opacity: 1.0
   padding:
     x: 16
     y: 12
@@ -74,7 +75,6 @@ schemes:
       cyan: '0x327698'
       white: '0x262a3f'
 colors: *dark
-background_opacity: 1.0
 cursor:
   style: Block
   unfocused_hollow: true
