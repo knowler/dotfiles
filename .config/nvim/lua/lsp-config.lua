@@ -1,38 +1,24 @@
-local lspinstall = require'lspinstall'
-lspinstall.setup()
-
-local lsp = require'lspconfig'
+local lspconfig = require('lspconfig')
+local lsp_installer = require('nvim-lsp-installer')
+local null_ls = require("null-ls")
 local autocmd = require'utils'.autocmd
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-local textConfig = {
-  filetypes = {'text', 'markdown', 'vimwiki', 'tex'},
+local servers = {
+  'tsserver',
+  'denols',
+  'cssls',
+  'sumneko_lua',
 }
 
-local null_ls = require("null-ls")
-null_ls.config({
-    sources = {
-        --null_ls.builtins.code_actions.gitsigns,
-        null_ls.builtins.hover.dictionary.with(textConfig),
-        null_ls.builtins.diagnostics.write_good.with(textConfig),
-        null_ls.builtins.diagnostics.proselint.with(textConfig),
-        null_ls.builtins.hover.dictionary.with(textConfig),
-        --null_ls.builtins.diagnostics.markdownlint.with(textConfig),
-        null_ls.builtins.diagnostics.misspell.with(textConfig),
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.phpcbf.with({
-          extra_args = {"--standard=PSR12"},
-        }),
-        null_ls.builtins.diagnostics.phpcs.with({
-          extra_args = {
-            "--standard=PSR12",
-            "--runtime-set", "testVersion", "5.6-",
-          },
-        }),
-    },
-})
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found then
+    if not server:is_installed() then
+      print("Installing " .. name)
+      server:install()
+    end
+  end
+end
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -65,119 +51,74 @@ local function on_attach(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<cr>', opts)
 end
 
-local function setup_servers()
-  for _, server in pairs(lspinstall.installed_servers()) do
-    local config = {on_attach = on_attach}
+lsp_installer.on_server_ready(function(server)
+  local default_opts = {
+    on_attach = on_attach,
+  }
 
-    if server == "json" then
-      config.settings = {
+  local server_opts = {
+    ['tsserver'] = function()
+      --If this is Deno then bail out.
+      if lspconfig.util.root_pattern('deno.json')('.') then
+        default_opts.filetypes = {}
+      end
+
+      default_opts.root_dir = lspconfig.util.root_pattern('package.json')
+
+      default_opts.on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client, bufnr)
+      end
+      default_opts.settings = {
+        format = {
+          enable = false,
+        },
+      }
+    end,
+    ['denols'] = function()
+      --If this is Node then bail out.
+      if lspconfig.util.root_pattern('package.json')('.') then
+        default_opts.filetypes = {}
+      end
+    end,
+    ['jsonls'] = function ()
+      default_opts.init_options = {
+          documentFormatting = false,
+      }
+      default_opts.settings = {
         json = {
           schemas = require('schemastore').json.schemas(),
         },
-      }
-    end
-
-    if server == "typescript" then
-      --config = typescript
-      --config.filetypes = {"javascript", "javascriptreact", "javascript.jsx"}
-      config.init_options = require("nvim-lsp-ts-utils").init_options
-      config.on_attach = function(client, bufnr)
-        client.resolved_capabilities.document_formatting = false
-        on_attach = function(client, bufnr)
-          local ts_utils = require("nvim-lsp-ts-utils")
-
-          -- defaults
-          ts_utils.setup({
-            debug = true,
-            disable_commands = false,
-            enable_import_on_completion = false,
-
-            enable_formatting = true,
-            formatter = 'prettier_d_slim',
-
-            -- import all
-            import_all_timeout = 5000, -- ms
-            -- lower numbers = higher priority
-            import_all_priorities = {
-              same_file = 1, -- add to existing import statement
-              local_files = 2, -- git files or files with relative path markers
-              buffer_content = 3, -- loaded buffer content
-              buffers = 4, -- loaded buffer names
-            },
-            import_all_scan_buffers = 100,
-            import_all_select_source = false,
-
-            -- filter diagnostics
-            filter_out_diagnostics_by_severity = {},
-            filter_out_diagnostics_by_code = {},
-
-            -- inlay hints
-            auto_inlay_hints = true,
-            inlay_hints_highlight = "Comment",
-
-            -- update imports on file move
-            update_imports_on_move = false,
-            require_confirmation_on_move = false,
-            watch_dir = nil,
-          })
-
-          -- required to fix code action ranges and filter diagnostics
-          ts_utils.setup_client(client)
-
-          local opts = { silent = true }
-          vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
-          vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
-          vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", ":TSLspImportAll<CR>", opts)
-        end
-      end
-    end
-
-    if server == "lua" then
-      config = {
-        on_attach = on_attach,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = {'vim'},
-            }
-          }
-        }
-      }
-    end
-
-    if server == "php" then
-      config = {
-        on_attach = function(client, bufnr)
-          client.resolved_capabilities.document_formatting = false
-          on_attach(client, bufnr)
-        end,
-        init_options =  {
+        init_options = {
           documentFormatting = false,
+          provideFormatter = false,
         },
-        settings = {
-          documentFormatting = false,
-          intelephense = {
-            format = {
-              enable = false,
-            },
-            environment = {
-              phpVersion = "5.6"
-            },
-            stubs = { "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date", "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext", "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "phpunit", "pgsql", "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "wordpress", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib" }
+        format = {
+          enable = false,
+        },
+      }
+    end,
+    ['sumneko_lua'] = function ()
+      default_opts.settings = {
+        Lua = {
+          diagnostics = {
+            globals = {'vim'},
           },
         },
       }
-    end
+    end,
+  }
 
-    lsp[server].setup(config)
-  end
+  server:setup(
+    server_opts[server.name] and server_opts[server.name]() or default_opts
+  )
+end)
 
-  lsp["null-ls"].setup({on_attach = on_attach})
-end
-
-setup_servers()
-
-lspinstall.post_install_hook = function ()
-  setup_servers()
-  vim.cmd("bufdo e")
-end
+null_ls.setup({
+  on_attach = on_attach,
+  sources = {
+    null_ls.builtins.formatting.prettier.with({
+      filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},
+    }),
+  },
+})

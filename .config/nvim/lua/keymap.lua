@@ -26,3 +26,5 @@ map('n', 'gzn', '<cmd>lua require\'neuron/cmd\'.new_edit(require\'neuron\'.confi
 
 --find your notes, click enter to create the note if there are not notes that match
 map('n', 'gzz', '<cmd>lua require\'neuron/telescope\'.find_zettels()<cr>')
+
+map('n', '<leader>r', 'lua require("telescope").extensions.live_grep_raw.live_grep_raw()<cr>')

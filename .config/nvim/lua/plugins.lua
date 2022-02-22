@@ -1,3 +1,10 @@
+-- Install Packer if not installed
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
 return require'packer'.startup(function (use)
   --Packer
   use 'wbthomason/packer.nvim'
@@ -87,8 +94,11 @@ return require'packer'.startup(function (use)
     'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/popup.nvim',
-      'nvim-lua/plenary.nvim'
-    }
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-live-grep-raw.nvim',
+      'nvim-telescope/telescope-dap.nvim',
+    },
+    config = function () require'telescope'.load_extension('dap') end
   }
 
   use {
@@ -106,7 +116,9 @@ return require'packer'.startup(function (use)
   --LSP
   use {
     'neovim/nvim-lspconfig',
-    requires = {'kabouzeid/nvim-lspinstall'},
+    requires = {
+      'williamboman/nvim-lsp-installer',
+    },
     config = function () require'lsp-config' end
   }
 
@@ -186,10 +198,18 @@ return require'packer'.startup(function (use)
 
   use 'mattn/emmet-vim'
 
-  use 'github/copilot.vim'
+  --use 'github/copilot.vim'
 
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'b0o/schemastore.nvim'
 
+  use 'windwp/nvim-spectre'
+
+  use 'mfussenegger/nvim-dap'
+
+  -- If bootstrapping, setup plugins.
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
