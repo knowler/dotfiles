@@ -53,3 +53,6 @@ export FZF_DEFAULT_OPS="--ansi"
 
 # Volta
 export VOLTA_HOME="$HOME/.volta"
+
+# Do not show hints from Homebrew
+export HOMEBREW_NO_ENV_HINTS=true
