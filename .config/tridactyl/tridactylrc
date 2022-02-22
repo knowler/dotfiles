@@ -19,18 +19,12 @@ set modeindicatormodes.ignore false
 " Show keys in mode indicator
 set modeindicatorshowkeys true
 
-" Search URLs
-set searchurls.bibleproject https://bibleproject.com/search/#?cludoquery=%s
-
 " Only load a restored tab when it becomes active
 setpref browser.sessionstore.restore_on_demand true
 
 " ========
 " Bindings
 " ========
-
-" Toggle pin tab
-bind zp pin
 
 " Open video in IINA (macOS only)
 bind zv composite js document.location.href | exclaim_quiet /usr/local/bin/iina
