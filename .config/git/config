@@ -43,8 +43,6 @@
 	prune = true
 [stash]
 	showPatch = true
-[includeIf "gitdir:~/code/stellar/"]
-	path = ~/code/stellar/.gitconfig
 [advice]
 	addEmptyPathspec = false
 [filter "lfs"]
