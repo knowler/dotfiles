@@ -1,8 +1,6 @@
-# Executes commands at login pre-zshrc.
-
 # Browser
 if [[ $OSTYPE =~ "darwin" ]]; then
-  export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
+  export BROWSER='/Applications/Firefox.app/Contents/MacOS/firefox'
 fi
 if [[ $OSTYPE =~ "linux" ]]; then
   export BROWSER='firefox'
