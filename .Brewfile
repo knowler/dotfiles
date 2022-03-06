@@ -181,7 +181,7 @@ brew "federico-terzi/espanso/espanso"
 brew "googlechrome/simplehttp2server/simplehttp2server"
 brew "itchyny/tap/mmv"
 brew "koekeishiya/formulae/skhd"
-brew "koekeishiya/formulae/yabai"
+brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 brew "mongodb/brew/mongodb-community"
 brew "planetscale/tap/pscale"
 brew "rami3l/tap/pacaptr"

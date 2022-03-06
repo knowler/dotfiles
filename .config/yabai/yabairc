@@ -5,8 +5,8 @@
 # Run ~/.scripts/yabai-setup.sh when initially setting up yabai and a sudoer
 # will be setup so this won’t fail because there’s no accessible password
 # prompt.
-#
 sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 yabai -m config external_bar                 all:32:0
 
