@@ -3,11 +3,14 @@ local lsp_installer = require('nvim-lsp-installer')
 local null_ls = require("null-ls")
 local autocmd = require'utils'.autocmd
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local servers = {
   'tsserver',
   'denols',
   'cssls',
   'sumneko_lua',
+  'rust_analyzer',
 }
 
 for _, name in pairs(servers) do
@@ -22,9 +25,8 @@ end
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  --buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local opts = { noremap=true, silent=true }
 
@@ -54,6 +56,7 @@ end
 lsp_installer.on_server_ready(function(server)
   local default_opts = {
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 
   local server_opts = {
@@ -116,6 +119,7 @@ end)
 
 null_ls.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   sources = {
     null_ls.builtins.formatting.prettier.with({
       filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},

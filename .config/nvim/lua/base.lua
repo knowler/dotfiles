@@ -26,7 +26,7 @@ opt.hidden = true
 opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
-opt.completeopt = 'menuone,noselect'
+opt.completeopt = 'menu,menuone,noselect'
 
 opt.number = true
 opt.signcolumn = 'yes'
@@ -37,5 +37,4 @@ opt.shiftwidth = 0
 opt.expandtab = true
 opt.textwidth = 80
 
-autocmd('zettelkasten', 'BufWritePost ~/.zettelkasten/*.md silent !cd %:h && git update %:t &')
 autocmd('plugins', 'BufWritePost plugins.lua PackerCompile')
