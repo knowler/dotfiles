@@ -1,15 +1,30 @@
 local cmd = vim.cmd
 local opt = vim.opt
 
---cmd [[set t_Co = 256]]
+vim.g.t_Co = 256
 cmd [[if &term =~ '256color' | set t_ut= | endif]]
-cmd [[let $NVIM_TUI_ENABLE_TRUE_COLOR=1]]
+vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 opt.termguicolors = true
 cmd [[colorscheme iceberg]]
 opt.background = 'dark'
-cmd [[highlight NonText guibg=NONE ctermbg=NONE]]
-cmd [[highlight Normal guibg=NONE ctermbg=NONE]]
-cmd [[highlight EndOfBuffer guibg=NONE ctermbg=NONE]]
-cmd [[highlight LineNr guibg=NONE ctermbg=NONE]]
+
+local highlights = {
+  'NonText',
+  'Normal',
+  'EndOfBuffer',
+  'LineNr',
+}
+
+for _, highlight in ipairs(highlights) do
+  vim.api.nvim_set_hl(
+    0,
+    highlight,
+    vim.tbl_extend(
+      'force',
+      vim.api.nvim_get_hl_by_name(highlight, true),
+      {background = 'NONE'}
+    )
+  )
+end
 
 cmd [[let g:lightline = {'colorscheme': 'iceberg'}]]
