@@ -16,6 +16,7 @@ tap "koekeishiya/formulae"
 tap "michaeleisel/zld"
 tap "planetscale/tap"
 tap "superfly/tap"
+tap "xwmx/taps"
 tap "zegervdv/zathura"
 brew "python@3.9"
 brew "glib"
@@ -121,6 +122,7 @@ brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 brew "michaeleisel/zld/zld"
 brew "planetscale/tap/pscale"
 brew "superfly/tap/flyctl"
+brew "xwmx/taps/nb"
 brew "zegervdv/zathura/girara", args: ["HEAD"]
 brew "zegervdv/zathura/synctex"
 brew "zegervdv/zathura/zathura", args: ["HEAD"]
