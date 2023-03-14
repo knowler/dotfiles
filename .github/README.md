@@ -19,7 +19,7 @@ for two types of systems: macOS and Manjaro.
 TODO: use my domain agian for the install link.
 
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://github.com/knowler/dotfiles/blob/7a8a60ffea95e729743c4df9e9f8b39b1cb3e27a/.local/bin/install-dotfiles | bash
+curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/knowler/dotfiles/main/.local/bin/install-dotfiles | bash
 ```
 
 ### Generating Nerd Font for Dank Mono (used in Alacritty)
