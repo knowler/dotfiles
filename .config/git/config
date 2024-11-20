@@ -1,8 +1,8 @@
 # vim: noexpandtab
 [user]
 	name = Nathan Knowler
-	email = nathan@knowler.me
-	signingkey = 3601C896EC39C1E1
+	email = nathan@knowler.dev
+	signingkey = 749971BCC8EA6465
 [core]
 	editor = nvim
 	excludesfile = ~/.config/git/ignore

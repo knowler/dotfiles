@@ -35,6 +35,8 @@ macro v set browser "iina --pip --mpv-ytdl-format='bestvideo[height<=?720][fps<=
 macro E set browser "echo %u >> ~/.config/newsboat/queue"; open-in-browser; set browser $BROWSER
 
 browser "open"
+bookmark-cmd "nb"
+bookmark-autopilot yes
 
 # colors
 color background          black      default

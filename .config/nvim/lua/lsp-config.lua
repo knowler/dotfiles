@@ -1,27 +1,7 @@
 local lspconfig = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
-local null_ls = require("null-ls")
 local autocmd = require'utils'.autocmd
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-local servers = {
-  'tsserver',
-  'denols',
-  'cssls',
-  'sumneko_lua',
-  'rust_analyzer',
-}
-
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found then
-    if not server:is_installed() then
-      print("Installing " .. name)
-      server:install()
-    end
-  end
-end
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -53,76 +33,12 @@ local function on_attach(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<cr>', opts)
 end
 
-lsp_installer.on_server_ready(function(server)
-  local default_opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+--lspconfig.ts_ls.setup {
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--}
 
-  local server_opts = {
-    ['tsserver'] = function()
-      --If this is Deno then bail out.
-      if lspconfig.util.root_pattern('deno.json')('.') then
-        default_opts.filetypes = {}
-      end
-
-      default_opts.root_dir = lspconfig.util.root_pattern('package.json')
-
-      default_opts.on_attach = function(client, bufnr)
-        client.resolved_capabilities.document_formatting = false
-        on_attach(client, bufnr)
-      end
-      default_opts.settings = {
-        format = {
-          enable = false,
-        },
-      }
-    end,
-    ['denols'] = function()
-      --If this is Node then bail out.
-      if lspconfig.util.root_pattern('package.json')('.') then
-        default_opts.filetypes = {}
-      end
-    end,
-    ['jsonls'] = function ()
-      default_opts.init_options = {
-          documentFormatting = false,
-      }
-      default_opts.settings = {
-        json = {
-          schemas = require('schemastore').json.schemas(),
-        },
-        init_options = {
-          documentFormatting = false,
-          provideFormatter = false,
-        },
-        format = {
-          enable = false,
-        },
-      }
-    end,
-    ['sumneko_lua'] = function ()
-      default_opts.settings = {
-        Lua = {
-          diagnostics = {
-            globals = {'vim'},
-          },
-        },
-      }
-    end,
-  }
-
-  server:setup(
-    server_opts[server.name] and server_opts[server.name]() or default_opts
-  )
-end)
-
-null_ls.setup({
+lspconfig.biome.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  sources = {
-    null_ls.builtins.formatting.prettier.with({
-      filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},
-    }),
-  },
-})
+}

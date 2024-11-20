@@ -1,0 +1,284 @@
+
+[colors.bright]
+black = "#6b7089"
+blue = "#91acd1"
+cyan = "#95c4ce"
+green = "#c0ca8e"
+magenta = "#ada0d3"
+red = "#e98989"
+white = "#d2d4de"
+yellow = "#e9b189"
+
+[colors.cursor]
+cursor = "#ffffff"
+text = "#161821"
+
+[colors.normal]
+black = "#161821"
+blue = "#84a0c6"
+cyan = "#89b8c2"
+green = "#b4be82"
+magenta = "#a093c7"
+red = "#e27878"
+white = "#c6c8d1"
+yellow = "#e2a478"
+
+[colors.primary]
+background = "#161821"
+foreground = "#d2d4de"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 18.0
+
+[font.bold]
+family = "DankMono Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "DankMono Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "DankMono Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "DankMono Nerd Font Mono"
+style = "Regular"
+
+[keyboard]
+bindings = [
+	# new tmux window
+	{ key = "T", mods = "Command", command = { program = "tmux", args = ["new-window"] } },
+	# close tmux window
+	{ key = "W", mods = "Command", command = { program = "tmux", args = ["confirm-before", "-p", "Close window? (y/n)", "kill-window"] } },
+	# split window in direction
+	{ key = "H", mods = "Command", command = { program = "tmux", args = ["split-window", "-h", "-b"] } },
+	{ key = "J", mods = "Command", command = { program = "tmux", args = ["split-window", "-b"] } },
+	{ key = "K", mods = "Command", command = { program = "tmux", args = ["split-window"] } },
+	{ key = "L", mods = "Command", command = { program = "tmux", args = ["split-window", "-h"] } },
+	# go to numbered window
+	{ key = "Key1", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "1"] } },
+	{ key = "Key2", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "2"] } },
+	{ key = "Key3", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "3"] } },
+	{ key = "Key4", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "4"] } },
+	{ key = "Key5", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "5"] } },
+	{ key = "Key6", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "6"] } },
+	{ key = "Key7", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "7"] } },
+	{ key = "Key8", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "8"] } },
+	{ key = "Key9", mods = "Command", command = { program = "tmux", args = ["select-window", "-t", "9"] } },
+	# move window order
+	{ key = "H", mods = "Command|Shift", command = { program = "tmux", args = ["swap-window", "-t", "-1", ";", "select-window", "-t", "-1"] } },
+	{ key = "L", mods = "Command|Shift", command = { program = "tmux", args = ["swap-window", "-t", "+1", ";", "select-window", "-t", "+1"] } },
+]
+
+#[[keyboard.bindings]]
+#key = "W"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["confirm-before", "-p", "Close window? (y/n)", "kill-window"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "H"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["split-window", "-h", "-b"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "J"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["split-window", "-b"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "K"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["split-window"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "L"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["split-window", "-h"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key1"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "1"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key2"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "2"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key3"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "3"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key4"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "4"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key5"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "5"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key6"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "6"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key7"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "7"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key8"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "8"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "Key9"
+#mods = "Command"
+#
+#[keyboard.bindings.command]
+#args = ["select-window", "-t", "9"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "H"
+#mods = "Command|Shift"
+#
+#[keyboard.bindings.command]
+#args = ["swap-window", "-t", "-1", ";", "select-window", "-t", "-1"]
+#program = "tmux"
+#
+#[[keyboard.bindings]]
+#key = "L"
+#mods = "Command|Shift"
+#
+#[keyboard.bindings.command]
+#args = ["swap-window", "-t", "+1", ";", "select-window", "-t", "+1"]
+#program = "tmux"
+
+##[schemes.iceberg_dark.bright]
+##black = "#6b7089"
+##blue = "#91acd1"
+##cyan = "#95c4ce"
+##green = "#c0ca8e"
+##magenta = "#ada0d3"
+##red = "#e98989"
+##white = "#d2d4de"
+##yellow = "#e9b189"
+##
+##[schemes.iceberg_dark.cursor]
+##cursor = "#ffffff"
+##text = "#161821"
+##
+##[schemes.iceberg_dark.normal]
+##black = "#161821"
+##blue = "#84a0c6"
+##cyan = "#89b8c2"
+##green = "#b4be82"
+##magenta = "#a093c7"
+##red = "#e27878"
+##white = "#c6c8d1"
+##yellow = "#e2a478"
+##
+##[schemes.iceberg_dark.primary]
+##background = "#161821"
+##foreground = "#d2d4de"
+##
+##[schemes.iceberg_light.bright]
+##black = "0x8389a3"
+##blue = "0x22478e"
+##cyan = "0x327698"
+##green = "0x598030"
+##magenta = "0x6845ad"
+##red = "0xcc3768"
+##white = "0x262a3f"
+##yellow = "0xb6662d"
+##
+##[schemes.iceberg_light.normal]
+##black = "0xdcdfe7"
+##blue = "0x2d539e"
+##cyan = "0x3f83a6"
+##green = "0x668e3d"
+##magenta = "0x7759b4"
+##red = "0xcc517a"
+##white = "0x33374c"
+##yellow = "0xc57339"
+##
+##[schemes.iceberg_light.primary]
+##background = "0xe8e9ec"
+##foreground = "0x33374c"
+
+[scrolling]
+history = 20000
+multiplier = 3
+
+[terminal.shell]
+args = ["tmux", "new-session", "-A", "-D", "-s", "code"]
+program = "/usr/bin/env"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true
+dynamic_title = true
+#gtk_theme_variant = "None"
+opacity = 0.9
+
+[window.padding]
+x = 16
+y = 12
+
+[general]
+live_config_reload = true
+
+[terminal]

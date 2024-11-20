@@ -43,6 +43,7 @@ alias ls="exa -l --group-directories-first --icons"
 alias la="exa -la --group-directories-first --icons"
 alias o="open"
 alias simctl="xcrun simctl"
+alias yolo="sudo"
 
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"

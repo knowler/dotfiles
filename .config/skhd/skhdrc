@@ -20,24 +20,12 @@ resize < shift - h :  yabai -m window --resize right:-5:0.0
 # Open Terminal
 alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
-# Open Browser
-shift + alt - return : /Applications/Firefox.app/Contents/MacOS/firefox
-
 # Read screen catpure aloud
 shift + alt - space : $HOME/.local/bin/readshot
 shift + alt - escape : kill $(ps -ax | grep 'say' | awk '{print $1}' | head -1)
 
 # Reload yabai
-shift + alt - c : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
-
-# Stop yabai + spacebar
-shift + cmd + alt - c : brew services stop yabai; brew services stop spacebar
-
-# Start yabai + spacebar
-shift + cmd + alt - s : brew services start yabai; brew services start spacebar
-
-# Flip the lightswitch
-cmd + alt - l : $HOME/.local/bin/lightswitch
+shift + alt - c : yabai --restart-service
 
 # Window focus navigation
 alt - h : yabai -m window --focus west
@@ -68,14 +56,6 @@ alt - 7 : yabai -m space --focus 7
 alt - 8 : yabai -m space --focus 8
 alt - 9 : yabai -m space --focus 9
 
-alt - 0x1B : frame=$(yabai -m query --windows --window | jq '.frame') && w=$(echo $frame | jq '.w') && h=$(echo $frame | jq '.h') && \
-             yabai -m window --resize abs:$(expr $w - 40):$(expr $h - 40) && \
-             yabai -m window --move rel:20:20
-
-shift + alt - 0x18 : frame=$(yabai -m query --windows --window | jq '.frame') && w=$(echo $frame | jq '.w') && h=$(echo $frame | jq '.h') && \
-                     yabai -m window --resize abs:$(expr $w + 40):$(expr $h + 40) && \
-                     yabai -m window --move rel:-20:-20
-
 # send window to desktop and follow focus
 shift + alt - 1 : yabai -m window --space  1; yabai -m space --focus 1
 shift + alt - 2 : yabai -m window --space  2; yabai -m space --focus 2
@@ -95,7 +75,7 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 
 # stack layout
 alt - s : yabai -m window --stack next
-alt - b : yabai -m space --layout bsp
+#alt - b : yabai -m space --layout bsp
 
 # hide borders
 shift + alt - b : yabai -m window --toggle border
@@ -107,18 +87,4 @@ alt - y : yabai -m space --mirror y-axis
 alt - x : yabai -m space --mirror x-axis
 
 # float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 7:7:1:1:5:5
-
-# Close the window
-alt - q [
-  "discord" : yabai -m window --minimize; yabai -m wndow --focus recent
-  * : yabai -m window --close; yabai -m window --focus recent
-]
-
-# Toggle music app focus
-alt - m : yabai -m window --focus $(yabai -m query --windows --space mouse | jq -e '.[] | select(.app=="IINA" and .focused!=1) | .id' || echo 'recent')
-
-.blacklist [
-  "vnc viewer"
-]
+alt - t : yabai -m window --toggle float --grid 7:7:1:1:5:5

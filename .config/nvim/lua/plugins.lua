@@ -1,175 +1,140 @@
--- Install Packer if not installed
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
+return {
+  { "williamboman/mason.nvim", opts = {} },
+  { "williamboman/mason-lspconfig", opts = {} },
+  { "neovim/nvim-lspconfig", config = function() require("lsp-config") end },
 
-return require'packer'.startup({function(use)
-  --Packer
-  use 'wbthomason/packer.nvim'
+  "cocopon/iceberg.vim",
 
-  -- Quality of Life
-  use 'AndrewRadev/splitjoin.vim'         -- Easily switch between single and multi line format for stuff (split: gS | join: gJ)
-  use 'tpope/vim-eunuch'
-  use 'tpope/vim-surround'
-  use 'Raimondi/delimitMate'
-  use 'pbrisbin/vim-mkdir'                -- Automatically create any non-existant directories before writing the buffer
-  use 'junegunn/vim-peekaboo'             -- Show the contens of registers
-  use 'junegunn/vim-slash'                -- Automatically clears search highlight when cursor is moved (and more)
-  use {
-    'nacro90/numb.nvim',
-    config = function () require('numb').setup() end,
-  }
-  use {
-    'winston0410/range-highlight.nvim',
-    requires = 'winston0410/cmd-parser.nvim',
-    config = function () require'range-highlight'.setup{} end,
-  }
+  "tpope/vim-surround",
+  "tpope/vim-abolish",
+  "tpope/vim-commentary",
+  "tpope/vim-eunuch",
+  "tpope/vim-fugitive",
 
-  -- Colours
-  use 'cocopon/iceberg.vim'
+  "junegunn/vim-peekaboo",
+  "junegunn/vim-slash",
 
-  -- Fuzzy search
-  use 'junegunn/fzf'                      -- Fuzzy find stuff
-  use 'junegunn/fzf.vim'
+  "AndrewRadev/splitjoin.vim",
 
-  -- Writing
-  use 'junegunn/goyo.vim'
-  use 'junegunn/limelight.vim'
+  "pbrisbin/vim-mkdir",
 
-  -- Tmux
-  use 'christoomey/vim-tmux-navigator'
+  { "nacro90/numb.nvim", opts = {} },
 
-  -- Git
-  use 'tpope/vim-fugitive'
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    config = function () require'gitsigns'.setup{} end,
-  }
+  {
+    "Raimondi/delimitMate",
+    init = function()
+      vim.g.delimitMate_expand_space = 1
+      vim.g.delimitMate_expand_cr = 2
+      --vim.g.delimitMate_autoclose = 0
+    end
+  },
 
-  -- Syntax
-  use 'sheerun/vim-polyglot'
+  {
+    "winston0410/range-highlight.nvim",
+    opts = {},
+    dependencies = { "winston0410/cmd-parser.nvim" },
+  },
 
-  -- Code style
-  use 'editorconfig/editorconfig-vim'
+  "editorconfig/editorconfig-vim",
+  "christoomey/vim-tmux-navigator",
 
-  use 'wakatime/vim-wakatime'             -- Personal time tracking
+  -- Syntax-y things
 
-  -- Tab bar
-  use {
-    'romgrk/barbar.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-  }
-
-  -- Status line
-  use 'itchyny/lightline.vim'
-
-  -- File tree
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function ()
-      require'nvim-tree'.setup {
-        disable_netrw       = true,
-        hijack_netrw        = true,
-        open_on_setup       = false,
-        ignore_ft_on_setup  = {},
-        auto_close          = true,
-        open_on_tab         = false,
-        update_to_buf_dir   = {
-          enable = true,
-          auto_open = true,
-        },
-        hijack_cursor       = false,
-        update_cwd         = false,
-        update_focused_file = {
-          enable      = false,
-          update_cwd  = false,
-          ignore_list = {}
-        },
-        system_open = {
-          cmd  = nil,
-          args = {}
-        },
-
-        view = {
-          width = 45,
-          height = 30,
-          side = 'right',
-          auto_resize = true,
-          mappings = {
-            custom_only = false,
-            list = {}
-          }
-        }
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        highlight = { enable = true },
       }
     end,
-  }
+  },
 
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-      'nvim-lua/popup.nvim',
-      'nvim-lua/plenary.nvim',
+  {
+    "AckslD/nvim-FeMaco.lua",
+    opts = {
+      post_open_float = function(winnr)
+        vim.api.nvim_win_set_option(winnr, "winblend", 10)
+      end
     },
-  }
+  },
 
-  --LSP
-  use {
-    'neovim/nvim-lspconfig',
-    requires = {
-      'williamboman/nvim-lsp-installer',
-      'folke/lsp-colors.nvim',
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
     },
-    config = function () require'lsp-config' end
-  }
+  },
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function () vim.cmd [[TSUpdate]] end,
-    requires = {
-      'romgrk/nvim-treesitter-context',
+  {
+    -- TODO: figure this out
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "saadparwaiz1/cmp_luasnip",
+      "petertriho/cmp-git",
+      "lukas-reineke/cmp-rg",
     },
-    config = function () require'treesitter-config' end
-  }
+    config = function()
+      require("completion")
+    end,
+  },
 
-  use 'L3MON4D3/LuaSnip'
-
-  --Completion
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
+  -- UI
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
     },
-    config = function() require'completion' end
-  }
+  },
+  {
+    "junegunn/fzf.vim",
+    dependencies = "junegunn/fzf"
+  },
 
-  use 'famiu/nvim-reload'
-
-  use 'tpope/vim-projectionist'
-
-  use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
-
-  use { 'cormacrelf/dark-notify', config = function() require('dark_notify').run() end }
-
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'b0o/schemastore.nvim'
-
-  -- If bootstrapping, setup plugins.
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end,
-  config = {
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end,
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    opts = {
+      window = { position = "right" },
     },
-  }
-})
+    config = function(_, opts)
+      -- Adding rules from plugin
+      opts.nesting_rules = require("neotree-file-nesting-config").nesting_rules
+      require("neo-tree").setup(opts)
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+      "saifulapm/neotree-file-nesting-config",
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {},
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "romgrk/barbar.nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+  },
+  {
+    "itchyny/lightline.vim",
+    init = function()
+      vim.g.lightline = {
+        colorscheme = "iceberg",
+      }
+    end,
+  },
+
+  ----TODO: 
+  --{
+  --  "nvim-focus/focus.nvim",
+  --  opts = {},
+  --},
+}

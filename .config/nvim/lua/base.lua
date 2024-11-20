@@ -3,6 +3,9 @@ local autocmd = utils.autocmd
 local opt = vim.opt
 local cmd = vim.cmd
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 opt.compatible = false
 
 cmd [[filetype plugin indent on]]
@@ -32,9 +35,10 @@ opt.number = true
 opt.signcolumn = 'yes'
 
 opt.tabstop = 2
-opt.softtabstop = 0
-opt.shiftwidth = 0
-opt.expandtab = true
+--opt.softtabstop = 2
+opt.shiftwidth = 2
+--opt.expandtab = false
 opt.textwidth = 80
 
-autocmd('plugins', 'BufWritePost plugins.lua PackerCompile')
+cmd[[let delimitMate_expand_space = 1]]
+cmd[[let delimitMate_expand_cr = 2]]

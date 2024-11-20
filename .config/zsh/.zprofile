@@ -1,6 +1,6 @@
 # Browser
 if [[ $OSTYPE =~ "darwin" ]]; then
-  export BROWSER='/Applications/Firefox.app/Contents/MacOS/firefox'
+  export BROWSER='/Applications/Zen\ Browser.app/Contents/MacOS/zen'
 fi
 if [[ $OSTYPE =~ "linux" ]]; then
   export BROWSER='firefox'

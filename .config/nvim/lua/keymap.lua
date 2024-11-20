@@ -13,4 +13,4 @@ map('n', '<c-l>', '<c-w>l')
 
 cmd [[nmap <c-p> <cmd>lua require'telescope.builtin'.find_files()<cr>]]
 
-cmd [[nnoremap <c-n> :NvimTreeToggle<cr>]]
+cmd [[nnoremap <c-n> :Neotree toggle<cr>]]

@@ -8,8 +8,6 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-yabai -m config external_bar                 all:32:0
-
 yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          off
 
@@ -41,15 +39,6 @@ yabai -m config window_gap 15
 
 yabai -m config layout bsp
 
-yabai -m rule --add app="System Preferences" manage=off layer=above
-
-yabai -m rule --add app="IINA" sticky=on
-
-yabai -m rule --add app="Contrast" manage=off layer=above
-yabai -m rule --add app="Pika" manage=off layer=above
-
-yabai -m rule --add app="iA Writer" title="(General|Accounts|Files|Library|Editor|Templates)" manage=off layer=above
+yabai -m rule --add app="System Settings" manage=off
 
 yabai -m rule --add app="Discord" title="Discord Updater" manage=off
-
-yabai -m rule --add app="PhpStorm" manage=off

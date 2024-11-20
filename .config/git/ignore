@@ -2,3 +2,5 @@
 .envrc
 .lando.local.yml
 .idea
+*.code-workspace
+.vscode/tasks.json
