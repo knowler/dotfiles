@@ -6,4 +6,5 @@ window-padding-x = 16
 window-padding-y = 16
 macos-titlebar-style = hidden
 
-command = sh -c "exec /opt/homebrew/bin/tmux new-session -A -D -s code"
+command = sh -c "exec /opt/homebrew/bin/tmux attach-session -t code"
+initial-command = sh -c "exec /opt/homebrew/bin/tmux new-session -A -D -s code"
