@@ -1,0 +1,9 @@
+font-family = "Dank Mono"
+font-thicken = true
+font-size = 16
+theme = dark:iceberg-dark,light:iceberg-light
+window-padding-x = 16
+window-padding-y = 16
+macos-titlebar-style = hidden
+
+command = sh -c "exec /opt/homebrew/bin/tmux new-session -A -D -s code"
