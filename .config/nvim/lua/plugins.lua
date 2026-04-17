@@ -1,140 +1,109 @@
-return {
-  { "williamboman/mason.nvim", opts = {} },
-  { "williamboman/mason-lspconfig", opts = {} },
-  { "neovim/nvim-lspconfig", config = function() require("lsp-config") end },
+vim.pack.add({
+	-- common deps
+	"https://github.com/nvim-lua/popup.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-tree/nvim-web-devicons",
 
-  "cocopon/iceberg.vim",
+	-- colors
+	"https://github.com/cocopon/iceberg.vim",
 
-  "tpope/vim-surround",
-  "tpope/vim-abolish",
-  "tpope/vim-commentary",
-  "tpope/vim-eunuch",
-  "tpope/vim-fugitive",
+  "https://github.com/tpope/vim-surround",
+  "https://github.com/tpope/vim-abolish",
+  "https://github.com/tpope/vim-commentary",
+  "https://github.com/tpope/vim-eunuch",
+  "https://github.com/tpope/vim-fugitive",
 
-  "junegunn/vim-peekaboo",
-  "junegunn/vim-slash",
+  "https://github.com/junegunn/vim-peekaboo",
+  "https://github.com/junegunn/vim-slash",
 
-  "AndrewRadev/splitjoin.vim",
+  "https://github.com/AndrewRadev/splitjoin.vim",
 
-  "pbrisbin/vim-mkdir",
+  "https://github.com/pbrisbin/vim-mkdir",
 
-  { "nacro90/numb.nvim", opts = {} },
+  "https://github.com/nacro90/numb.nvim",
 
-  {
-    "Raimondi/delimitMate",
-    init = function()
-      vim.g.delimitMate_expand_space = 1
-      vim.g.delimitMate_expand_cr = 2
-      --vim.g.delimitMate_autoclose = 0
-    end
-  },
+	"https://github.com/Raimondi/delimitMate",
 
-  {
-    "winston0410/range-highlight.nvim",
-    opts = {},
-    dependencies = { "winston0410/cmd-parser.nvim" },
-  },
+  "https://github.com/editorconfig/editorconfig-vim",
 
-  "editorconfig/editorconfig-vim",
-  "christoomey/vim-tmux-navigator",
+  "https://github.com/christoomey/vim-tmux-navigator",
 
-  -- Syntax-y things
 
-  {
-    "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require'nvim-treesitter.configs'.setup {
-        highlight = { enable = true },
-      }
-    end,
-  },
+	"https://github.com/nvim-telescope/telescope.nvim",
 
-  {
-    "AckslD/nvim-FeMaco.lua",
-    opts = {
-      post_open_float = function(winnr)
-        vim.api.nvim_win_set_option(winnr, "winblend", 10)
-      end
-    },
-  },
+	"https://github.com/junegunn/fzf",
+	"https://github.com/junegunn/fzf.vim",
 
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-  },
+	-- neo-tree deps
+	"https://github.com/MunifTanjim/nui.nvim",
+	"https://github.com/saifulapm/neotree-file-nesting-config",
 
-  {
-    -- TODO: figure this out
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-      "petertriho/cmp-git",
-      "lukas-reineke/cmp-rg",
-    },
-    config = function()
-      require("completion")
-    end,
-  },
+	{
+    src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
+    version = vim.version.range("3"),
+	},
 
-  -- UI
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/popup.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-  },
-  {
-    "junegunn/fzf.vim",
-    dependencies = "junegunn/fzf"
-  },
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    opts = {
-      window = { position = "right" },
-    },
-    config = function(_, opts)
-      -- Adding rules from plugin
-      opts.nesting_rules = require("neotree-file-nesting-config").nesting_rules
-      require("neo-tree").setup(opts)
-    end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-      "saifulapm/neotree-file-nesting-config",
-    },
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {},
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-  {
-    "romgrk/barbar.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
-  },
-  {
-    "itchyny/lightline.vim",
-    init = function()
-      vim.g.lightline = {
-        colorscheme = "iceberg",
-      }
-    end,
-  },
+	"https://github.com/lewis6991/gitsigns.nvim",
 
-  ----TODO: 
-  --{
-  --  "nvim-focus/focus.nvim",
-  --  opts = {},
-  --},
+	"https://github.com/romgrk/barbar.nvim",
+	"https://github.com/itchyny/lightline.vim",
+
+	"https://github.com/winston0410/cmd-parser.nvim",
+	"https://github.com/winston0410/range-highlight.nvim",
+
+  "https://github.com/williamboman/mason.nvim",
+  "https://github.com/williamboman/mason-lspconfig",
+  "https://github.com/neovim/nvim-lspconfig",
+
+
+	"https://github.com/L3MON4D3/LuaSnip",
+	"https://github.com/rafamadriz/friendly-snippets",
+
+	"https://github.com/hrsh7th/cmp-nvim-lsp",
+	"https://github.com/hrsh7th/cmp-buffer",
+	"https://github.com/hrsh7th/cmp-path",
+	"https://github.com/hrsh7th/cmp-cmdline",
+	"https://github.com/petertriho/cmp-git",
+	"https://github.com/lukas-reineke/cmp-rg",
+	"https://github.com/hrsh7th/nvim-cmp",
+})
+
+--treesitter
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function() vim.treesitter.start() end,
+})
+
+-- neo-tree
+require('neo-tree').setup({
+	window = {
+		position = "right",
+	},
+	nesting_rules = require("neotree-file-nesting-config").nesting_rules,
+})
+
+--delimitMate
+vim.g.delimitMate_expand_space = 1
+vim.g.delimitMate_expand_cr = 2
+--vim.g.delimitMate_autoclose = 0
+
+-- lightline
+vim.g.lightline = {
+	colorscheme = "iceberg",
 }
+
+-- lsp
+
+require("completion")
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+vim.lsp.config('*', {
+  root_markers = { '.git' },
+})
+
+vim.lsp.enable('html')
+vim.lsp.enable('ts_ls')

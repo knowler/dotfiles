@@ -1,4 +1,4 @@
-require'config.lazy'
-require'base'
-require'colors'
-require'keymap'
+require 'base'
+require 'plugins'
+require 'colors'
+require 'keymap'

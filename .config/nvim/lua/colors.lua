@@ -27,4 +27,6 @@ for _, highlight in ipairs(highlights) do
   )
 end
 
+vim.api.nvim_set_hl(0, 'Comment', { italic=true })
+
 cmd [[let g:lightline = {'colorscheme': 'iceberg'}]]
